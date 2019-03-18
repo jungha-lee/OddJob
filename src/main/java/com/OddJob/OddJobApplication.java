@@ -10,4 +10,5 @@ public class OddJobApplication {
 		SpringApplication.run(OddJobApplication.class, args);
 	}
 
+
 }
