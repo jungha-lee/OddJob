@@ -2,6 +2,9 @@ package com.OddJob;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 public class Job {
@@ -12,11 +15,9 @@ public class Job {
     private String title;
     private String description;
     @OneToOne
-    @Column(name = "locationId")
     private Location location;
     private String jobPic;
-    @OneToMany
-    @Column(name = "ownerId")
+    @OneToOne
     private User owner;
     private double price;
     private LocalDate date;

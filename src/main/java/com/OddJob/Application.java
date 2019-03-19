@@ -9,11 +9,11 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    @Column (name = "jobId")
+    @ManyToOne
+    @JoinColumn
     private Job jobId;
-    @OneToOne
-    @Column (name = "applicantId")
+    @ManyToOne
+    @JoinColumn
     private User applicantId;
     private String status;
     private String applicantMsg;
