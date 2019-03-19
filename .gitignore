@@ -90,3 +90,40 @@ modules.xml
  .idea/sonarlint
 
 # End of https://www.gitignore.io/api/intellij+all
+
+
+# Created by https://www.gitignore.io/api/angular
+# Edit at https://www.gitignore.io/?templates=angular
+
+### Angular ###
+## Angular ##
+# compiled output
+webapp/dist
+webapp/tmp
+webapp/app/**/*.js
+webapp/app/**/*.js.map
+
+# dependencies
+webapp/node_modules
+webapp/bower_components
+
+# IDEs and editors
+webapp/.idea
+
+# misc
+webapp/.sass-cache
+webapp/connect.lock
+webapp/coverage/*
+webapp/libpeerconnection.log
+webapp/npm-debug.log
+webapp/testem.log
+webapp/typings
+
+# e2e
+webapp/e2e/*.js
+webapp/e2e/*.map
+
+#System Files
+webapp/.DS_Store
+
+# End of https://www.gitignore.io/api/angular
