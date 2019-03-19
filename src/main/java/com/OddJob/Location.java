@@ -22,8 +22,7 @@ public class Location {
 
     public Location(){}
 
-    public Location(Long id, String street, String zipCode, String city, String country, double lng, double lat) {
-        this.id = id;
+    public Location(String street, String zipCode, String city, String country, double lng, double lat) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;

@@ -20,8 +20,7 @@ public class Application {
 
     public Application() {}
 
-    public Application(Long id, Job jobId, User applicantId, String status, String applicantMsg) {
-        this.id = id;
+    public Application(Job jobId, User applicantId, String status, String applicantMsg) {
         this.jobId = jobId;
         this.applicantId = applicantId;
         this.status = status;
