@@ -10,10 +10,10 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="job_id")
     private Job jobId;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="applicant_id")
     private User applicantId;
     private String status;
     private String applicantMsg;

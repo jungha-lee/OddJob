@@ -1,9 +1,9 @@
 package com.OddJob;
 
-import javax.persistence.*;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -19,14 +19,14 @@ public class User {
     private String profilePic;
     private String description;
 
-    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
-    private Set<Application> applications;
+//    @OneToMany(mappedBy = "applicantId", cascade = CascadeType.ALL)
+//    private Set<Application> applications;
 
     public User() {
 
     }
 
-    public User(Long id, String email, String password, String firstName, String lastName, String phone, String profilePic, String description, Application... applications) {
+    public User(Long id, String email, String password, String firstName, String lastName, String phone, String profilePic, String description) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -35,8 +35,8 @@ public class User {
         this.phone = phone;
         this.profilePic = profilePic;
         this.description = description;
-        this.applications = Stream.of(applications).collect(Collectors.toSet());
-        this.applications.forEach(x -> x.setApplicantId(this));
+//        this.applications = Stream.of(applications).collect(Collectors.toSet());
+//        this.applications.forEach(x -> x.setApplicantId(this));
     }
 
     public Long getId() {
