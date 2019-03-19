@@ -56,4 +56,11 @@ public class OddJobApplicationTests {
 		Assert.assertEquals("Pamela", applicatFirstName);
 	}
 
+	@Test
+	public void testNewUser() {
+		userRepository.save(new User("anatoli@gmail.com", "pass", "Anatoli", "Vahterov", "222222220", null, null));
+		String name = userRepository.findById(5L).get().getFirstName();
+		Assert.assertEquals("Anatoli", name);
+	}
+
 }
