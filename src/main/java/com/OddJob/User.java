@@ -19,9 +19,6 @@ public class User {
     private String profilePic;
     private String description;
 
-//    @OneToMany(mappedBy = "applicantId", cascade = CascadeType.ALL)
-//    private Set<Application> applications;
-
     public User() {
 
     }
@@ -35,8 +32,7 @@ public class User {
         this.phone = phone;
         this.profilePic = profilePic;
         this.description = description;
-//        this.applications = Stream.of(applications).collect(Collectors.toSet());
-//        this.applications.forEach(x -> x.setApplicantId(this));
+
     }
 
     public Long getId() {

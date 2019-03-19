@@ -24,8 +24,11 @@ public class Job {
 
     }
 
-    public Job(Long id, String title, String description, Location location, String jobPic, double price, User ownerId, LocalDate date) {
-        this.id = id;
+    public Job(String title){
+        this.title = title;
+    }
+
+    public Job(String title, String description, Location location, String jobPic, double price, User ownerId, LocalDate date) {
         this.title = title;
         this.description = description;
         this.location = location;
