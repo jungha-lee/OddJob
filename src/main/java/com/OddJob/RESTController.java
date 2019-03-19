@@ -1,6 +1,5 @@
 package com.OddJob;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,6 @@ public class RESTController {
     @Autowired
     ApplicationRepository applicationRepository;
 
-
     @GetMapping("/jobs")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Job> getAllJobs () {
@@ -27,27 +25,30 @@ public class RESTController {
     }
 
     @GetMapping("/users")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<User> getAllUsers () {
         List<User> users = (List<User>) userRepository.findAll();
         return users;
     }
 
     @GetMapping("/locations")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Location> getAllLocations () {
         List<Location> locations = (List<Location>) locationRepository.findAll();
         return locations;
     }
 
     @GetMapping("/applications")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Application> getAllApplications () {
         List<Application> applications = (List<Application>) applicationRepository.findAll();
         return applications;
     }
 
     @PostMapping("/jobs")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Job postJob(@RequestBody Job job) {
         return jobRepository.save(job);
     }
-
 
 }
