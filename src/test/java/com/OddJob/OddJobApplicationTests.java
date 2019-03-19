@@ -50,7 +50,10 @@ public class OddJobApplicationTests {
 		Assert.assertEquals("test to find application with id = 1", "I would love to, got lots of experience", application.getApplicantMsg());
 	}
 
-
-
+	@Test
+	public void testGetUserFromApplication() {
+		String applicatFirstName = applicationRepository.findById(1L).get().getApplicantId().getFirstName();
+		Assert.assertEquals("Pamela", applicatFirstName);
+	}
 
 }
