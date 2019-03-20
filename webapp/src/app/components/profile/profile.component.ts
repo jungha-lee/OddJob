@@ -9,7 +9,6 @@ import { User } from './../../models/user';
 })
 export class ProfileComponent implements OnInit {
   @Input() user: User;
-  
 
   constructor() { }
 
