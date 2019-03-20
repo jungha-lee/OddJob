@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { JobCardService } from './services/job-card.service';
+import { JobService } from './services/job.service';
 import { UserService } from './services/user.service';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -46,7 +46,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [JobCardService, UserService],
+  providers: [JobService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

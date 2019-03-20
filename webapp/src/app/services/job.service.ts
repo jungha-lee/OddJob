@@ -6,7 +6,7 @@ import { Job } from '../models/job';
 @Injectable({
   providedIn: 'root'
 })
-export class JobCardService {
+export class JobService {
 
   private url: string = 'http://localhost:8080/jobs';
 
