@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JobCardService } from './jobcard.service';
+import { JobCardService } from './job-card.service';
 
 describe('JobcardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
