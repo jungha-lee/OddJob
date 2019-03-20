@@ -1,0 +1,19 @@
+
+div {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.fiftyPercent {
+    width: 50%;
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
