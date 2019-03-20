@@ -13,7 +13,8 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() { }
 
-  sendDataToParent(){
-    this.output.emit(document.getElementById('textbox').value);
+  sendDataToParent() {
+    let search = document.getElementById('textbox') as HTMLInputElement ;
+    this.output.emit(search.value);
   }
 }
