@@ -3,22 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { JobcardComponent } from './components/jobcard/jobcard.component';
+import { JobCardComponent } from './components/jobcard/jobcard.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { JobcardService } from './services/jobcard.service';
+import { JobCardService } from './services/jobcard.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobcardComponent
+    JobCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [JobcardService],
+  providers: [JobCardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

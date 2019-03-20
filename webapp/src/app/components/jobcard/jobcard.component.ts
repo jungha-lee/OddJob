@@ -6,7 +6,7 @@ import { Job } from '../../models/job';
   templateUrl: './jobcard.component.html',
   styleUrls: ['./jobcard.component.css']
 })
-export class JobcardComponent implements OnInit {
+export class JobCardComponent implements OnInit {
 
   @Input() job: Job;
 

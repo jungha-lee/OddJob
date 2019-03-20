@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { JobcardService } from './services/jobcard.service';
+import { JobCardService } from './services/jobcard.service';
 import { Job } from './models/job';
 
-@Component({
+@Component ({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
-  service: JobcardService;
+  service: JobCardService;
   public jobs: Job[];
 
-  constructor(injectedService: JobcardService) {
+  constructor(injectedService: JobCardService) {
     this.service = injectedService;
   }
 
