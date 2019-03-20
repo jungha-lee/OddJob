@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JobCardService } from './services/job-card.service';
-import { Job } from './models/job';
 
 @Component ({
   selector: 'app-root',
@@ -9,14 +7,10 @@ import { Job } from './models/job';
 })
 
 export class AppComponent implements OnInit {
-  service: JobCardService;
-  public jobs: Job[];
 
-  constructor(injectedService: JobCardService) {
-    this.service = injectedService;
+  constructor() {
   }
 
   ngOnInit() {
-    this.service.getJobs().subscribe(jobs => {this.jobs = jobs; console.log(jobs[1]); });
   }
 }

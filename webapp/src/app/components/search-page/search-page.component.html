@@ -1,3 +1,19 @@
-<p>
-  search-page works!
-</p>
+<div class="container">
+
+  <div class="col-12">
+
+    <div class="container text-center">
+      <search-bar></search-bar>
+    </div>
+
+    <div class="container" *ngFor="let job of jobs">
+        <job-card [job] = "job"></job-card>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
