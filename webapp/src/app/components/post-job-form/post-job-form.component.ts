@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { JobService } from 'src/app/services/job.service';
+import { Job } from '../../models/job';
 
 @Component({
   selector: 'post-job-form',
@@ -6,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-job-form.component.css']
 })
 export class PostJobFormComponent implements OnInit {
+  @Input() jobData = {title: '', price: '', description: ''};
 
-  constructor() { }
+  constructor(private jobService: JobService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  postJob(): void {
+    this.jobService.postJob(this.jobData).subscribe(data => {
+      alert('Job posted!');
+    });
   }
-
-  postJob() {
-    console.log('Job posted');
-  }
-
 }

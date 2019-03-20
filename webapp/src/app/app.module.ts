@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { JobService } from './services/job.service';
 import { UserService } from './services/user.service';
@@ -44,7 +45,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
   imports: [
   BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [JobService, UserService],
   bootstrap: [AppComponent]

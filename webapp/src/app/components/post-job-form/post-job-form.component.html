@@ -1,36 +1,33 @@
 <div class="container">
-  <p>Post job form below:</p>
-  <form>
     <!-- Job title -->
     <div class="form-group row">
       <label for="post-job-title" class="col-sm-2 col-form-label">Title</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="post-job-title" placeholder="Title"/>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="jobData.title" class="form-control" id="post-job-title" placeholder="Title">
       </div>
     </div>
 
     <!-- Job price -->
     <div class="form-group row">
       <label for="post-job-price" class="col-sm-2 col-form-label">Price</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="post-job-price" placeholder="Price"/>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="jobData.price" class="form-control" id="post-job-price" placeholder="Price">
       </div>
     </div>
 
     <!-- Job description -->
     <div class="form-group row">
       <label for="post-job-description" class="col-sm-2 col-form-label">Description</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" id="post-job-description" rows="3"></textarea>
+      <div class="col-sm-8">
+        <textarea class="form-control" [(ngModel)]="jobData.description" id="post-job-description" rows="3"></textarea>
       </div>
     </div>
 
     <!-- Job post button -->
     <div class="form-group row">
-      <div class="col-sm-10">
+      <div class="col-sm-8">
         <!-- type="button" will be changed to type="submit" -->
         <button (click)="postJob()" type="button" class="btn btn-primary">Post job</button>
       </div>
     </div>
-  </form>
 </div>
