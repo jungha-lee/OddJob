@@ -12,7 +12,6 @@ export class ProfilePageComponent implements OnInit {
   id = 1;
   service: UserService;
   user: User;
-  aText;
 
   constructor(service: UserService) {
     this.service = service;
