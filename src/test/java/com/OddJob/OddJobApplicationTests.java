@@ -43,10 +43,10 @@ public class OddJobApplicationTests {
 		Job job = new Job("Electrician");
 
 		mvc.perform(MockMvcRequestBuilders.post("/jobs")
-		.content(mapper.writeValueAsString(job))
-		.contentType(MediaType.APPLICATION_JSON_UTF8))
-		.andExpect(status().is2xxSuccessful())
-		.andExpect(MockMvcResultMatchers.content().string(containsString("Electrician")));
+				.content(mapper.writeValueAsString(job))
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(MockMvcResultMatchers.content().string(containsString("Electrician")));
 
 	}
 
@@ -85,10 +85,15 @@ public class OddJobApplicationTests {
 	}
 
 	@Test
-	public void testNewUser() {
-		userRepository.save(new User("anatoli@gmail.com", "pass", "Anatoli", "Vahterov", "222222220", null, null));
-		String name = userRepository.findById(5L).get().getFirstName();
-		Assert.assertEquals("Anatoli", name);
+	public void testNewUser() throws Exception {
+		User user = new User("Daniel");
+
+		mvc.perform(MockMvcRequestBuilders.post("/users")
+				.content(mapper.writeValueAsString(user))
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(MockMvcResultMatchers.content().string(containsString("Daniel")));
+
 	}
 
 }

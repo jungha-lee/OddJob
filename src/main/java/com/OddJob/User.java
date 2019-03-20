@@ -23,6 +23,10 @@ public class User {
 
     }
 
+    public User(String firstName) {
+        this.firstName = firstName;
+    }
+
     public User(String email, String password, String firstName, String lastName, String phone, String profilePic, String description) {
         this.email = email;
         this.password = password;
