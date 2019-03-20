@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JobCardService } from '../../services/job-card.service';
+import { JobService } from '../../services/job.service';
 import { Job } from '../../models/job';
 
 @Component({
@@ -8,10 +8,10 @@ import { Job } from '../../models/job';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
-  service: JobCardService;
+  service: JobService;
   public jobs: Job[];
 
-  constructor(injectedService: JobCardService) {
+  constructor(injectedService: JobService) {
       this.service = injectedService;
    }
 

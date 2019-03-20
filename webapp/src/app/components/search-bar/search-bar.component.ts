@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'search-bar',
@@ -13,9 +14,11 @@ export class SearchBarComponent implements OnInit {
   }
 
   onClick(){
-    var searchBar = document.getElementById('userInput');
-    var userInput = searchBar.innerHTML;
+    let searchBar = document.getElementById('userInput');
+    let userInput = searchBar.innerHTML;
 
+/*     @Output() sendUserInput: string = new EventEmitter();
+ */
     console.log('Hiya');
     console.log(userInput);
   }
