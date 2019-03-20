@@ -16,5 +16,4 @@ export class SearchBarComponent implements OnInit {
   sendDataToParent(){
     this.output.emit(document.getElementById('textbox').value);
   }
-
 }
