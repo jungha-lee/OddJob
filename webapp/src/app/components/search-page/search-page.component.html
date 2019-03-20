@@ -3,11 +3,20 @@
   <div class="col-12">
 
     <div class="container text-center">
-      <search-bar></search-bar>
+      <search-bar (output)="getUserSearch($event)"></search-bar>
+    </div>
+
+    <div *ngIf="[userSearch.length] > 0">
+      <p>Job matches for: {{ userSearch }}</p>
     </div>
 
     <div class="container" *ngFor="let job of jobs">
+      <div *ngIf="aContainsB(job.title, [userSearch]) ||
+                  aContainsB(job.description, [userSearch]) ||
+                  aContainsB(job.location.city, [userSearch])  ||
+                  aContainsB(job.location.country, [userSearch])">
         <job-card [job] = "job"></job-card>
+      </div>
     </div>
 
   </div>
