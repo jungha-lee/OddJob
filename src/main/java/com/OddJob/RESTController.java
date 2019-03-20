@@ -24,13 +24,6 @@ public class RESTController {
         return jobs;
     }
 
-    @GetMapping("/users")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public List<User> getAllUsers () {
-        List<User> users = (List<User>) userRepository.findAll();
-        return users;
-    }
-
     @GetMapping("/locations")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Location> getAllLocations () {
@@ -49,6 +42,24 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public Job postJob(@RequestBody Job job) {
         return jobRepository.save(job);
+    }
+
+    @GetMapping("/users")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<User> getAllUsers(){
+        return (List<User>)userRepository.findAll();
+    }
+
+    @GetMapping("/users/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public User getAllUsers(@PathVariable Long id){
+        return userRepository.findById(id).get();
+    }
+
+    @PostMapping("/users")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public User postUser(@RequestBody User user) {
+        return userRepository.save(user);
     }
 
 }
