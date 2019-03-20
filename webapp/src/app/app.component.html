@@ -1,8 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-profile-page></app-profile-page>
-
-<div class="container" *ngFor="let job of jobs">
-  <jobCard [job] = "job"></jobCard>
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
