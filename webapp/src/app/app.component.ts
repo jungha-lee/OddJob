@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getJobs().subscribe(jobs => {this.jobs = jobs; console.log(jobs[1]); });
+    // this.service.getJobs().subscribe(jobs => {this.jobs = jobs; console.log(jobs[1]); });
   }
 }
