@@ -7,6 +7,7 @@ import { JobCardComponent } from './components/job-card/job-card.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { JobCardService } from './services/job-card.service';
+import { UserService } from './services/user.service';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -41,11 +42,11 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     RegisterFormComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [JobCardService],
+  providers: [JobCardService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
