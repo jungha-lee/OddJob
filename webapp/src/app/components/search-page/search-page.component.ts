@@ -30,6 +30,6 @@ export class SearchPageComponent implements OnInit {
   }
 
   aContainsB(a, b) {
-    return a.indexOf(b) >= 0;
+    return a.toLowerCase().indexOf(b) >= 0;
   }
 }
