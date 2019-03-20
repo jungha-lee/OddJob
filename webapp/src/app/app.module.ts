@@ -22,6 +22,7 @@ import { PostJobPageComponent } from './components/post-job-page/post-job-page.c
 import { PostJobFormComponent } from './components/post-job-form/post-job-form.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     PostJobPageComponent,
     PostJobFormComponent,
     RegisterPageComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ProfileJobsComponent
   ],
   imports: [
   BrowserModule,
