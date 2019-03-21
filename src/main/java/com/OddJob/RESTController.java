@@ -39,6 +39,18 @@ public class RESTController {
         return locations;
     }
 
+    @GetMapping("/locations/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Location getAllLocations(@PathVariable Long id){
+        return locationRepository.findById(id).get();
+    }
+
+    @PostMapping("/locations")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Location postLocation(@RequestBody Location location) {
+        return locationRepository.save(location);
+    }
+
     @GetMapping("/applications")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Application> getAllApplications () {
@@ -83,7 +95,6 @@ public class RESTController {
         for(Application app: applications){
             jobs.add(app.getJobId());
         }
-
         return jobs;
     }
 

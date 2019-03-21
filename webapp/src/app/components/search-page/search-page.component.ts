@@ -13,6 +13,7 @@ export class SearchPageComponent implements OnInit {
   public jobs: Job[];
   @Input() userInput: string;
   userSearch: string;
+  selectedJob: Job;
 
   constructor(injectedService: JobService) {
     this.service = injectedService;
@@ -25,6 +26,11 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
+  getSelectedJob($event){
+    this.selectedJob = $event;
+    console.log(this.selectedJob);
+  }
+
   getUserSearch($event) {
     this.userSearch = $event;
   }
@@ -32,4 +38,6 @@ export class SearchPageComponent implements OnInit {
   aContainsB(a, b) {
     return a.toLowerCase().indexOf(b) >= 0;
   }
+
+
 }
