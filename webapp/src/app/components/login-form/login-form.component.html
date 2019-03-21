@@ -1,0 +1,27 @@
+<div class="card bg-light">
+  <article class="card-body mx-auto">
+    <h4 class="card-title mt-3 text-center">Login</h4>
+    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" placeholder="Email address" type="email">
+      </div>
+      <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" name="password" placeholder="Password" type="password">
+      </div>
+      <!-- form-group// -->
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary btn-block"> Log In </button>
+      </div>
+      <!-- form-group// -->
+      <p class="text-center">Have no account? <a routerLink="/register">Register</a> </p>
+    </form>
+  </article>
+</div>

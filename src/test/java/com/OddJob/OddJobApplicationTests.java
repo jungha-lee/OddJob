@@ -1,5 +1,6 @@
 package com.OddJob;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -62,6 +63,12 @@ public class OddJobApplicationTests {
 	}
 
 	@Test
+	public void testGetJobsPostedByUser() {
+		List<Job> jobs = jobRepository.findByOwner_Id(4L);
+		Assert.assertEquals("test to find jobs posted by LARS", 2, jobs.size());
+	}
+
+	@Test
 	public void testGetAllUsers() {
 		List<User> users = (List<User>) userRepository.findAll();
 		Assert.assertEquals("test to find all users", 4, users.size());
@@ -77,6 +84,29 @@ public class OddJobApplicationTests {
 	public void testGetApplicationByID() {
 		Application application = applicationRepository.findById(1L).get();
 		Assert.assertEquals("test to find application with id = 1", "I would love to, got lots of experience", application.getApplicantMsg());
+	}
+
+	@Test
+	public void testGetJobIdByApplicantId() {
+		User user = userRepository.findById(2L).get();
+		List<Application> objects = applicationRepository.findJob_IdByApplicantId(user);
+        System.out.println(objects.get(0).getClass());
+        System.out.println(objects.get(1).getApplicantId().getFirstName());
+        System.out.println(objects.get(1).getApplicantId().toString());
+        System.out.println(objects);
+        System.out.println(objects);
+		Assert.assertEquals("test to find jobs by applicant ID", 3, objects.size());
+	}
+
+	@Test
+    public void testGetJobsAppliedByUser() throws Exception {
+	    User user = userRepository.findById(2L).get();
+
+	    mvc.perform(MockMvcRequestBuilders.get("/applications/2")
+            .content(mapper.writeValueAsString(user))
+            .contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(MockMvcResultMatchers.content().string(containsString("Painting")));
 	}
 
 	@Test

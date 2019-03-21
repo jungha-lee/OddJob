@@ -3,6 +3,7 @@ package com.OddJob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -73,6 +74,27 @@ public class RESTController {
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
         return userRepository.save(user);
+    }
+
+    @GetMapping("/users/jobs/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Job> getJobsOwnedByUser(@PathVariable Long id){
+        return (List<Job>)jobRepository.findByOwner_Id(id);
+    }
+
+    @PostMapping("/users/applications")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Job> getJobAppliedByUser(@RequestBody User user){
+
+        System.out.println("triggered");
+
+        List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
+        List<Job> jobs = new ArrayList<>();
+        for(Application app: applications){
+            jobs.add(app.getJobId());
+        }
+
+        return jobs;
     }
 
 }

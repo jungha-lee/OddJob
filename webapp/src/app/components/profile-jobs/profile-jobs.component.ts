@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { JobService } from './../../services/job.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-jobs',
@@ -7,10 +6,10 @@ import { JobService } from './../../services/job.service';
   styleUrls: ['./profile-jobs.component.css']
 })
 export class ProfileJobsComponent implements OnInit {
-  service: JobService;
 
-  constructor(service: JobService) {
-    this.service = service;
+  @Input() jobsOwned: Job[];
+
+  constructor() {
   }
 
   ngOnInit() {
