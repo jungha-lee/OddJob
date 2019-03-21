@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   service: UserService;
 
   updateUser() {
-    this.service.register(this.user).subscribe(user => console.log(user.firstName + ' updated'));
+    this.service.register(this.user).subscribe(user => console.log(user + ' updated'));
   }
 
   constructor(service: UserService) {
