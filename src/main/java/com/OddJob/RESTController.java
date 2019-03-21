@@ -64,7 +64,13 @@ public class RESTController {
         return userRepository.save(user);
     }
 
-    @GetMapping("/applications/{ownerId}")
+    @GetMapping("/users/jobs/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Job> getJobsOwnedByUser(@PathVariable Long id){
+        return (List<Job>)jobRepository.findByOwner_Id(id);
+    }
+
+    @PostMapping("/users/applications")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Job> getJobAppliedByUser(@RequestBody User user){
 
@@ -77,7 +83,6 @@ public class RESTController {
         }
 
         return jobs;
-
     }
 
 }
