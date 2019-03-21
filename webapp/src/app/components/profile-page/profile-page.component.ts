@@ -10,7 +10,7 @@ import { Job } from './../../models/job';
 })
 export class ProfilePageComponent implements OnInit {
 
-  id = 4;
+  id = 2;
   service: UserService;
   user: User;
   jobsOwned: Job[];
@@ -23,6 +23,7 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.service.getUser(this.id).subscribe(user => {this.user = user; console.log(user); });
     this.service.getJobsOwnedByUser(this.id).subscribe(data => {this.jobsOwned = data; console.log(data); });
+    this.service.getJobAppliedByUser(this.id).subscribe(data => {this.jobsApplied = data; console.log(data); });
   }
 
 }

@@ -16,11 +16,15 @@ export class UserService {
   getUser(id: number): Observable<User> {
     return this.http.get<User>(this.url + '/' + id);
   }
-  
+
   getJobsOwnedByUser(id: number): Observable <Job[]> {
     return this.http.get<Job[]>(this.url + '/jobs/' + id);
   }
-  
+
+  getJobAppliedByUser(id: number): Observable <Job[]> {
+    return this.http.get<Job[]>(this.url + '/applications/' + id);
+  }
+
   register(user: User) {
     console.log(user);
     return this.http.post(this.url, user);

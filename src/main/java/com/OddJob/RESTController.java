@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class RESTController {
@@ -36,6 +37,18 @@ public class RESTController {
     public List<Location> getAllLocations () {
         List<Location> locations = (List<Location>) locationRepository.findAll();
         return locations;
+    }
+
+    @GetMapping("/locations/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Location getAllLocations(@PathVariable Long id){
+        return locationRepository.findById(id).get();
+    }
+
+    @PostMapping("/locations")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Location postLocation(@RequestBody Location location) {
+        return locationRepository.save(location);
     }
 
     @GetMapping("/applications")
@@ -70,18 +83,18 @@ public class RESTController {
         return (List<Job>)jobRepository.findByOwner_Id(id);
     }
 
-    @PostMapping("/users/applications")
+    @GetMapping("/users/applications/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Job> getJobAppliedByUser(@RequestBody User user){
+    public List<Job> getJobAppliedByUser(@PathVariable Long id){
 
         System.out.println("triggered");
+        User user = userRepository.findById(id).get();
 
         List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
         List<Job> jobs = new ArrayList<>();
         for(Application app: applications){
             jobs.add(app.getJobId());
         }
-
         return jobs;
     }
 

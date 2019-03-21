@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProfileJobsComponent implements OnInit {
 
   @Input() jobsOwned: Job[];
+  @Input() jobsApplied: Job[];
 
   constructor() {
   }

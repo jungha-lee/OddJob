@@ -1,28 +1,38 @@
-<div class="container">
+<div class="container" style="padding-top: 50px;">
 
-  <div class="col-12">
-
-    <div class="container text-center">
+  <div class="row">
+    <!-- Search Bar -->
+    <div class="col-12 text-center searchbar">
       <search-bar (output)="getUserSearch($event)"></search-bar>
-    </div>
-
-    <div *ngIf="[userSearch.length] > 0">
-      <p>Job matches for: {{ userSearch }}</p>
-    </div>
-
-    <div class="container" *ngFor="let job of jobs">
-      <div *ngIf="aContainsB(job.title, [userSearch]) ||
-                  aContainsB(job.description, [userSearch]) ||
-                  aContainsB(job.location.city, [userSearch])  ||
-                  aContainsB(job.location.country, [userSearch])">
-        <job-card [job] = "job"></job-card>
-      </div>
     </div>
 
   </div>
 
+  <div class="row">
+
+    <!-- Job matches text -->
+    <div class="col-12 text-center" *ngIf="[userSearch.length] > 0">
+      <p>Job matches for: {{ userSearch }}</p>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+  <!-- List of Jobs -->
+  <div class="col-6">
+    <div *ngFor="let job of jobs">
+      <div *ngIf="aContainsB(job.title, [userSearch]) || aContainsB(job.description, [userSearch]) || aContainsB(job.location.city, [userSearch]) || aContainsB(job.location.country, [userSearch])">
+        <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selected job -->
+  <div class="col-6 sticky-top" id="job-detail">
+    <job-detail [job]="selectedJob"></job-detail>
+  </div>
+
+  </div>
 </div>
-
-
-
 
