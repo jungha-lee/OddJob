@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule }    from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { PostJobFormComponent } from './components/post-job-form/post-job-form.c
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 
 @NgModule({
@@ -41,13 +44,16 @@ import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.com
     PostJobFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    ProfileJobsComponent
+    ProfileJobsComponent,
+    LoginPageComponent,
+    LoginFormComponent
   ],
   imports: [
   BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [JobService, UserService],
   bootstrap: [AppComponent]

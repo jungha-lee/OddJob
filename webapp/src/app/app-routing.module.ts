@@ -5,10 +5,11 @@ import { JobDetailPageComponent } from './components/job-detail-page/job-detail-
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { PostJobPageComponent } from './components/post-job-page/post-job-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 const routes: Routes = [
   { path: '', component: SearchPageComponent},
-  //{ path: 'login', component: SearchPageComponent},
+  { path: 'login', component: LoginPageComponent},
   //{ path: 'logout', component: SearchPageComponent},
   { path: 'register', component: RegisterPageComponent},
   { path: 'job:id', component: JobDetailPageComponent},
