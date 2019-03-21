@@ -11,7 +11,9 @@ VALUES ('Painting', 1500, '2019-04-17', 2, 2 , 'Need to paint my daughters room 
 
 INSERT INTO APPLICATION (JOB_ID, APPLICANT_ID, APPLICANT_MSG)
 VALUES (1, 1,'I would love to, got lots of experience'),
-(1, 2,'Jenny here, put me to work ;)'),
+(1, 2,'Money here, put me to work ;)'),
+(2, 2,'Please, I need it desperately ;)'),
+(3, 2,'I beg you ;)'),
 (3, 3,'Moneypenny needs some money and a penny');
 
 INSERT INTO LOCATION (STREET, ZIP_CODE, CITY, COUNTRY, LNG, LAT)
