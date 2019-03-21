@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Job } from 'src/app/models/job';
 
 @Component({
   selector: 'app-profile-jobs',
