@@ -1,99 +1,91 @@
-<div class="container">
-    <h6>Job</h6>
-    <!-- Job title -->
-    <div class="form-group row">
-      <label for="post-job-title" class="col-sm-2 col-form-label">Title</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="jobData.title" class="form-control" id="post-job-title" placeholder="Title">
-      </div>
-    </div>
-    
-    <!-- Job description -->
-    <div class="form-group row">
-      <label for="post-job-description" class="col-sm-2 col-form-label">Description</label>
-      <div class="col-sm-8">
-        <textarea class="form-control" [(ngModel)]="jobData.description" id="post-job-description" rows="3"></textarea>
-      </div>
-    </div>
+<div class="card bg-light">
+    <article class="card-body mx-auto">
+        <h4 class="card-title mt-3 text-center">Post Job</h4>
+        <form [formGroup]="postJobForm" (ngSubmit)="onSubmit()">
 
-    <!-- Job Picture -->
-    <div class="form-group row">
-        <label for="post-job-jobPic" class="col-sm-2 col-form-label">Picture URL</label>
-        <div class="col-sm-8">
-          <input type="text" [(ngModel)]="jobData.jobPic" class="form-control" id="post-job-jobPic" placeholder="URL">
+        <!-- Job title -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+          </div>
+          <input formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" name="title" placeholder="Title" type="text">
         </div>
-      </div>
-
-    <!-- Job price -->
-    <div class="form-group row">
-      <label for="post-job-price" class="col-sm-2 col-form-label">Price</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="jobData.price" class="form-control" id="post-job-price" placeholder="Price">
-      </div>
-    </div>
-
-    <!-- Job Date -->
-    <div class="form-group row">
-        <label for="post-job-date" class="col-sm-2 col-form-label">Date</label>
-        <div class="col-sm-8">
-          <input type="text" [(ngModel)]="jobData.date" class="form-control" id="post-job-date" placeholder="Date">
+        <!-- Job description -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Description</span>
+            </div>
+            <textarea formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" name="description" placeholder="Description" type="text"></textarea>
+          </div>
+        <!-- Job Picture URL -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Picture URL</span>
+          </div>
+          <input formControlName="jobPic" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jobPic.errors }" name="jobPic" placeholder="URL" type="text">
         </div>
-      </div>
-
-    <h6>Location</h6>
-    <!-- Location street -->
-    <div class="form-group row">
-        <label for="post-location-street" class="col-sm-2 col-form-label">Street</label>
-        <div class="col-sm-8">
-          <input type="text" [(ngModel)]="locationData.street" class="form-control" id="post-location-street" placeholder="Street">
+        <!-- Job price -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Price</span>
+          </div>
+          <input formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" name="price" placeholder="Price" type="text">
         </div>
-      </div>
+        <!-- Job date -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Date</span>
+          </div>
+          <input formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" name="date" placeholder="Date" type="text">
+        </div>
+        <h6 class="text-center">Location</h6>
+        <!-- Location street -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Street</span>
+          </div>
+          <input formControlName="street" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.street.errors }" name="street" placeholder="Street" type="text">
+        </div>
+        <!-- Location zipCode -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Post number</span>
+          </div>
+          <input formControlName="zipCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }" name="zipCode" placeholder="Post number" type="text">
+        </div>
+        <!-- Location city -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">City</span>
+          </div>
+          <input formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" name="city" placeholder="City" type="text">
+        </div>
+        <!-- Location country -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Country</span>
+          </div>
+          <input formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" name="country" placeholder="Country" type="text">
+        </div>
+        <!-- Location latitude -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Latitude</span>
+          </div>
+          <input formControlName="lat" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lat.errors }" name="lat" placeholder="xx.xxxxxx" type="text">
+        </div>
+        <!-- Location longitude -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Longitude</span>
+          </div>
+          <input formControlName="lng" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lng.errors }" name="lng" placeholder="xx.xxxxxx" type="text">
+        </div>
 
-    <!-- Location zipcode -->
-    <div class="form-group row">
-      <label for="post-location-zipcode" class="col-sm-2 col-form-label">Post number</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="locationData.zipCode" class="form-control" id="post-location-zipcode" placeholder="Post number">
-      </div>
-    </div>
-
-    <!-- Location city -->
-    <div class="form-group row">
-      <label for="post-location-city" class="col-sm-2 col-form-label">City</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="locationData.city" class="form-control" id="post-location-city" placeholder="City">
-      </div>
-    </div>
-
-    <!-- Location country -->
-    <div class="form-group row">
-      <label for="post-location-country" class="col-sm-2 col-form-label">Country</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="locationData.country" class="form-control" id="post-location-country" placeholder="Country">
-      </div>
-    </div>
-
-    <!-- Location longitude -->
-    <div class="form-group row">
-      <label for="post-location-lng" class="col-sm-2 col-form-label">Longitude</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="locationData.lng" class="form-control" id="post-location-lng" placeholder="xx.xxxx">
-      </div>
-    </div>
-
-    <!-- Location latitude -->
-    <div class="form-group row">
-      <label for="post-location-lat" class="col-sm-2 col-form-label">Latitude</label>
-      <div class="col-sm-8">
-        <input type="text" [(ngModel)]="locationData.lat" class="form-control" id="post-location-lat" placeholder="xx.xxxx">
-      </div>
-    </div>
-
-    <!-- Job post button -->
-    <div class="form-group row">
-      <div class="col-sm-8">
-        <!-- type="button" will be changed to type="submit" -->
-        <button (click)="postJob()" type="button" class="btn btn-primary">Post job</button>
-      </div>
-    </div>
+        <!-- button -->
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary btn-block"> Post Job </button>
+        </div>
+      </form>
+    </article>
 </div>
