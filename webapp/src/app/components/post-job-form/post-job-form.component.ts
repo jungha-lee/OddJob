@@ -11,7 +11,7 @@ import { Location } from '../../models/location';
   styleUrls: ['./post-job-form.component.css']
 })
 export class PostJobFormComponent implements OnInit {
-  @Input() jobData = {title: '', description: '', location: null, jobpic: '', owner: null, price: '', date: null};
+  @Input() jobData = {title: '', description: '', location: null, jobPic: '', owner: null, price: '', date: null};
   @Input() locationData = {id: null, street: '', zipCode: '', city: '', country: '', lat: null, lng: null};
 
   constructor(private jobService: JobService, private locationService: LocationService) {}
@@ -27,7 +27,7 @@ export class PostJobFormComponent implements OnInit {
     console.log('before apply location');
     console.log(this.jobData);
 
-    this.locationService.getLocation(1).subscribe(location => {this.jobData.location = location; });
+    this.locationService.getLocation(1).subscribe(loc => {this.jobData.location = loc; });
 
     // this.jobData.location = new Location(null, this.locationData.street, this.locationData.zipCode,
     //   this.locationData.city, this.locationData.country, this.locationData.lng, this.locationData.lat);
