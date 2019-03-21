@@ -16,9 +16,11 @@ export class PostJobFormComponent implements OnInit {
 
   constructor(private jobService: JobService, private locationService: LocationService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   postJob(): void {
+
     this.locationService.postLocation(this.locationData).subscribe(data => {
       alert('Location added!');
     });
@@ -37,6 +39,7 @@ export class PostJobFormComponent implements OnInit {
       alert('Job posted!');
     }, error => {console.log(error);
     });
+
   }
 }
 

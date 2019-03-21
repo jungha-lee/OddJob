@@ -1,5 +1,8 @@
 <h1> {{job.title}} </h1>
-<p> {{job.description}} </p>
-<p> {{job.location.street}} </p>
-<p> {{job.title}} </p>
-<p> {{job.title}} <p>
+<p> Description: {{job.description}} </p>
+<p> Location: {{job.location.street}}, {{job.location.city}}, {{job.location.country}}  </p>
+<p> Date: {{job.date}} </p>
+<p> Posted by: {{job.ownerId.firstName}} {{job.ownerId.lastName}}<p>
+<p> Contact info: {{job.ownerId.phone}}<p>
+
+<button>Save</button>
