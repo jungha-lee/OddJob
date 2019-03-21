@@ -25,6 +25,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -55,7 +57,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JobService, UserService],
+  providers: [JobService, UserService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
