@@ -10,6 +10,9 @@
 
       <div class="fiftyPercent right"> 
           <h4>Saved jobs</h4>
+          <div *ngFor="let job of jobsApplied">
+            <job-card [job]="job"></job-card>
+          </div>
       </div>
 
     </div>

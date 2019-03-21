@@ -21,6 +21,10 @@ export class UserService {
     return this.http.get<Job[]>(this.url + '/jobs/' + id);
   }
 
+  getJobAppliedByUser(id: number): Observable <Job[]> {
+    return this.http.get<Job[]>(this.url + '/applications/' + id);
+  }
+
   register(user: any): Observable<User> {
     console.log("post");
     console.log(user);
