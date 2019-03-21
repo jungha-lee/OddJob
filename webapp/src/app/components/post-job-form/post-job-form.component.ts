@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JobService } from 'src/app/services/job.service';
-import { Job } from '../../models/job';
 import { LocationService } from 'src/app/services/location.service';
-import { User } from 'src/app/models/user';
+import { Job } from '../../models/job';
 import { Location } from '../../models/location';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'post-job-form',
@@ -11,7 +11,10 @@ import { Location } from '../../models/location';
   styleUrls: ['./post-job-form.component.css']
 })
 export class PostJobFormComponent implements OnInit {
-  @Input() jobData = {title: '', description: '', location: null, jobPic: '', owner: null, price: '', date: null};
+  newJob: Job;
+  newLocation: Location;
+
+  @Input() jobData = {title: '', description: '', jobPic: '', owner: null, price: 0, date: null};
   @Input() locationData = {id: null, street: '', zipCode: '', city: '', country: '', lat: null, lng: null};
 
   constructor(private jobService: JobService, private locationService: LocationService) {}
@@ -20,28 +23,13 @@ export class PostJobFormComponent implements OnInit {
   }
 
   postJob(): void {
-
     this.locationService.postLocation(this.locationData).subscribe(data => {
-      alert('Location added!');
+      this.locationService.getLocation(data.id).subscribe(loc => {this.newLocation = loc;
+        this.newJob = new Job(null, this.jobData.title, this.jobData.description, this.newLocation, this.jobData.jobPic, null, this.jobData.price, null);
+          this.jobService.postJob(this.newJob).subscribe(data => {alert('Job posted!');
+          }, error => {console.log(error);
+          });
+        });
     });
-    console.log('before apply location');
-    console.log(this.jobData);
-
-    this.locationService.getLocation(1).subscribe(loc => {this.jobData.location = loc; });
-
-    // this.jobData.location = new Location(null, this.locationData.street, this.locationData.zipCode,
-    //   this.locationData.city, this.locationData.country, this.locationData.lng, this.locationData.lat);
-
-    console.log('after apply location');
-    console.log(this.jobData);
-
-    this.jobService.postJob(this.jobData).subscribe(data => {
-      alert('Job posted!');
-    }, error => {console.log(error);
-    });
-
   }
 }
-
-
-
