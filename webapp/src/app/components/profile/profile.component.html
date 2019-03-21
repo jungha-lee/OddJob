@@ -8,7 +8,7 @@
           <div class="card ">
             <div class="card-body text-center">
               <h4>{{user.firstName + " " + user.lastName}}</h4>
-              <img src="/assets/pamela.png" width="80%" height="200px">
+              <img src="/assets/pamela.png" width="80%" height="250px">
               <br>
               <br>
               <button type="submit" class="btn btn-primary">Change profile picture</button>
@@ -22,7 +22,7 @@
                       <label for="descriptionField">About you:</label>
                       <textarea rows="8" cols="50" [(ngModel)]="user.description" name="description" class="form-control" id="descriptionField" placeholder="Write something about yourself"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save description</button>
+                    <button (click)="updateUser()" type="submit" class="btn btn-primary">Save description</button>
                   </form>
             </div>
           </div>
@@ -36,13 +36,13 @@
                     </div>
                     <div class="form-group">
                         <label for="phoneField">Phone number</label>
-                        <input [(ngModel)]="user.phone" name="email" type="text" class="form-control" id="phoneField" placeholder="Enter phone number">
+                        <input [(ngModel)]="user.phone" name="phone" type="text" class="form-control" id="phoneField" placeholder="Enter phone number">
                       </div>
                     <div class="form-group">
                       <label for="passwordField">Password</label>
                       <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Save information</button>
+                    <button (click)="updateUser()" type="submit" class="btn btn-primary">Save information</button>
                   </form>
           </div>
       </div>

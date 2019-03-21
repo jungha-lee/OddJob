@@ -8,17 +8,17 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  private url = 'http://localhost:8080/users/';
+  private url = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient) {}
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.url + id);
+    return this.http.get<User>(this.url + '/' + id);
   }
 
-  register(user: any) {
+  register(user: any): Observable<User> {
     console.log("post");
     console.log(user);
-    this.http.post(this.url, user);
+    return this.http.post<User>(this.url, user);
   }
 }
