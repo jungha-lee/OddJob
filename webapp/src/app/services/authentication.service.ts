@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private url = 'http://localhost:8080/users';
+  constructor() {}
 
-  constructor(private http: HttpClient) {}
+  authenticate(username, password) {
+    if (username === "ana@gmail.com" && password === "aaaaaa"){
+      sessionStorage.setItem('authenticatedUser', username);
+      return true;
+    }
+    return false;
+  }
 
-  login(email: string, password: string): Boolean {
-    //this.http.get<User>(this.url + '/' + email);
-    return (email == "ana@gmail.com" && password == "aaaaaa");
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('authenticatedUser');
+    // console.log("user logged in " + !(user === null));
+    return !(user === null);
   }
 }
