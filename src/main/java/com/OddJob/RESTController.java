@@ -75,9 +75,7 @@ public class RESTController {
         for(Application app: applications){
             jobs.add(app.getJobId());
         }
-
         return jobs;
-
     }
 
 }

@@ -1,15 +1,15 @@
 <div class="card mb-3">
-  <div class="card-body">
+  <div class="card-body" (click)="selectJobCard()">
+
+
     <h5 class="card-title">{{ job.title }}</h5>
+
+
     <p class="card-text">{{ job.description }}</p>
+
+
     <p class="card-text">
       <small class="text-muted">{{ job.location.city }}, {{ job.location.country }}</small>
-      <br />
-      <small class="text-muted">{{ job.date }}</small>
-      <br />
-      <small class="text-muted">
-        <button>Select</button>
-      </small>
     </p>
   </div>
 </div>
