@@ -29,14 +29,9 @@ export class LoginFormComponent implements OnInit {
 
   handleLogin() {
 
-    // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-
-    if (this.authenticationService.login(this.loginForm.value.email, this.loginForm.value.password)) {
+    if (this.authenticationService.authenticate(this.loginForm.value.email, this.loginForm.value.password)) {
+      this.router.navigate(["/profile"]);
       console.log("login");
-      this.router.navigate(['']);
     } else {
       console.log("login failed");
     }
