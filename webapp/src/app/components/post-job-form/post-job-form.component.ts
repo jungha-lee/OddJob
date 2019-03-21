@@ -11,7 +11,7 @@ import { Location } from '../../models/location';
   styleUrls: ['./post-job-form.component.css']
 })
 export class PostJobFormComponent implements OnInit {
-  @Input() jobData = {title: '', description: '', location: Location, jobPic: '', owner: null, price: '', date: null};
+  @Input() jobData = {title: '', description: '', location: null, jobPic: '', owner: null, price: '', date: null};
   @Input() locationData = {id: null, street: '', zipCode: '', city: '', country: '', lat: null, lng: null};
 
   constructor(private jobService: JobService, private locationService: LocationService) {}
