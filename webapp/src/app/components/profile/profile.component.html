@@ -5,24 +5,23 @@
   <div>
        <!--Full name and image-->
       <div class="card-group">
+
           <div class="card ">
             <div class="card-body text-center">
-              <h4>{{user.firstName + " " + user.lastName}}</h4>
-              <img src="/assets/pamela.png" width="80%" height="250px">
+              <img src="/assets/pamela.png" width="30%" height="150px">
               <br>
               <br>
               <button type="submit" class="btn btn-primary">Change profile picture</button>
             </div>
-          </div>
+          <!--</div>-->
            <!--Description-->
-          <div class="card">
+          <!--<div class="card">  -->
             <div class="card-body text-center">
                 <form>
                     <div class="form-group">
                       <label for="descriptionField">About you:</label>
-                      <textarea rows="8" cols="50" [(ngModel)]="user.description" name="description" class="form-control" id="descriptionField" placeholder="Write something about yourself"></textarea>
+                      <textarea rows="8" cols="40" [(ngModel)]="user.description" name="description" class="form-control" id="descriptionField" placeholder="Write something about yourself"></textarea>
                     </div>
-                    <button (click)="updateUser()" type="submit" class="btn btn-primary">Save description</button>
                   </form>
             </div>
           </div>
@@ -30,6 +29,15 @@
           <div class="card">
             <div class="card-body text-center">
                 <form>
+                    <div class="form-group">
+                        <label for="firstNameField">First name</label>
+                        <input [(ngModel)]="user.firstName" name="fir stName" type="text" class="form-control" id="firstNameField" placeholder="Enter email">               
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastNameField">Last name</label>
+                        <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control" id="lastNameField" placeholder="Enter email">               
+                    </div>
                     <div class="form-group">
                       <label for="emailField">Email address</label>
                       <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="emailField" placeholder="Enter email">               
