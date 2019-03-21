@@ -1,4 +1,5 @@
 <div class="container">
+    <h6>Job</h6>
     <!-- Job title -->
     <div class="form-group row">
       <label for="post-job-title" class="col-sm-2 col-form-label">Title</label>
@@ -6,6 +7,22 @@
         <input type="text" [(ngModel)]="jobData.title" class="form-control" id="post-job-title" placeholder="Title">
       </div>
     </div>
+    
+    <!-- Job description -->
+    <div class="form-group row">
+      <label for="post-job-description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-8">
+        <textarea class="form-control" [(ngModel)]="jobData.description" id="post-job-description" rows="3"></textarea>
+      </div>
+    </div>
+
+    <!-- Job Picture -->
+    <div class="form-group row">
+        <label for="post-job-jobpic" class="col-sm-2 col-form-label">Job Picture URL</label>
+        <div class="col-sm-8">
+          <input type="text" [(ngModel)]="jobData.jobpic" class="form-control" id="post-job-jobpic" placeholder="URL">
+        </div>
+      </div>
 
     <!-- Job price -->
     <div class="form-group row">
@@ -15,11 +32,60 @@
       </div>
     </div>
 
-    <!-- Job description -->
+    <!-- Job Date -->
     <div class="form-group row">
-      <label for="post-job-description" class="col-sm-2 col-form-label">Description</label>
+        <label for="post-job-date" class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-8">
+          <input type="text" [(ngModel)]="jobData.date" class="form-control" id="post-job-date" placeholder="Date">
+        </div>
+      </div>
+
+    <h6>Location</h6>
+    <!-- Location street -->
+    <div class="form-group row">
+        <label for="post-location-street" class="col-sm-2 col-form-label">Street</label>
+        <div class="col-sm-8">
+          <input type="text" [(ngModel)]="locationData.street" class="form-control" id="post-location-street" placeholder="Street">
+        </div>
+      </div>
+
+    <!-- Location zipcode -->
+    <div class="form-group row">
+      <label for="post-location-zipcode" class="col-sm-2 col-form-label">Post number</label>
       <div class="col-sm-8">
-        <textarea class="form-control" [(ngModel)]="jobData.description" id="post-job-description" rows="3"></textarea>
+        <input type="text" [(ngModel)]="locationData.zipCode" class="form-control" id="post-location-zipcode" placeholder="Post number">
+      </div>
+    </div>
+
+    <!-- Location city -->
+    <div class="form-group row">
+      <label for="post-location-city" class="col-sm-2 col-form-label">City</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="locationData.city" class="form-control" id="post-location-city" placeholder="City">
+      </div>
+    </div>
+
+    <!-- Location country -->
+    <div class="form-group row">
+      <label for="post-location-country" class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="locationData.country" class="form-control" id="post-location-country" placeholder="Country">
+      </div>
+    </div>
+
+    <!-- Location longitude -->
+    <div class="form-group row">
+      <label for="post-location-lng" class="col-sm-2 col-form-label">Longitude</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="locationData.lng" class="form-control" id="post-location-lng" placeholder="xx.xxxx">
+      </div>
+    </div>
+
+    <!-- Location latitude -->
+    <div class="form-group row">
+      <label for="post-location-lat" class="col-sm-2 col-form-label">Latitude</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="locationData.lat" class="form-control" id="post-location-lat" placeholder="xx.xxxx">
       </div>
     </div>
 
