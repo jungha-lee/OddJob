@@ -4,7 +4,7 @@ VALUES ('pam@be.com', '12345', 'Pamela', 'Anderson', '07245514', 'Working a lot 
 ('Michelle@casablanca.org', '123', 'Michelle', 'Obama', '072-454 43 43', 'Got used to white house staff helping us but now we only use OddJob!'),
 ('linus@academy.se', '123', 'Linus', 'Eriksson', '0721902254', 'Bom dia!'),
 ('jungha@academy.se', '123', 'Jungha', 'Lee', '0724551334', 'Can help you move with my huge van'),
-('anatoli@latvia.lat', '123', 'Anatoli', 'Vahterovs', '070-33 66 712', 'I help you with this shit'),
+('anatoli@latvia.lat', '123', 'Anatoli', 'Vahterovs', '070-33 66 712', 'I help you'),
 ('daniel@academy.se', '123', 'Daniel', 'Persson', '072412314', 'Certified ping pong sensei'),
 ('lars@telia.com', '12345', 'Lars', 'Hammar', '0729213', 'I am a friendly guy');
 

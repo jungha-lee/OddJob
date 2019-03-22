@@ -31,6 +31,12 @@ public class RESTController {
         return jobRepository.save(job);
     }
 
+    @PostMapping("/applications")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Application postApplication(@RequestBody Application application) {
+        return applicationRepository.save(application);
+    }
+
     @GetMapping("/locations")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Location> getAllLocations () {

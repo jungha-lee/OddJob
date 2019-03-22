@@ -20,6 +20,8 @@ public class Application {
 
     public Application() {}
 
+    public Application(String status) {}
+
     public Application(Job jobId, User applicantId, String status, String applicantMsg) {
         this.jobId = jobId;
         this.applicantId = applicantId;

@@ -127,4 +127,15 @@ public class OddJobApplicationTests {
 
 	}
 
+	@Test
+	public void testPostApplication() throws Exception {
+		Application application = new Application("status");
+
+		mvc.perform(MockMvcRequestBuilders.post("/applications")
+				.content(mapper.writeValueAsString(application))
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(MockMvcResultMatchers.content().string(containsString("status")));
+	}
+
 }
