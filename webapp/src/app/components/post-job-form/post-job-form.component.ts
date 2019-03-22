@@ -6,6 +6,7 @@ import { LocationService } from 'src/app/services/location.service';
 import { Job } from '../../models/job';
 import { Location } from '../../models/location';
 import { User } from 'src/app/models/user';
+import { strictEqual } from 'assert';
 
 @Component({
   selector: 'post-job-form',
@@ -21,6 +22,17 @@ export class PostJobFormComponent implements OnInit {
   newLocation: Location;
   locationData: Location;
 
+  street: string;
+  zipCode: string;
+  city: string;
+  country: string;
+  lat: number;
+  lng: number;
+
+  options = {
+    componentRestrictions: { country: 'se'}
+  };
+
   constructor(
     private formBuilder: FormBuilder,
     private jobService: JobService,
@@ -34,14 +46,20 @@ export class PostJobFormComponent implements OnInit {
       jobPic: ['', Validators.required],
       price: ['', Validators.required],
       date: ['', Validators.required],
-
-      street: ['', Validators.required],
-      zipCode: ['', Validators.required],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
-      lat: ['', Validators.required],
-      lng: ['', Validators.required]
     });
+  }
+
+  handleAddressChange(event) {
+
+    console.log(event);
+    console.log(event.address_components[1].long_name );
+
+    this.street = event.address_components[1].long_name + ' ' + event.address_components[0].long_name ;
+    this.zipCode = event.address_components[6].long_name;
+    this.city = event.address_components[2].long_name;
+    this.country = event.address_components[5].long_name;
+    this.lng = event.geometry.viewport.ga.j;
+    this.lat = event.geometry.viewport.ma.j;
   }
 
   get f() {
@@ -60,12 +78,12 @@ export class PostJobFormComponent implements OnInit {
 
     this.locationData = new Location(
       null,
-      this.postJobForm.controls['street'].value,
-      this.postJobForm.controls['zipCode'].value,
-      this.postJobForm.controls['city'].value,
-      this.postJobForm.controls['country'].value,
-      this.postJobForm.controls['lat'].value,
-      this.postJobForm.controls['lng'].value
+      this.street,
+      this.zipCode,
+      this.city,
+      this.country,
+      this.lat,
+      this.lng
     );
 
     this.locationService
