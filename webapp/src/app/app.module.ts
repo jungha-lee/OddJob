@@ -6,7 +6,7 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JobService } from './services/job.service';
 import { UserService } from './services/user.service';
 import { SearchPageComponent } from './components/search-page/search-page.component';
@@ -27,6 +27,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 
 @NgModule({
@@ -57,7 +58,13 @@ import { AuthGuardService } from './services/auth-guard.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JobService, UserService, AuthenticationService, AuthGuardService],
+  providers: [JobService, UserService, AuthenticationService, AuthGuardService, 
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true,
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

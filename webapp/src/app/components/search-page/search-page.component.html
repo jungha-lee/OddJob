@@ -12,7 +12,7 @@
   <div class="row">
 
     <!-- Job matches text -->
-    <div class="col-12" *ngIf="[userSearch.length] > 0">
+    <div class="col-12" *ngIf="userSearch && userSearch.length > 0">
       <p>Job matches for: {{ userSearch }}</p>
     </div>
 
