@@ -7,12 +7,13 @@ import { Job } from 'src/app/models/job';
   styleUrls: ['./job-detail.component.css']
 })
 export class JobDetailComponent implements OnInit {
-
   @Input() job: Job;
+  @Input() isDetailPage: boolean;
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }

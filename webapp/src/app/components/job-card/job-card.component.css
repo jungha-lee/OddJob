@@ -1,3 +1,5 @@
 .card-body:hover {
   background: rgba(214, 215, 230, 0.699);
 }
+
+.centered-and-cropped { object-fit: cover }
