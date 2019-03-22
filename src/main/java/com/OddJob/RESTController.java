@@ -97,4 +97,9 @@ public class RESTController {
         return jobs;
     }
 
+    @GetMapping("/auth")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public AuthenticationBean auth() {
+        return new AuthenticationBean("you are authenticated");
+    }
 }

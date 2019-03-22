@@ -11,6 +11,8 @@ import { first } from 'rxjs/operators';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+  invalidLogin = false;
+  errorMessage ="Invalid credentials"
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,16 +29,30 @@ export class LoginFormComponent implements OnInit {
 
   get f() { return this.loginForm.controls; }
 
-  handleLogin() {
+  // handleLogin() {
 
-    if (this.authenticationService.authenticate(this.loginForm.value.email, this.loginForm.value.password)) {
-      this.router.navigate(["/profile"]);
-      console.log("login");
-    } else {
-      console.log("login failed");
-    }
+  //   if (this.authenticationService.authenticate(this.loginForm.value.email, this.loginForm.value.password)) {
+  //     this.router.navigate(["/profile"]);
+  //     console.log("login");
+  //   } else {
+  //     console.log("login failed");
+  //   }
+  // }
+
+  handleAuthLogin() {
+    this.authenticationService.executeAuthenticationService(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['/profile']);
+          this.invalidLogin = false;
+        },
+        error => {
+          console.log(error);
+          this.invalidLogin = true;
+        }
+      )
   }
-
 }
 
 
