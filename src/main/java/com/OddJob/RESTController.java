@@ -25,10 +25,22 @@ public class RESTController {
         return jobs;
     }
 
+    @GetMapping("/jobs/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Job getAllJobs(@PathVariable Long id){
+        return jobRepository.findById(id).get();
+    }
+
     @PostMapping("/jobs")
     @CrossOrigin(origins = "http://localhost:4200")
     public Job postJob(@RequestBody Job job) {
         return jobRepository.save(job);
+    }
+
+    @PostMapping("/applications")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Application postApplication(@RequestBody Application application) {
+        return applicationRepository.save(application);
     }
 
     @GetMapping("/locations")
@@ -73,6 +85,7 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
+        System.out.println(user.getProfilePic());
         return userRepository.save(user);
     }
 

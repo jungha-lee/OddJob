@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
-
+import * as  Cloudinary from 'cloudinary-core';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
@@ -57,7 +58,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     HttpClientModule,
     GooglePlaceModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'linusaxel'})
   ],
   providers: [JobService, UserService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]

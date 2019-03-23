@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { JobService } from "../../services/job.service";
 import { Job } from "../../models/job";
+import { Directive } from '@angular/core';
 
 @Component({
   selector: "search-page",
