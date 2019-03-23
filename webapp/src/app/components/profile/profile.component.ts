@@ -13,11 +13,11 @@ export class ProfileComponent implements OnInit {
   @Input() user: User;
   service: UserService;
   selectedFile = File;
+  url = 'http://res.cloudinary.com/linusaxel/image/upload/oddjob.jpg';
 
   constructor(service: UserService) {
     this.service = service;
   }
-
 
   updateUser() {
     this.user.profilePic = (document.getElementById('pic') as HTMLImageElement).src;
