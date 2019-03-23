@@ -47,8 +47,12 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Location</span>
           </div>
-          <input class="form-control" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-        </div>
+          <input id="address" class="form-control" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>      
+        </div>    
+        <!--If not happy with submitted address -->
+        <p id="invalidAddress">Please enter a valid address</p>  
+        <!--If not with submitted address -->
+        <p id="validAddress">{{ completeAddress }}</p>    
 
         <!-- button -->
         <div class="form-group">

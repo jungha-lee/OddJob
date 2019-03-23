@@ -17,6 +17,7 @@ export class PostJobFormComponent implements OnInit {
   postJobForm: FormGroup;
   loading = false;
   submitted = false;
+  incompleteAddress = true;
 
   newJob: Job;
   newLocation: Location;
@@ -28,6 +29,7 @@ export class PostJobFormComponent implements OnInit {
   country: string;
   lat: number;
   lng: number;
+  completeAddress: string;
 
   options = {
     componentRestrictions: { country: 'se'}
@@ -45,21 +47,43 @@ export class PostJobFormComponent implements OnInit {
       description: ['', Validators.required],
       jobPic: ['', Validators.required],
       price: ['', Validators.required],
-      date: ['', Validators.required],
+      date: ['', Validators.required]
     });
   }
 
   handleAddressChange(event) {
 
-    console.log(event);
-    console.log(event.address_components[1].long_name );
 
-    this.street = event.address_components[1].long_name + ' ' + event.address_components[0].long_name ;
-    this.zipCode = event.address_components[6].long_name;
-    this.city = event.address_components[2].long_name;
-    this.country = event.address_components[5].long_name;
-    this.lng = event.geometry.viewport.ga.j;
-    this.lat = event.geometry.viewport.ma.j;
+    if (event.address_components.length === 5) {
+        this.street = event.address_components[0].long_name;
+        this.zipCode = null;
+        this.city = event.address_components[2].long_name;
+        this.country = event.address_components[4].long_name;
+        this.lng = event.geometry.viewport.ga.j;
+        this.lat = event.geometry.viewport.ma.j;
+        this.completeAddress = event.formatted_address;
+        document.getElementById('invalidAddress').style.display = 'none';
+        document.getElementById('validAddress').style.display = 'inline';
+        this.incompleteAddress = false;
+    } else if (event.address_components.length === 7) {
+        this.street = event.address_components[1].long_name + ' ' + event.address_components[0].long_name ;
+        this.zipCode = event.address_components[6].long_name;
+        this.city = event.address_components[3].long_name;
+        this.country = event.address_components[5].long_name;
+        this.lng = event.geometry.viewport.ga.j;
+        this.lat = event.geometry.viewport.ma.j;
+        this.completeAddress = event.formatted_address;
+        document.getElementById('invalidAddress').style.display = 'none';
+        document.getElementById('validAddress').style.display = 'inline';
+        this.incompleteAddress = false;
+    } else {
+      document.getElementById('invalidAddress').style.display = 'inline';
+      document.getElementById('validAddress').style.display = 'none';
+      this.incompleteAddress = true;
+    }
+
+    console.log(event);
+    console.log(this.street + " " + this.zipCode + " " + this.city + " " + this.country + " " + this.lng + " " + this.lat); 
   }
 
   get f() {
@@ -70,7 +94,7 @@ export class PostJobFormComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.postJobForm.invalid) {
+    if (this.postJobForm.invalid || this.incompleteAddress) {
       return;
     }
 
