@@ -1,10 +1,14 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <div class=""><a routerLink="" class="navbar-brand">Odd job</a></div>
-  <ul class="navbar-nav">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <ul class="navbar-nav navbar-collapse">
+    <li><a routerLink="/postjob" class="nav-link">
+      <img src="https://res.cloudinary.com/linusaxel/image/upload/v1553344129/WhatsApp_Image_2019-03-23_at_1.27.38_PM.jpg" alt="" width="30px" height="30px" style="border-radius: 100px;"></a>
+    </li>
+    <li><a routerLink="" class="nav-link">Search job</a></li>
     <li><a routerLink="/postjob" class="nav-link">Post job</a></li>
   </ul>
   <ul class="navbar-nav navbar-collapse justify-content-end">
-    <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a></li>
+    <li>     </li>
+    <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link"> <img src="{{ user.profilePic }}" alt="" width="30px" height="30px" style="border-radius: 99px;">   </a></li>
     <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" (click)="logout()" class="nav-link">Logout</a></li>
     <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
     <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>

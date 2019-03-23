@@ -1,59 +1,104 @@
-
 <div class="card bg-light">
-    <article class="card-body col-sm-8 container">
-        <h4 class="card-title mt-3 text-center">Post Job</h4>
-        <form [formGroup]="postJobForm" (ngSubmit)="onSubmit()">
+  <article class="card-body col-sm-8 container">
+    <h4 class="card-title mt-3 text-center">Post Job</h4>
+    <form [formGroup]="postJobForm" (ngSubmit)="onSubmit()">
+      <!-- Job Picture -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Picture</span>
+        </div>
+        <div class="card">
+          <img src="{{ jobPic }}" id="pic" height="200px" width="200px" />
+          <label class="file-upload-container" for="file-upload">
+            <input id="file-upload" type="file" />
+          </label>
+        </div>
+      </div>
 
-        <!-- Job title -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Title</span>
-          </div>
-          <input formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" name="title" placeholder="Title" type="text">
+      <!-- Job title -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Title</span>
         </div>
-        <!-- Job description -->
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Description</span>
-            </div>
-            <textarea formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" name="description" placeholder="Description" type="text"></textarea>
-          </div>
-        <!-- Job Picture URL -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Picture URL</span>
-          </div>
-          <input formControlName="jobPic" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jobPic.errors }" name="jobPic" placeholder="URL" type="text">
+        <input
+          formControlName="title"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+          name="title"
+          placeholder="Title"
+          type="text"
+        />
+      </div>
+      <!-- Job description -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Description</span>
         </div>
-        <!-- Job price -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Price</span>
-          </div>
-          <input formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" name="price" placeholder="Price" type="text">
+        <textarea
+          formControlName="description"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+          name="description"
+          placeholder="Description"
+          type="text"
+        ></textarea>
+      </div>
+      <!-- Job price -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Price</span>
         </div>
-        <!-- Job date -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Date</span>
-          </div>
-          <input formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" name="date" placeholder="Date" type="text">
+        <input
+          formControlName="price"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+          name="price"
+          placeholder="Price"
+          type="text"
+        />
+      </div>
+      <!-- Job date -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Date</span>
         </div>
-        <h6 class="text-center">Location</h6>
+        <input
+          formControlName="date"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.date.errors }"
+          name="date"
+          placeholder="Date"
+          type="date"
+        />
+      </div>
+      <h6 class="text-center">Location</h6>
 
-        <!--Location w/ google autocomplete-->
+      <!--Location w/ google autocomplete-->
 
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Location</span>
-          </div>
-          <input class="form-control" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Location</span>
         </div>
+        <input
+          id="address"
+          class="form-control"
+          ngx-google-places-autocomplete
+          [options]="options"
+          #placesRef="ngx-places"
+          (onAddressChange)="handleAddressChange($event)"
+        />
+      </div>
+      <!--If not happy with submitted address -->
+      <p id="invalidAddress">Please enter a valid address</p>
+      <!--If not with submitted address -->
+      <p id="validAddress">{{ completeAddress }}</p>
 
-        <!-- button -->
-        <div class="form-group">
-          <button [disabled]="loading" class="btn btn-primary btn-block"> Post Job </button>
-        </div>
-      </form>
-    </article>
+      <!-- button -->
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary btn-block">
+          Post Job
+        </button>
+      </div>
+    </form>
+  </article>
 </div>

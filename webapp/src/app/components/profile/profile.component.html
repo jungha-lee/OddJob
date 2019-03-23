@@ -1,59 +1,68 @@
-<div class="container">
+<div id="marg" class="container">
+  <div class="fiftyPercent">
 
-  <!--Your profile-->
-  
-  <div>
-       <!--Full name and image-->
-      <div class="card-group">
-
-          <div class="card ">
-            <div class="card-body text-center">
-              <img src="/assets/pamela.png" width="30%" height="150px">
-              <br>
-              <br>
-              <button type="submit" class="btn btn-primary">Change profile picture</button>
-            </div>
-          <!--</div>-->
-           <!--Description-->
-          <!--<div class="card">  -->
-            <div class="card-body text-center">
-                <form>
-                    <div class="form-group">
-                      <label for="descriptionField">About you:</label>
-                      <textarea rows="8" cols="40" [(ngModel)]="user.description" name="description" class="form-control" id="descriptionField" placeholder="Write something about yourself"></textarea>
-                    </div>
-                  </form>
-            </div>
-          </div>
-           <!--informations-->
-          <div class="card">
-            <div class="card-body text-center">
-                <form>
-                    <div class="form-group">
-                        <label for="firstNameField">First name</label>
-                        <input [(ngModel)]="user.firstName" name="fir stName" type="text" class="form-control" id="firstNameField" placeholder="Enter email">               
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="lastNameField">Last name</label>
-                        <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control" id="lastNameField" placeholder="Enter email">               
-                    </div>
-                    <div class="form-group">
-                      <label for="emailField">Email address</label>
-                      <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="emailField" placeholder="Enter email">               
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneField">Phone number</label>
-                        <input [(ngModel)]="user.phone" name="phone" type="text" class="form-control" id="phoneField" placeholder="Enter phone number">
-                      </div>
-                    <div class="form-group">
-                      <label for="passwordField">Password</label>
-                      <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField" placeholder="Password">
-                    </div>
-                    <button (click)="updateUser()" type="submit" class="btn btn-primary">Save information</button>
-                  </form>
-          </div>
+    <!--Your profile-->
+    <!-- Picture -->
+    <div class="card-body">
+      <img src="{{userPic}}" id="pic" height="200px" width="200px" />
+      <div>
+        <label class="file-upload-container" for="file-upload">
+          <input id="file-upload" type="file" />
+        </label>
       </div>
     </div>
-    
+
+    <!--Description-->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">About you:</span>
+      </div>
+      <textarea rows="8" cols="40" [(ngModel)]="user.description" name="description" class="form-control"
+        id="descriptionField" placeholder="Write something about yourself"></textarea>
+    </div>
+
+    <!--informations-->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">First name</span>
+      </div>
+      <input [(ngModel)]="user.firstName" name="fir stName" type="text" class="form-control" id="firstNameField"
+        placeholder="First name" />
+    </div>
+
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Last name</span>
+      </div>
+      <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control" id="lastNameField"
+        placeholder="Enter email" />
+    </div>
+
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Email address</span>
+      </div>
+      <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="emailField"
+        placeholder="Enter email" />
+    </div>
+
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Phone number</span>
+      </div>
+      <input [(ngModel)]="user.phone" name="phone" type="text" class="form-control" id="phoneField"
+        placeholder="Enter phone number" />
+    </div>
+
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> Password</span>
+      </div>
+      <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField"
+        placeholder="Password" />
+    </div>
+    <button (click)="updateUser()" type="submit" class="btn btn-primary">
+      Save information
+    </button>
+  </div>
 </div>

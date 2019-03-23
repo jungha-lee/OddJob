@@ -11,6 +11,8 @@ import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
+import * as Cloudinary from 'cloudinary-core';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
@@ -65,7 +67,8 @@ import { MapDetailComponent } from './components/map-detail/map-detail.component
     // in case of map error - change apiKey to this : 'AIzaSyDr2Uoe6gyip5He5LRwYNPyBV3tHzTFhY0'
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
-    })
+    }),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'linusaxel'})
   ],
   providers: [JobService, UserService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]

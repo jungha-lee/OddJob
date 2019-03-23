@@ -1,4 +1,12 @@
 
-#addressSearch {
-    width: 100%;
+#invalidAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;
+}
+
+#validAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;
 }
