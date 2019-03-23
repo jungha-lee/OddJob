@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   @Input() user: User;
   service: UserService;
   selectedFile = File;
+  userPic: string;
 
   constructor(service: UserService) {
     this.service = service;
@@ -23,6 +24,9 @@ export class ProfileComponent implements OnInit {
     this.user.profilePic = (document.getElementById('pic') as HTMLImageElement).src;
     console.log(this.user);
     this.service.register(this.user).subscribe(user => console.log(user + ' updated'));
+
+    /* Update user in session */
+    sessionStorage.setItem('authenticatedUser', JSON.stringify(this.user));
   }
 
   updateUserPicture(url: string) {
@@ -31,6 +35,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userPic = this.user.profilePic
     var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/linusaxel/upload';
     var CLOUDINARY_UPLOAD_PRESET = 'oddjob';
 

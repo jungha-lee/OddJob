@@ -17,7 +17,7 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(service: UserService) {
     this.service = service;
-   }
+  }
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
