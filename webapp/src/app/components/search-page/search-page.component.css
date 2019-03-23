@@ -6,10 +6,6 @@
   height: 500px;
 }
 
-.job-card {
-  background: aqua;
-}
-
-.sticky-top{
-
+.search-page-container{
+  padding: 20px;
 }
