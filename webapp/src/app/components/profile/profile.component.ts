@@ -40,7 +40,8 @@ export class ProfileComponent implements OnInit {
     var fileUpload = document.getElementById('file-upload');
 
     fileUpload.addEventListener('change', function() {
-      var file = event.target.files[0];
+      let target = event.target as HTMLInputElement;
+      let file = target.files[0];
 
       var formData = new FormData();
       formData.append('file', file);
