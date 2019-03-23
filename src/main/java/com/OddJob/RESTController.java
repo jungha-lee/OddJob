@@ -85,6 +85,7 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
+        System.out.println(user.getProfilePic());
         return userRepository.save(user);
     }
 

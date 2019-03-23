@@ -95,7 +95,7 @@ public class OddJobApplicationTests {
         System.out.println(objects.get(1).getApplicantId().toString());
         System.out.println(objects);
         System.out.println(objects);
-		Assert.assertEquals("test to find jobs by applicant ID", 3, objects.size());
+		Assert.assertEquals("test to find jobs by applicant ID", 2, objects.size());
 	}
 
 	@Test

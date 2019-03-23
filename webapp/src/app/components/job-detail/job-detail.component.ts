@@ -1,35 +1,38 @@
-import { ApplicationService } from "./../../services/application.service";
-import { Application } from "./../../models/application";
-import { Component, OnInit, Input } from "@angular/core";
-import { Job } from "src/app/models/job";
+import { ApplicationService } from './../../services/application.service';
+import { Application } from './../../models/application';
+import { Component, OnInit, Input } from '@angular/core';
+import { Job } from 'src/app/models/job';
+import { User } from 'src/app/models/user';
 
 @Component({
-  selector: "job-detail",
-  templateUrl: "./job-detail.component.html",
-  styleUrls: ["./job-detail.component.css"]
+  selector: 'job-detail',
+  templateUrl: './job-detail.component.html',
+  styleUrls: ['./job-detail.component.css']
 })
 export class JobDetailComponent implements OnInit {
   @Input() job: Job;
-<<<<<<< HEAD
   applicationService: ApplicationService;
   application: Application;
-=======
+
   @Input() isDetailPage: boolean;
->>>>>>> 623848919e2dd318f76197c1ba8e29a3fcf2ce3c
+
+  user: User;
+
 
   constructor(service: ApplicationService) {
     this.applicationService = service;
   }
 
-<<<<<<< HEAD
-  ngOnInit() {}
+
+  ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
+  }
 
   saveJob() {
+    console.log(this.user);
     console.log('Application posted');
-    this.application = new Application(5, this.job, null, null, null);
+    this.application = new Application(null, this.job, this.user, null, null);
     this.applicationService.postApplication(this.application).subscribe(user => console.log());
   }
-=======
 
->>>>>>> 623848919e2dd318f76197c1ba8e29a3fcf2ce3c
 }
