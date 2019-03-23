@@ -18,7 +18,6 @@ export class JobCardComponent implements OnInit {
   }
 
   selectJobCard(){
-    console.log('alksdfj');
     console.log(this.job);
     this.output.emit(this.job);
   }

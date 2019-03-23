@@ -2,14 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+
+import { JobService } from './services/job.service';
+import { UserService } from './services/user.service';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
-import { HttpClientModule } from '@angular/common/http';
-import { JobService } from './services/job.service';
-import { UserService } from './services/user.service';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -26,8 +30,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { AuthenticationService } from './services/authentication.service';
-import { AuthGuardService } from './services/auth-guard.service';
+import { MapDetailComponent } from './components/map-detail/map-detail.component';
 
 
 @NgModule({
@@ -49,7 +52,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     RegisterFormComponent,
     ProfileJobsComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    MapDetailComponent
   ],
   imports: [
   BrowserModule,
@@ -57,7 +61,11 @@ import { AuthGuardService } from './services/auth-guard.service';
     HttpClientModule,
     GooglePlaceModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // in case of map error - change apiKey to this : 'AIzaSyDr2Uoe6gyip5He5LRwYNPyBV3tHzTFhY0'
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    })
   ],
   providers: [JobService, UserService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]

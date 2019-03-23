@@ -9,30 +9,29 @@ VALUES ('pam@be.com', '12345', 'Pamela', 'Anderson', '07245514', 'Working a lot 
 ('lars@telia.com', '12345', 'Lars', 'Hammar', '0729213', 'I am a friendly guy');
 
 INSERT INTO JOB (TITLE, PRICE, "DATE", OWNER_ID, LOCATION_ID, DESCRIPTION)
-VALUES ('Painting', 1500, '2019-04-17', 2, 2 , 'Need to paint my daughters room pink. Bring your own paint'),
-('Plumbing', 700, '2019-04-02', 4, 1 , 'Fix my pipes'),
-('Gardening', 300, '2019-04-04', 1, 1 , 'Fix my plants'),
-('Painting', 700, '2019-04-12', 2, 1 , 'Fix my wall'),
-('Plumbing', 700, '2019-05-02', 4, 1 , 'My toilet is clogged'),
+VALUES ('Painting', 1500, '2019-04-17', 2, 1 , 'Need to paint my daughters room pink. Bring your own paint'),
+('Plumbing', 700, '2019-04-02', 4, 2 , 'Fix my pipes'),
+('Gardening', 300, '2019-04-04', 1, 3 , 'Fix my plants'),
+('Painting', 700, '2019-04-12', 2, 4 , 'Fix my wall'),
+('Plumbing', 700, '2019-05-02', 4, 5 , 'My toilet is clogged'),
 ('Teaching', 700, '2019-04-02', 3, 1 , 'Need someone to help my kid practice math'),
-('Technology', 100, '2019-04-01', 4, 1 , 'Install my new computer'),
-('Painting', 1220, '2019-06-02', 5, 1 , 'My house is brown but I would like it red.'),
-('Plumbing', 700, '2019-04-02', 6, 1 , 'Fix my pipes'),
-('Gardening', 300, '2019-04-04', 8, 1 , 'Fix my plants'),
+('Technology', 100, '2019-04-01', 4, 2 , 'Install my new computer'),
+('Painting', 1220, '2019-06-02', 5, 3 , 'My house is brown but I would like it red.'),
+('Plumbing', 700, '2019-04-02', 6, 4 , 'Fix my pipes'),
+('Gardening', 300, '2019-04-04', 8, 5 , 'Fix my plants'),
 ('Painting', 700, '2019-04-12', 7, 1 , 'Fix my wall'),
-('Plumbing', 700, '2019-05-02', 4, 1 , 'My toilet is clogged'),
-('Teaching', 700, '2019-04-02', 3, 1 , 'Need someone to help my kid practice math'),
-('Technology', 100, '2019-04-01', 4, 1 , 'Install my new computer'),
-('Painting', 1220, '2019-06-02', 2, 1 , 'My house is brown but I would like it red.'),
+('Plumbing', 700, '2019-05-02', 4, 2 , 'My toilet is clogged'),
+('Teaching', 700, '2019-04-02', 3, 3 , 'Need someone to help my kid practice math'),
+('Technology', 100, '2019-04-01', 4, 4 , 'Install my new computer'),
+('Painting', 1220, '2019-06-02', 2, 5 , 'My house is brown but I would like it red.'),
 ('Plumbing', 700, '2019-04-02', 4, 1 , 'Fix my pipes'),
-('Gardening', 300, '2019-04-04', 1, 1 , 'Fix my plants'),
-('Painting', 700, '2019-04-12', 8, 1 , 'Fix my wall'),
-('Plumbing', 700, '2019-05-02', 4, 1 , 'My toilet is clogged'),
-('Teaching', 700, '2019-04-02', 3, 1 , 'Need someone to help my kid practice math'),
+('Gardening', 300, '2019-04-04', 1, 2 , 'Fix my plants'),
+('Painting', 700, '2019-04-12', 8, 3 , 'Fix my wall'),
+('Plumbing', 700, '2019-05-02', 4, 4 , 'My toilet is clogged'),
+('Teaching', 700, '2019-04-02', 3, 5 , 'Need someone to help my kid practice math'),
 ('Technology', 100, '2019-04-01', 4, 1 , 'Install my new computer'),
-('Painting', 1220, '2019-06-02', 4, 1 , 'My house is red but I would like it blue.'),
-('Gardening', 200, '2019-04-01', 4, 1 , 'Mow my lawn. 200 sqm');
-
+('Painting', 1220, '2019-06-02', 4, 2 , 'My house is red but I would like it blue.'),
+('Gardening', 200, '2019-04-01', 4, 3 , 'Mow my lawn. 200 sqm');
 
 INSERT INTO APPLICATION (JOB_ID, APPLICANT_ID, APPLICANT_MSG)
 VALUES (1, 1,'I would love to, got lots of experience'),
@@ -44,8 +43,9 @@ VALUES (1, 1,'I would love to, got lots of experience'),
  (6, 5,'I would love to, got lots of experience'),
  (6, 4,'I would love to, got lots of experience');
 
-
-
-INSERT INTO LOCATION (STREET, ZIP_CODE, CITY, COUNTRY, LNG, LAT)
-VALUES ('Strandvägen', '411 01', 'Stockholm', 'Sweden', 1, 1),
-('Götgatan 51', '411-80', 'Stockholm.', 'Sweden', 0, 0);
+INSERT INTO LOCATION (STREET, ZIP_CODE, CITY, COUNTRY, LAT, LNG)
+VALUES ('Borgarfjordsgatan 4', '164 55', 'Kista', 'Sweden', 59.407626, 17.946810),
+('Götgatan 51', '116 21', 'Stockholm', 'Sweden', 59.314713, 18.073718),
+('Bygatan 27', '171 49', 'Solna', 'Sweden', 59.351055, 17.984174),
+('Nydalavägen 2', '126 50', 'Hägersten', 'Sweden', 59.308411, 18.002223),
+('Floravägen 2-', '131 41', 'Nacka', 'Sweden', 59.304070, 18.159866);

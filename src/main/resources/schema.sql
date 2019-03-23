@@ -34,6 +34,6 @@ street varchar(50),
 zip_code varchar(50),
 city varchar(50),
 country varchar(50),
-lng decimal,
-lat decimal
+lat decimal,
+lng decimal
 )

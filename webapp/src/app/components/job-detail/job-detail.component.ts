@@ -10,7 +10,7 @@ export class JobDetailComponent implements OnInit {
   @Input() job: Job;
   @Input() isDetailPage: boolean;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
