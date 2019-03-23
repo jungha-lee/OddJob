@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'post-job-page',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-job-page.component.css']
 })
 export class PostJobPageComponent implements OnInit {
+  user: User;
 
   constructor() { }
 

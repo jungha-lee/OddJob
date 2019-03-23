@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userPic = this.user.profilePic
+    this.userPic = this.user.profilePic;
     var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/linusaxel/upload';
     var CLOUDINARY_UPLOAD_PRESET = 'oddjob';
 
