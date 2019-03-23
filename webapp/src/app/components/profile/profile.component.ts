@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from './../../models/user';
 import { UserService } from '../../services/user.service';
@@ -14,9 +15,13 @@ export class ProfileComponent implements OnInit {
   service: UserService;
   selectedFile = File;
   userPic: string;
+  router: Router;
 
-  constructor(service: UserService) {
+  constructor(
+    service: UserService,
+    private r: Router){
     this.service = service;
+    this.router = r;
   }
 
   updateUser() {
@@ -26,6 +31,8 @@ export class ProfileComponent implements OnInit {
 
     /* Update user in session */
     sessionStorage.setItem('authenticatedUser', JSON.stringify(this.user));
+/*     this.router.navigate(['profile']);
+ */    location.reload();
   }
 
   updateUserPicture(url: string) {

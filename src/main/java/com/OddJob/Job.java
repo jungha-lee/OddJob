@@ -1,7 +1,6 @@
 package com.OddJob;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 public class Job {
@@ -18,7 +17,7 @@ public class Job {
     @JoinColumn(name="owner_id")
     private User owner;
     private double price;
-    private LocalDate date;
+    private String date;
 
     public Job() {
 
@@ -28,7 +27,7 @@ public class Job {
         this.title = title;
     }
 
-    public Job(String title, String description, Location location, String jobPic, double price, User ownerId, LocalDate date) {
+    public Job(String title, String description, Location location, String jobPic, double price, User ownerId, String date) {
         this.title = title;
         this.description = description;
         this.location = location;
@@ -94,11 +93,11 @@ public class Job {
         this.owner = ownerId;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

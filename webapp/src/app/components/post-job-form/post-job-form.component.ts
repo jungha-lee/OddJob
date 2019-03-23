@@ -51,7 +51,6 @@ export class PostJobFormComponent implements OnInit {
     this.postJobForm = this.formBuilder.group({
       title: ["", Validators.required],
       description: ["", Validators.required],
-      jobPic: ["", Validators.required],
       price: ["", Validators.required],
       date: ["", Validators.required]
     });
@@ -67,12 +66,9 @@ export class PostJobFormComponent implements OnInit {
     fileUpload.addEventListener("change", function() {
       let target = event.target as HTMLInputElement;
       let file = target.files[0];
-
       var formData = new FormData();
-
       formData.append("file", file);
       formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-
       axios({
         url: CLOUDINARY_URL,
         method: "POST",
@@ -148,7 +144,6 @@ export class PostJobFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.user);
 
     // stop here if form is invalid
     if (this.postJobForm.invalid || this.incompleteAddress) {
@@ -175,10 +170,10 @@ export class PostJobFormComponent implements OnInit {
           this.postJobForm.controls["title"].value,
           this.postJobForm.controls["description"].value,
           this.newLocation,
-          this.postJobForm.controls["jobPic"].value,
+          (document.getElementById('pic') as HTMLImageElement).src,
           this.user,
           this.postJobForm.controls["price"].value,
-          null
+          this.postJobForm.controls["date"].value
         );
         console.log(this.newJob);
         this.jobService.postJob(this.newJob).subscribe(

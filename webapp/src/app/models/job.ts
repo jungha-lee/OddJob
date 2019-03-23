@@ -10,7 +10,7 @@ export class Job {
   jobPic: string;
   ownerId: User;
   price: number;
-  date: Date;
+  date: String;
 
   constructor(
     id: number,
@@ -20,7 +20,7 @@ export class Job {
     jobPic: string,
     ownerId: User,
     price: number,
-    date: Date = new Date()
+    date: string
   ) {
     this.id = id;
     this.title = title;

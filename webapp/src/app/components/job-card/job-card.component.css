@@ -1,4 +1,4 @@
-.card-body:hover {
+.card-body:focus {
   background: rgba(214, 215, 230, 0.699);
 }
 

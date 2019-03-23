@@ -25,7 +25,7 @@ location_id bigint,
 job_pic varchar(1000),
 price decimal,
 owner_id bigint,
-"DATE" date
+"DATE" varchar(40)
 );
 
 create table Location (
