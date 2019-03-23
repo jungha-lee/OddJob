@@ -18,12 +18,10 @@ export class ProfileComponent implements OnInit {
     this.service = service;
   }
 
-  //    this.updateUserPicture(res.data.secure_url);
-
 
   updateUser() {
-    this.user.profilePic = document.getElementById('pic').src;
-    console.log(document.getElementById('pic').src);
+    this.user.profilePic = (document.getElementById('pic') as HTMLImageElement).src;
+    console.log(this.user);
     this.service.register(this.user).subscribe(user => console.log(user + ' updated'));
   }
 
@@ -36,16 +34,17 @@ export class ProfileComponent implements OnInit {
     var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/linusaxel/upload';
     var CLOUDINARY_UPLOAD_PRESET = 'oddjob';
 
-    var picture = document.getElementById('pic');
+    var picture = document.getElementById('pic') as HTMLImageElement;
     var fileUpload = document.getElementById('file-upload');
 
     fileUpload.addEventListener('change', function() {
-      var file = event.target.files[0];
+      let target = event.target as HTMLInputElement;
+      let file = target.files[0];
 
       var formData = new FormData();
+
       formData.append('file', file);
       formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
 
       axios({
         url: CLOUDINARY_URL,
