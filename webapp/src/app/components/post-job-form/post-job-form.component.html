@@ -1,3 +1,4 @@
+
 <div class="card bg-light">
     <article class="card-body col-sm-8 container">
         <h4 class="card-title mt-3 text-center">Post Job</h4>
@@ -39,47 +40,14 @@
           <input formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" name="date" placeholder="Date" type="text">
         </div>
         <h6 class="text-center">Location</h6>
-        <!-- Location street -->
+
+        <!--Location w/ google autocomplete-->
+
         <div class="form-group input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Street</span>
+            <span class="input-group-text">Location</span>
           </div>
-          <input formControlName="street" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.street.errors }" name="street" placeholder="Street" type="text">
-        </div>
-        <!-- Location zipCode -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Post number</span>
-          </div>
-          <input formControlName="zipCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }" name="zipCode" placeholder="Post number" type="text">
-        </div>
-        <!-- Location city -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">City</span>
-          </div>
-          <input formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" name="city" placeholder="City" type="text">
-        </div>
-        <!-- Location country -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Country</span>
-          </div>
-          <input formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" name="country" placeholder="Country" type="text">
-        </div>
-        <!-- Location latitude -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Latitude</span>
-          </div>
-          <input formControlName="lat" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lat.errors }" name="lat" placeholder="xx.xxxxxx" type="text">
-        </div>
-        <!-- Location longitude -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Longitude</span>
-          </div>
-          <input formControlName="lng" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lng.errors }" name="lng" placeholder="xx.xxxxxx" type="text">
+          <input class="form-control" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
         </div>
 
         <!-- button -->

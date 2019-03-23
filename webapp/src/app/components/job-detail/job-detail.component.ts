@@ -10,13 +10,18 @@ import { Job } from "src/app/models/job";
 })
 export class JobDetailComponent implements OnInit {
   @Input() job: Job;
+<<<<<<< HEAD
   applicationService: ApplicationService;
   application: Application;
+=======
+  @Input() isDetailPage: boolean;
+>>>>>>> 623848919e2dd318f76197c1ba8e29a3fcf2ce3c
 
   constructor(service: ApplicationService) {
     this.applicationService = service;
   }
 
+<<<<<<< HEAD
   ngOnInit() {}
 
   saveJob() {
@@ -24,4 +29,7 @@ export class JobDetailComponent implements OnInit {
     this.application = new Application(5, this.job, null, null, null);
     this.applicationService.postApplication(this.application).subscribe(user => console.log());
   }
+=======
+
+>>>>>>> 623848919e2dd318f76197c1ba8e29a3fcf2ce3c
 }

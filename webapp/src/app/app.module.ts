@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +55,7 @@ import { AuthGuardService } from './services/auth-guard.service';
   BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GooglePlaceModule,
     FormsModule,
     ReactiveFormsModule
   ],

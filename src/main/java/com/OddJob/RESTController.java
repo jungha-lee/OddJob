@@ -25,6 +25,12 @@ public class RESTController {
         return jobs;
     }
 
+    @GetMapping("/jobs/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Job getAllJobs(@PathVariable Long id){
+        return jobRepository.findById(id).get();
+    }
+
     @PostMapping("/jobs")
     @CrossOrigin(origins = "http://localhost:4200")
     public Job postJob(@RequestBody Job job) {
