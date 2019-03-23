@@ -11,3 +11,16 @@ div {
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
+
+#marg {
+  margin-top: 40px;
+}
+
+.fiftyPercent {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.centered {
+  margin: 0 auto;
+}
