@@ -1,5 +1,5 @@
 INSERT INTO USER (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, PHONE, DESCRIPTION, PROFILE_PIC)
-VALUES ('oddjob@goldfinger.co.uk', 'secret007', 'Odd', 'Job', '+44 0123 23 32', 'Bond is my mortal enemy', 'https://res.cloudinary.com/linusaxel/image/upload/v1553342959/oddjob.jpg'),
+VALUES ('oddjob@goldfinger.co.uk', 'secret007', 'Odd', 'Job', '+44 0123 23 32', 'Bond is my mortal enemy', 'https://res.cloudinary.com/linusaxel/image/upload/v1553344129/WhatsApp_Image_2019-03-23_at_1.27.38_PM.jpg'),
 ('moneypenny@mit.co.uk', 'secret007', 'Money', 'Penny', '+44 0123 23 32', 'Classified', 'https://res.cloudinary.com/linusaxel/image/upload/v1553342959/oddjob.jpg'),
 ('Michelle@casablanca.org', '123', 'Michelle', 'Obama', '072-454 43 43', 'Got used to white house staff helping us but now we only use OddJob!', 'https://res.cloudinary.com/linusaxel/image/upload/v1553342959/oddjob.jpg'),
 ('linus@academy.se', '123', 'Linus', 'Eriksson', '0721902254', 'Bom dia!', 'https://res.cloudinary.com/linusaxel/image/upload/v1553342784/4H9B0862.jpg'),
