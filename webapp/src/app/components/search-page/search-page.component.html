@@ -6,29 +6,40 @@
     </div>
   </div>
 
-  <div class="row">
-    <!-- Job matches text -->
-    <div class="col-12" *ngIf="[userSearch?.length] > 0">
-      <p>Job matches for: {{ userSearch }}</p>
-    </div>
-  </div>
+  <div class="row" style="height: 700px">
+    <!-- List of Jobs -->
+    <div class="col-4" style="height: 100%; overflow-y: auto;">
+      <!-- Job matches text -->
+      <div class="col-12" *ngIf="[userSearch?.length] > 0">
+        <p>Job matches for: {{ userSearch }}</p>
+      </div>
 
-
-  <div class="row">
-  <!-- List of Jobs -->
-  <div class="col-4" style="height: 600px; overflow-y: auto;">
-    <div *ngFor="let job of jobs">
-      <div *ngIf="aContainsB(job.title, [userSearch]) || aContainsB(job.description, [userSearch]) || aContainsB(job.location.city, [userSearch]) || aContainsB(job.location.country, [userSearch])">
-        <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
+      <div *ngFor="let job of jobs">
+        <div
+          *ngIf="
+            aContainsB(job.title, [userSearch]) ||
+            aContainsB(job.description, [userSearch]) ||
+            aContainsB(job.location.city, [userSearch]) ||
+            aContainsB(job.location.country, [userSearch])
+          "
+        >
+          <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Selected job -->
-  <div class="col-4 sticky-top" id="job-detail" *ngIf="selectedJob != null">
-    <job-detail [job]="selectedJob"></job-detail>
-  </div>
+    <!-- Selected job -->
+    <div
+      class="col-4 sticky-top"
+      id="job-detail"
+      *ngIf="selectedJob != null"
+      style="height: 100%; overflow-y: auto;"
+    >
+      <job-detail [job]="selectedJob"></job-detail>
+    </div>
 
+    <div class="col-4 sticky-top">
+      <map-detail></map-detail>
+    </div>
   </div>
-
 </div>

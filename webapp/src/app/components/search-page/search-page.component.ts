@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { JobService } from "../../services/job.service";
-import { Job } from "../../models/job";
+import { MapDetailComponent } from './../map-detail/map-detail.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { JobService } from '../../services/job.service';
+import { Job } from '../../models/job';
 import { Directive } from '@angular/core';
 
 @Component({
-  selector: "search-page",
-  templateUrl: "./search-page.component.html",
-  styleUrls: ["./search-page.component.css"]
+  selector: 'search-page',
+  templateUrl: './search-page.component.html',
+  styleUrls: ['./search-page.component.css']
 })
 
 export class SearchPageComponent implements OnInit {
@@ -24,10 +25,13 @@ export class SearchPageComponent implements OnInit {
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
       console.log(jobs[1]);
+      this.selectedJob = jobs[0];
+      console.log(this.selectedJob);
     });
+
   }
 
-  getSelectedJob($event){
+  getSelectedJob($event) {
     this.selectedJob = $event;
     console.log(this.selectedJob);
   }
