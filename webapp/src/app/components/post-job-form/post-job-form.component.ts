@@ -7,8 +7,9 @@ import { Job } from "../../models/job";
 import { Location } from "../../models/location";
 import { User } from "src/app/models/user";
 import axios from "axios";
+import { ResourceLoader } from '@angular/compiler';
+import { Router } from '@angular/router';
 
-import { strictEqual } from "assert";
 
 @Component({
   selector: "post-job-form",
@@ -33,17 +34,17 @@ export class PostJobFormComponent implements OnInit {
   lng: number;
   completeAddress: string;
 
-  jobPic: string =
-    "https://res.cloudinary.com/linusaxel/image/upload/v1553348357/no-image-icon-6.png";
+  jobPic = 'https://res.cloudinary.com/linusaxel/image/upload/v1553348357/no-image-icon-6.png';
   @Input() user: User;
 
   options = {
-    componentRestrictions: { country: "se" }
+    componentRestrictions: { country: 'se' }
   };
 
   constructor(
     private formBuilder: FormBuilder,
     private jobService: JobService,
+    private router: Router,
     private locationService: LocationService
   ) {}
 
@@ -78,13 +79,10 @@ export class PostJobFormComponent implements OnInit {
         data: formData
       })
         .then(function(res) {
-          console.log(formData);
-          console.log(res);
           console.log(res.data.secure_url);
           picture.src = res.data.secure_url;
         })
         .catch(function(err) {
-          console.log("is this happenin?");
           console.log(err);
         });
     });
@@ -99,43 +97,25 @@ export class PostJobFormComponent implements OnInit {
       this.lng = event.geometry.viewport.ga.j;
       this.lat = event.geometry.viewport.ma.j;
       this.completeAddress = event.formatted_address;
-      document.getElementById("invalidAddress").style.display = "none";
-      document.getElementById("validAddress").style.display = "inline";
+      document.getElementById('invalidAddress').style.display = 'none';
+      document.getElementById('validAddress').style.display = 'inline-block';
       this.incompleteAddress = false;
     } else if (event.address_components.length === 7) {
-      this.street =
-        event.address_components[1].long_name +
-        " " +
-        event.address_components[0].long_name;
+      this.street = event.address_components[1].long_name + ' ' + event.address_components[0].long_name;
       this.zipCode = event.address_components[6].long_name;
       this.city = event.address_components[3].long_name;
       this.country = event.address_components[5].long_name;
       this.lng = event.geometry.viewport.ga.j;
       this.lat = event.geometry.viewport.ma.j;
       this.completeAddress = event.formatted_address;
-      document.getElementById("invalidAddress").style.display = "none";
-      document.getElementById("validAddress").style.display = "inline";
+      document.getElementById('invalidAddress').style.display = 'none';
+      document.getElementById('validAddress').style.display = 'inline-block';
       this.incompleteAddress = false;
     } else {
-      document.getElementById("invalidAddress").style.display = "inline";
-      document.getElementById("validAddress").style.display = "none";
+      document.getElementById('invalidAddress').style.display = 'inline-block';
+      document.getElementById('validAddress').style.display = 'none';
       this.incompleteAddress = true;
     }
-
-    console.log(event);
-    console.log(
-      this.street +
-        " " +
-        this.zipCode +
-        " " +
-        this.city +
-        " " +
-        this.country +
-        " " +
-        this.lng +
-        " " +
-        this.lat
-    );
   }
 
   get f() {
@@ -147,6 +127,7 @@ export class PostJobFormComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.postJobForm.invalid || this.incompleteAddress) {
+      console.log('Form not complete');
       return;
     }
 
@@ -167,19 +148,19 @@ export class PostJobFormComponent implements OnInit {
         this.newLocation = loc;
         this.newJob = new Job(
           null,
-          this.postJobForm.controls["title"].value,
-          this.postJobForm.controls["description"].value,
+          this.postJobForm.controls['title'].value,
+          this.postJobForm.controls['description'].value,
           this.newLocation,
           (document.getElementById('pic') as HTMLImageElement).src,
           this.user,
-          this.postJobForm.controls["price"].value,
-          this.postJobForm.controls["date"].value
+          this.postJobForm.controls['price'].value,
+          this.postJobForm.controls['date'].value
         );
-        console.log(this.newJob);
         this.jobService.postJob(this.newJob).subscribe(
           data => {
-            alert("Job posted!");
-            console.log(this.newJob);
+            alert('Job posted!');
+            console.log(data);
+            this.router.navigate(['jobs/' + data.id]);
           },
           error => {
             console.log(error);

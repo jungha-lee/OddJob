@@ -4,8 +4,19 @@
 
 #job-detail{
   height: 500px;
+  animation-name: appear;
+  animation-duration: 500ms;
 }
 
 .search-page-container{
   padding: 20px;
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
