@@ -16,7 +16,9 @@
         <div class="ninetyPercent"> 
           <h4>Saved jobs</h4>
           <div *ngFor="let job of jobsApplied">
-            <job-card [job]="job"></job-card>
+            <a routerLink="/jobs/{{job.id}}" routerLinkActive="active">
+              <job-card [job]="job"></job-card>
+            </a>
           </div>
         </div>
       </div>
