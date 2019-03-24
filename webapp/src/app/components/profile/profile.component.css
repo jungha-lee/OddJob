@@ -37,3 +37,20 @@ div {
   margin-right: 4%;
   float: right;
 }
+
+#hidden {
+  display: none;
+  animation: appear;
+  animation-duration: 500ms;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
