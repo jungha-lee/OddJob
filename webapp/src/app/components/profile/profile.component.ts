@@ -31,8 +31,7 @@ export class ProfileComponent implements OnInit {
 
     /* Update user in session */
     sessionStorage.setItem('authenticatedUser', JSON.stringify(this.user));
-/*     this.router.navigate(['profile']);
- */    location.reload();
+    location.reload();
   }
 
   updateUserPicture(url: string) {

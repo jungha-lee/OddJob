@@ -22,5 +22,18 @@ div {
 }
 
 .centered {
-  margin: 0 auto;
+  margin-left: auto;
+	margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+#pic {
+  border-radius: 6px;
+}
+
+.right {
+  margin-top: 10px;
+  margin-right: 4%;
+  float: right;
 }
