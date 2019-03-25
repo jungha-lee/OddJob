@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { JobService } from '../../services/job.service';
-import { Job } from '../../models/job';
-import { Directive } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
+import { JobService } from "../../services/job.service";
+import { Job } from "../../models/job";
+import { Directive } from "@angular/core";
 
 @Component({
-  selector: 'search-page',
-  templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  selector: "search-page",
+  templateUrl: "./search-page.component.html",
+  styleUrls: ["./search-page.component.css"]
 })
 export class SearchPageComponent implements OnInit {
   service: JobService;
@@ -62,6 +62,6 @@ export class SearchPageComponent implements OnInit {
   }
 
   aContainsB(a, b) {
-    return a.toLowerCase().indexOf(b) >= 0;
+    return a.toLowerCase().includes(b) || a.includes(b);
   }
 }

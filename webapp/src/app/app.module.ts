@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
@@ -32,6 +32,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 import { MapDetailComponent } from './components/map-detail/map-detail.component';
 import { MapListComponent } from './components/map-list/map-list.component';
 
@@ -72,7 +73,13 @@ import { MapListComponent } from './components/map-list/map-list.component';
     }),
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'linusaxel'})
   ],
-  providers: [JobService, UserService, AuthenticationService, AuthGuardService],
+  providers: [JobService, UserService, AuthenticationService, AuthGuardService, 
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true,
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,18 +10,25 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./job-detail.component.css']
 })
 export class JobDetailComponent implements OnInit {
+
   @Input() job: Job;
+  @Input() isDetailPage: boolean = false;
+
   applicationService: ApplicationService;
   application: Application;
-  @Input() isDetailPage: boolean;
   user: User;
+  isOwnedByLoggedInUser = false;
 
   constructor(service: ApplicationService) {
     this.applicationService = service;
   }
 
+
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
+    if (this.user.id === this.job.ownerId.id) {
+      this.isOwnedByLoggedInUser = true;
+    }
   }
 
   saveJob() {

@@ -1,7 +1,7 @@
 create table "USER" (
 id bigint auto_increment primary key,
 email varchar(50),
-password varchar(50),
+password varchar(100),
 first_name varchar(50),
 last_name varchar(50),
 phone varchar(50),
