@@ -42,7 +42,6 @@ export class PostJobFormComponent implements OnInit {
   };
 
   // -----------------Constructor------------------
-
   constructor(
     private formBuilder: FormBuilder,
     private jobService: JobService,
@@ -124,7 +123,6 @@ export class PostJobFormComponent implements OnInit {
   get f() {
     return this.postJobForm.controls;
   }
-
 
   // -----------------On submit -> posting new location and job to db------------------
   onSubmit() {

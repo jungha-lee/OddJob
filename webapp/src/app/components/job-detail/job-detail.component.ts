@@ -15,10 +15,12 @@ export class JobDetailComponent implements OnInit {
   application: Application;
   @Input() isDetailPage: boolean;
   user: User;
+  isOwnedByLoggedInUser = false;
 
   constructor(service: ApplicationService) {
     this.applicationService = service;
   }
+
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
