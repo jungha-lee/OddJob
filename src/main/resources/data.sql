@@ -8,6 +8,8 @@ VALUES ('pam@be.com', '12345', 'Pamela', 'Anderson', '07245514', 'Working a lot 
 ('daniel@academy.se', '123', 'Daniel', 'Persson', '072412314', 'Certified ping pong sensei'),
 ('lars@telia.com', '12345', 'Lars', 'Hammar', '0729213', 'I am a friendly guy');
 
+insert into user (email, password) values ('ana@gmail.com', 'aaaaaa');
+
 INSERT INTO JOB (TITLE, PRICE, "DATE", OWNER_ID, LOCATION_ID, DESCRIPTION)
 VALUES ('Painting', 1500, '2019-04-17', 2, 2 , 'Need to paint my daughters room pink. Bring your own paint'),
 ('Plumbing', 700, '2019-04-02', 4, 1 , 'Fix my pipes'),

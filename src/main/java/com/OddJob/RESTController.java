@@ -1,6 +1,7 @@
 package com.OddJob;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class RESTController {
     LocationRepository locationRepository;
     @Autowired
     ApplicationRepository applicationRepository;
+    @Autowired
+    private PasswordEncoder encoder;
 
     @GetMapping("/jobs")
     @CrossOrigin(origins = "http://localhost:4200")
@@ -73,6 +76,8 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
+        System.out.println(user.getPassword());
+        user.setPassword(encoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
