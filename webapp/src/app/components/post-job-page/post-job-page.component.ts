@@ -7,11 +7,9 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./post-job-page.component.css']
 })
 export class PostJobPageComponent implements OnInit {
-  user: User;
+  
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

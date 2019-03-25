@@ -7,7 +7,6 @@ import { Job } from "../../models/job";
 import { Location } from "../../models/location";
 import { User } from "src/app/models/user";
 import axios from "axios";
-import { ResourceLoader } from '@angular/compiler';
 import { Router } from '@angular/router';
 
 
@@ -17,6 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./post-job-form.component.css"]
 })
 export class PostJobFormComponent implements OnInit {
+  // -----------------Variable declarations------------------
   postJobForm: FormGroup;
   loading = false;
   submitted = false;
@@ -41,30 +41,32 @@ export class PostJobFormComponent implements OnInit {
     componentRestrictions: { country: 'se' }
   };
 
+  // -----------------Constructor------------------
+
   constructor(
     private formBuilder: FormBuilder,
     private jobService: JobService,
     private router: Router,
     private locationService: LocationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.postJobForm = this.formBuilder.group({
-      title: ["", Validators.required],
-      description: ["", Validators.required],
-      price: ["", Validators.required],
-      date: ["", Validators.required]
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      price: ['', Validators.required],
+      date: ['', Validators.required]
     });
 
-    this.user = JSON.parse(sessionStorage.getItem("authenticatedUser"));
+    this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
 
-    var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/linusaxel/upload";
-    var CLOUDINARY_UPLOAD_PRESET = "oddjob";
+    var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/linusaxel/upload';
+    var CLOUDINARY_UPLOAD_PRESET = 'oddjob';
 
-    var picture = document.getElementById("pic") as HTMLImageElement;
-    var fileUpload = document.getElementById("file-upload");
+    var picture = document.getElementById('pic') as HTMLImageElement;
+    var fileUpload = document.getElementById('file-upload');
 
-    fileUpload.addEventListener("change", function() {
+    fileUpload.addEventListener('change', () => {
       let target = event.target as HTMLInputElement;
       let file = target.files[0];
       var formData = new FormData();
@@ -78,16 +80,17 @@ export class PostJobFormComponent implements OnInit {
         },
         data: formData
       })
-        .then(function(res) {
+        .then(function (res) {
           console.log(res.data.secure_url);
           picture.src = res.data.secure_url;
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.log(err);
         });
     });
   }
 
+  // --------Autocomplete address function -> assigning location vars values upon change in address field------------------
   handleAddressChange(event) {
     if (event.address_components.length === 5) {
       this.street = event.address_components[0].long_name;
@@ -122,6 +125,8 @@ export class PostJobFormComponent implements OnInit {
     return this.postJobForm.controls;
   }
 
+
+  // -----------------On submit -> posting new location and job to db------------------
   onSubmit() {
     this.submitted = true;
 

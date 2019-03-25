@@ -12,11 +12,13 @@
       </div>
 
       <div class="fiftyPercent right">
-          
+        
         <div class="ninetyPercent"> 
           <h4>Saved jobs</h4>
           <div *ngFor="let job of jobsApplied">
-            <job-card [job]="job"></job-card>
+            <a href="jobs/{{job.id}}">
+              <job-card [job]="job"></job-card>
+            </a>
           </div>
         </div>
       </div>
