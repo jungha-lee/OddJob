@@ -1,6 +1,7 @@
 package com.OddJob;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class RESTController {
     LocationRepository locationRepository;
     @Autowired
     ApplicationRepository applicationRepository;
+    @Autowired
+    private PasswordEncoder encoder;
 
     @GetMapping("/jobs")
     @CrossOrigin(origins = "http://localhost:4200")
@@ -85,8 +88,11 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
-        System.out.println(user.getProfilePic());
-        return userRepository.save(user);
+        if (userRepository.findByEmail(user.getEmail()) == null) {
+            user.setPassword(encoder.encode(user.getPassword()));
+            System.out.println(user.getProfilePic());
+            return userRepository.save(user);
+        } else return null;
     }
 
     @GetMapping("/users/jobs/{id}")
@@ -95,19 +101,65 @@ public class RESTController {
         return (List<Job>)jobRepository.findByOwner_Id(id);
     }
 
+//    @GetMapping("/users/applications/{id}")
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    public List<Job> getJobAppliedByUser(@PathVariable Long id){
+//
+//        User user = userRepository.findById(id).get();
+//
+//        List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
+//        List<Job> jobs = new ArrayList<>();
+//        for(Application app: applications){
+//            jobs.add(app.getJobId());
+//        }
+//        return jobs;
+//    }
+
     @GetMapping("/users/applications/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Job> getJobAppliedByUser(@PathVariable Long id){
+    public List<Application> getApplicationsByUserId(@PathVariable Long id){
 
-        System.out.println("triggered");
         User user = userRepository.findById(id).get();
 
         List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
-        List<Job> jobs = new ArrayList<>();
-        for(Application app: applications){
-            jobs.add(app.getJobId());
-        }
-        return jobs;
+        return applications;
     }
+
+    @GetMapping("/auth")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public AuthenticationBean auth() {
+        return new AuthenticationBean("you are authenticated");
+    }
+
+    @GetMapping("/usersbyemail/{email}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public User getUserByEmail(@PathVariable String email){
+        return userRepository.findByEmail(email);
+    }
+
+    @DeleteMapping("applications/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeApplication(@PathVariable Long id) {
+        applicationRepository.deleteById(id);
+    }
+
+    @DeleteMapping("jobs/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeJobs(@PathVariable Long id) {
+        jobRepository.deleteById(id);
+    }
+
+    @DeleteMapping("locations/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeLocations(@PathVariable Long id) {
+        locationRepository.deleteById(id);
+    }
+
+    @DeleteMapping("users/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeUsers(@PathVariable Long id) {
+        userRepository.deleteById(id);
+    }
+
 
 }

@@ -138,4 +138,14 @@ public class OddJobApplicationTests {
 				.andExpect(MockMvcResultMatchers.content().string(containsString("status")));
 	}
 
+	@Test
+	public void removeApplication() throws Exception {
+		List<Application> applications = (List<Application>) applicationRepository.findAll();
+		Assert.assertEquals(8, applications.size());
+
+		applicationRepository.deleteById(1L);
+		applications = (List<Application>) applicationRepository.findAll();
+		Assert.assertEquals(7, applications.size());
+	}
+
 }

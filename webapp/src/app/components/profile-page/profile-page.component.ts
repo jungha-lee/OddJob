@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user';
 import { Job } from './../../models/job';
+import { Application } from './../../models/application';
 
 @Component({
   selector: 'app-profile-page',
@@ -13,7 +14,7 @@ export class ProfilePageComponent implements OnInit {
   service: UserService;
   user: User;
   jobsOwned: Job[];
-  jobsApplied: Job[];
+  jobsApplied: Application[];
 
   constructor(service: UserService) {
     this.service = service;

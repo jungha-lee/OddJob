@@ -14,17 +14,14 @@ export class RegisterFormComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  emailIsTaken = false;
+  errorMessage ="This email is already taken.";
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    //private authenticationService: AuthenticationService,
     private userService: UserService
   ) {
-    // redirect to home if already logged in
-    // if (this.authenticationService.currentUserValue) { 
-    //     this.router.navigate(['/']);
-    // }
   }
 
   ngOnInit() {
@@ -53,8 +50,13 @@ export class RegisterFormComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log("success");
-          // this.router.navigate(['/login']);
+          if (data == null) {
+            this.emailIsTaken = true;
+            this.loading = false;
+          } else {
+            this.emailIsTaken = false;
+            this.router.navigate(['/login']);
+          }
         },
         error => {
           console.log("failed");
