@@ -31,23 +31,23 @@ export class AuthenticationService {
   // }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('authenticatedUser');
+    let user = sessionStorage.getItem('authenticatedUsername');
     // console.log("user logged in " + !(user === null));
     return !(user === null);
   }
 
-  getAuthenticatedUser() {
-    return sessionStorage.getItem('authenticatedUser');
+  getAuthenticatedUsername() {
+    return sessionStorage.getItem('authenticatedUsername');
   }
   
   getAuthenticatedToken() {
-    if (this.getAuthenticatedUser) 
+    if (this.getAuthenticatedUsername) 
       return sessionStorage.getItem('token');
   }
   
   logout() {
     console.log("logout");
-    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('authenticatedUsername');
     sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
@@ -62,7 +62,7 @@ export class AuthenticationService {
     {headers : header}).pipe(
       map(
         data => {
-          sessionStorage.setItem('authenticatedUser', username);
+          sessionStorage.setItem('authenticatedUsername', username);
           sessionStorage.setItem('token', basicAuthHeaderString);
           return data;
         }

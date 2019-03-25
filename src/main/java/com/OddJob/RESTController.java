@@ -107,4 +107,10 @@ public class RESTController {
     public AuthenticationBean auth() {
         return new AuthenticationBean("you are authenticated");
     }
+
+    @GetMapping("/usersbyemail/{email}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public User getUserByEmail(@PathVariable String email){
+        return userRepository.findByEmail(email);
+    }
 }

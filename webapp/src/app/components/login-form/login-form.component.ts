@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -17,7 +18,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -43,8 +45,8 @@ export class LoginFormComponent implements OnInit {
     this.authenticationService.executeAuthenticationService(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(
         data => {
-          console.log(data);
-          this.router.navigate(['/profile']);
+          console.log("login, getuserbyemail");
+          this.userService.getUserByEmail(this.loginForm.value.email).subscribe(user => {sessionStorage.setItem('authenticatedUser', JSON.stringify(user)); this.router.navigate(['/profile'])})
           this.invalidLogin = false;
         },
         error => {

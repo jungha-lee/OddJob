@@ -13,7 +13,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     let basicAuthHeaderString = this.authenticationService.getAuthenticatedToken();
-    let username = this.authenticationService.getAuthenticatedUser();
+    let username = this.authenticationService.getAuthenticatedUsername();
 
     if (basicAuthHeaderString && username ){
 
