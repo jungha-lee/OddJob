@@ -6,7 +6,7 @@
   [streetViewControl]="false"
 >
   <agm-marker
-    *ngFor="let m of jobsForMap; let i = index"
+    *ngFor="let m of joblistForMap; let i = index"
     [latitude]="m.location.lat"
     [longitude]="m.location.lng"
     [label]="m.title"
