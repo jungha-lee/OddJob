@@ -1,0 +1,8 @@
+.centered-and-cropped {
+  object-fit: cover;
+  height: 400px;
+}
+
+.nopadding {
+  padding: 0;
+}

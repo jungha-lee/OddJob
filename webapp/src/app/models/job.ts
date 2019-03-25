@@ -8,9 +8,9 @@ export class Job {
   description: string;
   location: Location;
   jobPic: string;
-  owner: User;
+  ownerId: User;
   price: number;
-  date: Date;
+  date: String;
 
   constructor(
     id: number,
@@ -18,16 +18,16 @@ export class Job {
     description: string,
     location: Location,
     jobPic: string,
-    owner: User,
+    ownerId: User,
     price: number,
-    date: Date = new Date()
+    date: string
   ) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.location = location;
     this.jobPic = jobPic;
-    this.owner = owner;
+    this.ownerId = ownerId;
     this.price = price;
     this.date = date;
   }

@@ -95,7 +95,7 @@ public class OddJobApplicationTests {
         System.out.println(objects.get(1).getApplicantId().toString());
         System.out.println(objects);
         System.out.println(objects);
-		Assert.assertEquals("test to find jobs by applicant ID", 3, objects.size());
+		Assert.assertEquals("test to find jobs by applicant ID", 2, objects.size());
 	}
 
 	@Test
@@ -125,6 +125,17 @@ public class OddJobApplicationTests {
 				.andExpect(status().is2xxSuccessful())
 				.andExpect(MockMvcResultMatchers.content().string(containsString("Daniel")));
 
+	}
+
+	@Test
+	public void testPostApplication() throws Exception {
+		Application application = new Application("status");
+
+		mvc.perform(MockMvcRequestBuilders.post("/applications")
+				.content(mapper.writeValueAsString(application))
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(MockMvcResultMatchers.content().string(containsString("status")));
 	}
 
 }

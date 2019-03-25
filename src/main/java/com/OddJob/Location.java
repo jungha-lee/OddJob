@@ -17,18 +17,18 @@ public class Location {
     private String zipCode;
     private String city;
     private String country;
-    private double lng;
     private double lat;
+    private double lng;
 
     public Location(){}
 
-    public Location(String street, String zipCode, String city, String country, double lng, double lat) {
+    public Location(String street, String zipCode, String city, String country, double lat, double lng) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
         this.country = country;
-        this.lng = lng;
         this.lat = lat;
+        this.lng = lng;
     }
 
     public Long getId() {
@@ -71,19 +71,19 @@ public class Location {
         this.country = country;
     }
 
-    public double getLng() {
-        return lng;
-    }
-
-    public void setLng(double lng) {
-        this.lng = lng;
-    }
-
     public double getLat() {
         return lat;
     }
 
     public void setLat(double lat) {
         this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }

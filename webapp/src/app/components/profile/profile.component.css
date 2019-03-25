@@ -1,5 +1,56 @@
-
 div {
     border-left: none !important;
     border-right: none !important;
 }
+
+.card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+#marg {
+  margin-top: 40px;
+}
+
+.fiftyPercent {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.centered {
+  margin-left: auto;
+	margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+#pic {
+  border-radius: 6px;
+}
+
+.right {
+  margin-top: 10px;
+  margin-right: 4%;
+  float: right;
+}
+
+#hidden {
+  display: none;
+  animation: appear;
+  animation-duration: 500ms;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+

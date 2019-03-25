@@ -1,0 +1,13 @@
+
+#invalidAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;margin-left: auto;
+}
+
+#validAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;
+}
+

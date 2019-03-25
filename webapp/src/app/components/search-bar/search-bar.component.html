@@ -1,2 +1,20 @@
-<input type="text" placeholder="Search for Odd Jobs" id="textbox" />
-<button (click)="sendDataToParent()">Search</button>
+<form class="form-group w-50 container">
+  <div class="row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control form-control-lg"
+        id="textbox"
+        placeholder="Search for Odd Jobs!"
+      />
+    </div>
+    <div class="col-2 my-auto">
+      <input
+        (click)="sendDataToParent()"
+        type="submit"
+        class="btn btn-light"
+        value=" Search "
+      />
+    </div>
+  </div>
+</form>

@@ -9,18 +9,18 @@ import { Job } from '../../models/job';
 export class JobCardComponent implements OnInit {
 
   @Input() job: Job;
-
   @Output() output = new EventEmitter<Job>();
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
-  selectJobCard(){
-    console.log('alksdfj');
-    console.log(this.job);
+  selectJobCard() {
     this.output.emit(this.job);
+/*     document.get
+    document.getElementById("card-body").style.backgroundColor = "blue"; */
   }
 
 }

@@ -2,14 +2,22 @@
   padding: 20px;
 }
 
+.search-page-container{
+  padding: 20px;
+}
+
+
 #job-detail{
-  height: 500px;
+  animation-name: appear;
+  animation-duration: 500ms;
 }
 
-.job-card {
-  background: aqua;
-}
 
-.sticky-top{
-
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

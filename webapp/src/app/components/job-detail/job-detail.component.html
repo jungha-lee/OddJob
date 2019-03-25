@@ -1,8 +1,56 @@
-<h1> {{job.title}} </h1>
-<p> Description: {{job.description}} </p>
-<p> Location: {{job.location.street}}, {{job.location.city}}, {{job.location.country}}  </p>
-<p> Date: {{job.date}} </p>
-<p> Posted by: {{job.ownerId.firstName}} {{job.ownerId.lastName}}<p>
-<p> Contact info: {{job.ownerId.phone}}<p>
+<div class="card">
 
-<button>Save</button>
+  <!-- for detail page : image and map -->
+  <div *ngIf="isDetailPage" class="container">
+    <div class="row">
+      <!-- md makes the column responsive: can be changed to other size (sm/lg) -->
+      <div class="col-md-6 nopadding">
+        <img
+          src="{{ job?.jobPic }}"
+          class="card-img-top centered-and-cropped"
+        />
+      </div>
+      <!-- md makes the column responsive: can be changed to other size (sm/lg) -->
+      <div class="col-md-6 nopadding">
+        <map-detail [lat]="job?.location.lat" [lng]="job?.location.lng"></map-detail>
+      </div>
+    </div>
+  </div>
+
+  <!-- for preview page : image only -->
+  <img
+    *ngIf="!isDetailPage"
+    src="{{ job.jobPic }}"
+    class="card-img-top"
+    alt="..."
+    style="
+      max-width:350px;
+      height:auto;
+    "
+  />
+
+  <!-- common for preview and detail -->
+  <div class="card-body">
+    <h3 class="card-title">{{ job?.title }}</h3>
+    <p class="card-text">
+      {{ job?.description }}
+    </p>
+    <br />
+    <p class="card-text">
+      Location: {{ job?.location.street }}, {{ job?.location.city }},
+      {{ job?.location.country }}
+    </p>
+    <p class="card-text">
+      Posted by: {{ job?.ownerId.firstName }} {{ job?.ownerId.lastName }}
+    </p>
+    <p class="card-text">Contact: {{ job?.ownerId.phone }}</p>
+    <p class="card-text">
+      <small class="text-muted">Posted date: {{ job?.date }}</small>
+    </p>
+    <p>
+      <button *ngIf="!(job.ownerId.id == user.id)" type="button" class="btn btn-primary" (click)="saveJob()">Save</button>&nbsp;
+      <button *ngIf="!isDetailPage" [routerLink]="['/jobs', job?.id]" type="button" class="btn btn-info">Job Detail</button>
+      <button *ngIf="(job.ownerId.id == user.id) && isDetailPage" type="button" class="btn btn-info">Edit</button>
+    </p>
+  </div>
+</div>
