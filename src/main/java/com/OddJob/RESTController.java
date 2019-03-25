@@ -95,19 +95,53 @@ public class RESTController {
         return (List<Job>)jobRepository.findByOwner_Id(id);
     }
 
+//    @GetMapping("/users/applications/{id}")
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    public List<Job> getJobAppliedByUser(@PathVariable Long id){
+//
+//        User user = userRepository.findById(id).get();
+//
+//        List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
+//        List<Job> jobs = new ArrayList<>();
+//        for(Application app: applications){
+//            jobs.add(app.getJobId());
+//        }
+//        return jobs;
+//    }
+
     @GetMapping("/users/applications/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Job> getJobAppliedByUser(@PathVariable Long id){
+    public List<Application> getApplicationsByUserId(@PathVariable Long id){
 
-        System.out.println("triggered");
         User user = userRepository.findById(id).get();
 
         List<Application> applications = applicationRepository.findJob_IdByApplicantId(user);
-        List<Job> jobs = new ArrayList<>();
-        for(Application app: applications){
-            jobs.add(app.getJobId());
-        }
-        return jobs;
+        return applications;
     }
+
+    @DeleteMapping("applications/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeApplication(@PathVariable Long id) {
+        applicationRepository.deleteById(id);
+    }
+
+    @DeleteMapping("jobs/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeJobs(@PathVariable Long id) {
+        jobRepository.deleteById(id);
+    }
+
+    @DeleteMapping("locations/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeLocations(@PathVariable Long id) {
+        locationRepository.deleteById(id);
+    }
+
+    @DeleteMapping("users/id")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public void removeUsers(@PathVariable Long id) {
+        userRepository.deleteById(id);
+    }
+
 
 }
