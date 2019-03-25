@@ -15,29 +15,40 @@ export class SearchPageComponent implements OnInit {
   @Input() userInput: string;
   userSearch: string;
   selectedJob: Job;
+  jobDataLoaded: boolean;
+  searchedJobLoaded: boolean;
 
   constructor(injectedService: JobService) {
     this.service = injectedService;
   }
 
   ngOnInit() {
+    console.log('1. init start');
+    this.jobDataLoaded = false;
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
       this.selectedJob = jobs[0];
+      this.jobDataLoaded = true;
+      console.log('2. init end');
     });
   }
 
   searchMatches(job) {
+    console.log('3. searchMatches start');
+    this.searchedJobLoaded = false;
     const ifMatches: boolean =
       this.aContainsB(job.title, [this.userSearch]) ||
       this.aContainsB(job.description, [this.userSearch]) ||
       this.aContainsB(job.location.city, [this.userSearch]) ||
       this.aContainsB(job.location.country, [this.userSearch]);
+
     if (ifMatches) {
       if (this.searchedJobs.indexOf(job) === -1) {
         this.searchedJobs.push(job);
       }
     }
+    console.log('4. searchMatches end');
+    this.searchedJobLoaded = true;
     return ifMatches;
   }
 
