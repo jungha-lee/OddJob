@@ -88,12 +88,8 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
-<<<<<<< HEAD
-        System.out.println(user.getPassword());
         user.setPassword(encoder.encode(user.getPassword()));
-=======
         System.out.println(user.getProfilePic());
->>>>>>> bdb850ac8c053d7476bd96d6f915922f408a35eb
         return userRepository.save(user);
     }
 
@@ -127,7 +123,6 @@ public class RESTController {
         return applications;
     }
 
-<<<<<<< HEAD
     @GetMapping("/auth")
     @CrossOrigin(origins = "http://localhost:4200")
     public AuthenticationBean auth() {
@@ -139,7 +134,7 @@ public class RESTController {
     public User getUserByEmail(@PathVariable String email){
         return userRepository.findByEmail(email);
     }
-=======
+
     @DeleteMapping("applications/id")
     @CrossOrigin(origins = "http://localhost:4200")
     public void removeApplication(@PathVariable Long id) {
@@ -165,5 +160,4 @@ public class RESTController {
     }
 
 
->>>>>>> bdb850ac8c053d7476bd96d6f915922f408a35eb
 }
