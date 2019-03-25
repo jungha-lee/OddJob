@@ -27,7 +27,6 @@ export class SearchPageComponent implements OnInit {
     this.jobDataLoaded = false;
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
-      this.selectedJob = jobs[0];
       this.jobDataLoaded = true;
       console.log('2. init end');
     });
