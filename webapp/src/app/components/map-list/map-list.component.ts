@@ -23,5 +23,6 @@ export class MapListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log(this.jobsForMap);
   }
 }

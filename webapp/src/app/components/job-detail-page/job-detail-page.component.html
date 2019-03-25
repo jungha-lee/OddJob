@@ -1,4 +1,4 @@
 <div class="container nopadding">
   <br><br><br>
-  <job-detail [job]="selectedJob" [isDetailPage]="true" ></job-detail>
+  <job-detail *ngIf="selectedJob" [job]="selectedJob" [isDetailPage]="true"></job-detail>
 </div>
