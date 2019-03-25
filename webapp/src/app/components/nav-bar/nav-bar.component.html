@@ -7,8 +7,8 @@
     <li><a routerLink="/postjob" class="nav-link">Post job</a></li>
   </ul>
   <ul class="navbar-nav navbar-collapse justify-content-end">
+    <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" (click)="authenticationService.logout()" class="nav-link">Logout</a></li>
     <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link"> <img src="{{ user.profilePic }}" alt="" width="30px" height="30px" style="border-radius: 99px;">   </a></li>
-    <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" (click)="logout()" class="nav-link">Logout</a></li>
     <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
     <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
   </ul>

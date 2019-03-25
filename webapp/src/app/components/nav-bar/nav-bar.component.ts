@@ -19,10 +19,4 @@ export class NavBarComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
   }
 
-  logout() {
-    console.log("logout");
-    sessionStorage.removeItem('authenticatedUser');
-    this.router.navigate(['/login']);
-  }
-
 }
