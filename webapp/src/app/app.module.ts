@@ -33,6 +33,7 @@ import { ProfileJobsComponent } from './components/profile-jobs/profile-jobs.com
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MapDetailComponent } from './components/map-detail/map-detail.component';
+import { MapListComponent } from './components/map-list/map-list.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { MapDetailComponent } from './components/map-detail/map-detail.component
     ProfileJobsComponent,
     LoginPageComponent,
     LoginFormComponent,
-    MapDetailComponent
+    MapDetailComponent,
+    MapListComponent
   ],
   imports: [
   BrowserModule,

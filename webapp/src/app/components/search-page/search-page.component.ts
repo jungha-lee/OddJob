@@ -1,17 +1,17 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { JobService } from "../../services/job.service";
-import { Job } from "../../models/job";
+import { Component, OnInit, Input } from '@angular/core';
+import { JobService } from '../../services/job.service';
+import { Job } from '../../models/job';
 import { Directive } from '@angular/core';
 
 @Component({
-  selector: "search-page",
-  templateUrl: "./search-page.component.html",
-  styleUrls: ["./search-page.component.css"]
+  selector: 'search-page',
+  templateUrl: './search-page.component.html',
+  styleUrls: ['./search-page.component.css']
 })
-
 export class SearchPageComponent implements OnInit {
   service: JobService;
-  public jobs: Job[];
+  jobs: Job[];
+  searchedJobs: Job[] = [];
   @Input() userInput: string;
   userSearch: string;
   selectedJob: Job;
@@ -27,7 +27,21 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
-  getSelectedJob($event){
+  searchMatches(job) {
+    const ifMatches: boolean =
+      this.aContainsB(job.title, [this.userSearch]) ||
+      this.aContainsB(job.description, [this.userSearch]) ||
+      this.aContainsB(job.location.city, [this.userSearch]) ||
+      this.aContainsB(job.location.country, [this.userSearch]);
+    if (ifMatches) {
+      if (this.searchedJobs.indexOf(job) === -1) {
+        this.searchedJobs.push(job);
+      }
+    }
+    return ifMatches;
+  }
+
+  getSelectedJob($event) {
     this.selectedJob = $event;
     console.log(this.selectedJob);
   }
@@ -39,6 +53,4 @@ export class SearchPageComponent implements OnInit {
   aContainsB(a, b) {
     return a.toLowerCase().indexOf(b) >= 0;
   }
-
-
 }
