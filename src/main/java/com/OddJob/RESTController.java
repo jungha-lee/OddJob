@@ -88,9 +88,11 @@ public class RESTController {
     @CrossOrigin(origins = "http://localhost:4200")
     public User postUser(@RequestBody User user) {
         System.out.println("triggered");
-        user.setPassword(encoder.encode(user.getPassword()));
-        System.out.println(user.getProfilePic());
-        return userRepository.save(user);
+        if (userRepository.findByEmail(user.getEmail()) == null) {
+            user.setPassword(encoder.encode(user.getPassword()));
+            System.out.println(user.getProfilePic());
+            return userRepository.save(user);
+        } else return null;
     }
 
     @GetMapping("/users/jobs/{id}")

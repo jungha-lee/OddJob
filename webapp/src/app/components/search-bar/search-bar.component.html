@@ -1,5 +1,6 @@
 <form class="form-group w-50 container">
   <div class="row">
+
     <div class="col">
       <input
         type="text"
@@ -12,9 +13,13 @@
       <input
         (click)="sendDataToParent()"
         type="submit"
-        class="btn btn-light"
+        class="btn btn-light btn-lg"
         value=" Search "
       />
+    </div>
+
+    <div class="col-3 my-auto">
+        <button class="btn btn-light btn-lg" (click)="showAllJobs()" > Show All Jobs </button>
     </div>
   </div>
 </form>

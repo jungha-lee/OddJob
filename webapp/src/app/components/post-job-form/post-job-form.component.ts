@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
 import { JobService } from "src/app/services/job.service";
 import { LocationService } from "src/app/services/location.service";
 import { Job } from "../../models/job";

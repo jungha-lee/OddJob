@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers("/h2", "/h2/**", "/h2-console/**").permitAll()
+                .antMatchers("/h2", "/h2/**", "/h2-console/**", "/jobs").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .httpBasic();
