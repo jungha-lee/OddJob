@@ -1,14 +1,12 @@
 INSERT INTO USER (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, PHONE, DESCRIPTION)
-VALUES ('pam@be.com', '12345', 'Pamela', 'Anderson', '07245514', 'Working a lot so do not have time for chores'),
-('moneypenny@mit.co.uk', 'secret007', 'Money', 'Penny', '+44 0123 23 32', 'Classified'),
-('Michelle@casablanca.org', '123', 'Michelle', 'Obama', '072-454 43 43', 'Got used to white house staff helping us but now we only use OddJob!'),
-('linus@academy.se', '123', 'Linus', 'Eriksson', '0721902254', 'Bom dia!'),
-('jungha@academy.se', '123', 'Jungha', 'Lee', '0724551334', 'Can help you move with my huge van'),
-('anatoli@latvia.lat', '123', 'Anatoli', 'Vahterovs', '070-33 66 712', 'I help you with this shit'),
-('daniel@academy.se', '123', 'Daniel', 'Persson', '072412314', 'Certified ping pong sensei'),
-('lars@telia.com', '12345', 'Lars', 'Hammar', '0729213', 'I am a friendly guy');
-
-insert into user (email, password) values ('ana@gmail.com', 'aaaaaa');
+VALUES ('pam@be.com', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Pamela', 'Anderson', '07245514', 'Working a lot so do not have time for chores'),
+('moneypenny@mit.co.uk', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Money', 'Penny', '+44 0123 23 32', 'Classified'),
+('Michelle@casablanca.org', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Michelle', 'Obama', '072-454 43 43', 'Got used to white house staff helping us but now we only use OddJob!'),
+('linus@academy.se', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Linus', 'Eriksson', '0721902254', 'Bom dia!'),
+('jungha@academy.se', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Jungha', 'Lee', '0724551334', 'Can help you move with my huge van'),
+('ana@gmail.com', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Anatoli', 'Vahterov', '070-33 66 712', 'I help you with this shit'),
+('daniel@academy.se', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Daniel', 'Persson', '072412314', 'Certified ping pong sensei'),
+('lars@telia.com', '$2a$11$Z7P4Kczw5qARQ4J/qX/bTuOlpjTDm2/lh7pDgRwYSO3CGFNc8hoxW', 'Lars', 'Hammar', '0729213', 'I am a friendly guy');
 
 INSERT INTO JOB (TITLE, PRICE, "DATE", OWNER_ID, LOCATION_ID, DESCRIPTION)
 VALUES ('Painting', 1500, '2019-04-17', 2, 2 , 'Need to paint my daughters room pink. Bring your own paint'),
