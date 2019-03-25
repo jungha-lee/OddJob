@@ -29,6 +29,4 @@ export class JobDetailPageComponent implements OnInit {
       () => console.log("done")
     );
   }
-
-  
 }

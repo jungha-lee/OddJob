@@ -48,9 +48,9 @@
       <small class="text-muted">Posted date: {{ job?.date }}</small>
     </p>
     <p>
-      <button *ngIf="!isOwnedByLoggedInUser" type="button" class="btn btn-primary" (click)="saveJob()">Save</button>&nbsp;
+      <button *ngIf="!(job.ownerId.id == user.id)" type="button" class="btn btn-primary" (click)="saveJob()">Save</button>&nbsp;
       <button *ngIf="!isDetailPage" [routerLink]="['/jobs', job?.id]" type="button" class="btn btn-info">Job Detail</button>
-      <button *ngIf="isOwnedByLoggedInUser && isDetailPage" type="button" class="btn btn-info">Edit</button>
+      <button *ngIf="(job.ownerId.id == user.id) && isDetailPage" type="button" class="btn btn-info">Edit</button>
     </p>
   </div>
 </div>
