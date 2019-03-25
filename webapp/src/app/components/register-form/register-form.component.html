@@ -3,6 +3,7 @@
       <h4 class="card-title mt-3 text-center">Create Account</h4>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   
+        <div class="alert alert-warning" *ngIf="emailIsTaken">{{errorMessage}}</div>
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
