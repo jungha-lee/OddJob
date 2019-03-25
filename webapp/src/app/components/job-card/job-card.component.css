@@ -1,5 +1,10 @@
-.card-body:focus {
+:focus {
   background: rgba(214, 215, 230, 0.699);
 }
+
+#card:hover {
+  background: rgba(214, 215, 230, 0.699);
+}
+
 
 .centered-and-cropped { object-fit: cover }

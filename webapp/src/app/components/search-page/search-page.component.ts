@@ -24,7 +24,10 @@ export class SearchPageComponent implements OnInit {
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
       console.log(jobs[1]);
+      this.selectedJob = jobs[0];
+      console.log(this.selectedJob);
     });
+
   }
 
   searchMatches(job) {

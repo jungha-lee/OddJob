@@ -2,10 +2,22 @@
   padding: 20px;
 }
 
-#job-detail{
-  height: 500px;
-}
-
 .search-page-container{
   padding: 20px;
+}
+
+
+#job-detail{
+  animation-name: appear;
+  animation-duration: 500ms;
+}
+
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

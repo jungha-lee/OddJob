@@ -46,7 +46,7 @@
       <!-- Job price -->
       <div class="form-group input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">Price</span>
+          <span class="input-group-text">Pay</span>
         </div>
         <input
           formControlName="price"
@@ -71,10 +71,8 @@
           type="date"
         />
       </div>
-      <h6 class="text-center">Location</h6>
 
       <!--Location w/ google autocomplete-->
-
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">Location</span>
@@ -88,10 +86,14 @@
           (onAddressChange)="handleAddressChange($event)"
         />
       </div>
-      <!--If not happy with submitted address -->
-      <p id="invalidAddress">Please enter a valid address</p>
-      <!--If not with submitted address -->
-      <p id="validAddress">{{ completeAddress }}</p>
+
+      <div>
+        <!--If not happy with submitted address -->
+        <span id="invalidAddress">Please enter a valid address</span>
+        <!--If happy with submitted address -->
+        <span id="validAddress"> &#9989; {{ completeAddress }} </span>
+        <br>
+      </div>
 
       <!-- button -->
       <div class="form-group">

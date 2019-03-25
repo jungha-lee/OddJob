@@ -17,6 +17,10 @@ export class ProfileComponent implements OnInit {
   userPic: string;
   router: Router;
 
+  sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+  }
+
   constructor(
     service: UserService,
     private r: Router){
@@ -31,13 +35,11 @@ export class ProfileComponent implements OnInit {
 
     /* Update user in session */
     sessionStorage.setItem('authenticatedUser', JSON.stringify(this.user));
-/*     this.router.navigate(['profile']);
- */    location.reload();
-  }
-
-  updateUserPicture(url: string) {
-    this.user.profilePic = url;
-    this.updateUser();
+    document.getElementById('hidden').style.display = 'block';
+    this.sleep(1000).then(() => {
+      location.reload();
+    });
+    
   }
 
   ngOnInit() {
