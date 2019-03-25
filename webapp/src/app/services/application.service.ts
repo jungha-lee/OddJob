@@ -21,5 +21,9 @@ export class ApplicationService {
     return this.http.post(this.url, application);
   }
 
+  removeApplication(id: number) {
+    return this.http.delete(this.url + '/' + id);
+  }
+
 }
 

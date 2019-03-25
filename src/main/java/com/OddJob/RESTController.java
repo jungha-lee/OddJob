@@ -137,9 +137,10 @@ public class RESTController {
         return userRepository.findByEmail(email);
     }
 
-    @DeleteMapping("applications/id")
     @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("applications/id")
     public void removeApplication(@PathVariable Long id) {
+        System.out.println("triggered");
         applicationRepository.deleteById(id);
     }
 
@@ -155,8 +156,8 @@ public class RESTController {
         locationRepository.deleteById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200/**")
     @DeleteMapping("users/id")
-    @CrossOrigin(origins = "http://localhost:4200")
     public void removeUsers(@PathVariable Long id) {
         userRepository.deleteById(id);
     }
