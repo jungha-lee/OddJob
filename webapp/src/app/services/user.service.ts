@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Job } from '../models/job';
+import { Application } from './../models/application';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class UserService {
     return this.http.get<Job[]>(this.url + '/jobs/' + id);
   }
 
-  getJobAppliedByUser(id: number): Observable <Job[]> {
-    return this.http.get<Job[]>(this.url + '/applications/' + id);
+  getJobAppliedByUser(id: number): Observable <Application[]> {
+    return this.http.get<Application[]>(this.url + '/applications/' + id);
   }
 
   register(user: User) {

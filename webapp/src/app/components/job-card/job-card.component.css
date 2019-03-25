@@ -8,3 +8,18 @@
 
 
 .centered-and-cropped { object-fit: cover }
+
+.small {
+  margin-left: 80%;
+  margin-right: 2%;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: black;
+}

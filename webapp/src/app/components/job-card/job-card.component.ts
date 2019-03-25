@@ -9,6 +9,7 @@ import { Job } from '../../models/job';
 export class JobCardComponent implements OnInit {
 
   @Input() job: Job;
+  @Input() appId: number;
   @Output() output = new EventEmitter<Job>();
 
   constructor() { }
