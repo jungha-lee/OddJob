@@ -1,7 +1,7 @@
-<form class="form-group w-50 container">
+<form class="form-group container">
   <div class="row">
-
-    <div class="col">
+    <!-- Search box -->
+    <div class="col-6">
       <input
         type="text"
         class="form-control form-control-lg"
@@ -9,17 +9,18 @@
         placeholder="Search for Odd Jobs!"
       />
     </div>
-    <div class="col-2 my-auto">
+    <!-- Search button -->
+    <div class="">
       <input
         (click)="sendDataToParent()"
         type="submit"
         class="btn btn-light btn-lg"
-        value=" Search "
+        value="Search"
       />
     </div>
-
-    <div class="col-3 my-auto">
-        <button class="btn btn-light btn-lg" (click)="showAllJobs()" > Show All Jobs </button>
+    <!-- Show All Jobs button -->
+    <div class="">
+        <button class="btn btn-light btn-lg showAllJobs" (click)="showAllJobs()">Show All Jobs</button>
     </div>
   </div>
 </form>

@@ -43,3 +43,15 @@
     </div>
   </div>
 </div>
+
+<!-- Caption on video -->
+<div *ngIf="!userSearch" class="videoOverlay">
+  <div class="caption">
+    <h1 class="captiontext">Meet Odd Job,</h1>
+    <h1 class="captiontext">We help each other!</h1>
+  </div>
+</div>
+<!-- Background video -->
+<video *ngIf="!userSearch" autoplay muted loop class="" id="myVideo">
+  <source src="/assets/Working-Space.mp4" type="video/mp4" />
+</video>

@@ -1,23 +1,56 @@
-.searchbar{
+.searchbar {
   padding: 20px;
 }
 
-.search-page-container{
+.search-page-container {
   padding: 20px;
 }
 
-
-#job-detail{
+#job-detail {
   animation-name: appear;
   animation-duration: 500ms;
 }
 
+.videoOverlay {
+  color: #ffffff;
+  position: fixed;
+  /* right: 0; */
+  top: 0;
+  bottom: 0;
+  z-index: -5;
+  text-align: center;
+  min-width: 100%;
+  min-height: 100%;
+}
 
-@keyframes appear{
-  from{
+.caption {
+  font-family: 'Carter One', cursive;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.captiontext {
+  font-size: 60px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -10;
+  filter: brightness(70%);
+}
+
+@keyframes appear {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
