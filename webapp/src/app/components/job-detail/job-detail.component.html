@@ -46,6 +46,7 @@
     <p class="card-text">Contact: {{ job?.ownerId.phone }}</p>
     <p class="card-text">
       <small class="text-muted">Posted date: {{ job?.date }}</small>
+      <app-applicants-list *ngIf="(job.ownerId.id == user.id) && isDetailPage" class="fright" [job]="job"></app-applicants-list>
     </p>
 
     <div *ngIf="!guestUser">

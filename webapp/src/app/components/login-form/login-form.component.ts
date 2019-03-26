@@ -41,20 +41,25 @@ export class LoginFormComponent implements OnInit {
   //   }
   // }
 
+
   handleAuthLogin() {
     this.authenticationService.executeAuthenticationService(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(
         data => {
-          console.log("login, getuserbyemail");
-          this.userService.getUserByEmail(this.loginForm.value.email).subscribe(user => {sessionStorage.setItem('authenticatedUser', JSON.stringify(user)); this.router.navigate(['/profile'])})
+          console.log('login, getuserbyemail');
+          this.userService.getUserByEmail(this.loginForm.value.email).subscribe(
+            user => {sessionStorage.setItem('authenticatedUser', JSON.stringify(user)); this.router.navigate(['/profile'])});
           this.invalidLogin = false;
         },
         error => {
           console.log(error);
           this.invalidLogin = true;
         }
-      )
+      );
   }
 }
+
+
+
 
 

@@ -1,0 +1,7 @@
+<p>
+  <small *ngIf="!isEmpty"  class="text-muted">Has saved this job: </small>
+  <small *ngIf="isEmpty" class="text-muted">No one has saved this job yet!</small>
+</p>
+<span *ngFor="let app of applicants">
+  <img class="round" src={{app.applicantId.profilePic}}>
+</span>

@@ -1,0 +1,10 @@
+.round{
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    float: right;
+}
+
+span {
+    margin: 2px;
+}

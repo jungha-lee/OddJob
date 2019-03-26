@@ -9,7 +9,7 @@ import { Application } from './../models/application';
 
 export class ApplicationService {
 
-  private url: string = 'http://localhost:8080/applications';
+  private url = 'http://localhost:8080/applications';
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class ApplicationService {
 
   postApplication(application: Application) {
     return this.http.post(this.url, application);
+  }
+
+  getApplicationsByJobId(id: number) {
+    return this.http.get<Application[]>(this.url + '/' + id);
   }
 
   removeApplication(id: number) {

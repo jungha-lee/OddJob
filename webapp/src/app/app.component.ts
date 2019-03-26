@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './models/user';
 
 @Component ({
   selector: 'app-root',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
-
+  user: User;
   constructor() {
   }
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
   }
 }

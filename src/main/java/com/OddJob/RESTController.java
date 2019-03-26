@@ -68,6 +68,14 @@ public class RESTController {
         return applications;
     }
 
+    @GetMapping("/applications/{id}")
+    public List<Application> getApplicationsByJobId (@PathVariable Long id) {
+        Job job = jobRepository.findById(id).get();
+
+        return (List<Application>) applicationRepository.findByjobId(job);
+
+    }
+
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return (List<User>)userRepository.findAll();
