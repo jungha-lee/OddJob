@@ -31,6 +31,11 @@ export class UserService {
 
   register(user: User) {
     console.log(user);
+    return this.http.post(this.url + '/register', user);
+  }
+  
+  update(user: User) {
+    console.log(user);
     return this.http.post(this.url, user);
   }
 }
