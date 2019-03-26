@@ -48,6 +48,7 @@ export class JobDetailComponent implements OnInit {
     this.application = new Application(null, this.job, this.user, null, null);
     console.log(this.application);
     this.applicationService.postApplication(this.application).subscribe(user => console.log());
+    location.reload();
   }
 
   //Not working atm
