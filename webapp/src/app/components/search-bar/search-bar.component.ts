@@ -19,7 +19,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   showAllJobs() {
-    this.output.emit(' ');
+    this.output.emit('showAllJobs');
   }
 
 }

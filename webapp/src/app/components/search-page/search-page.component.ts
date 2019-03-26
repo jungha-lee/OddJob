@@ -23,33 +23,32 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('1. init start');
     this.jobDataLoaded = false;
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
       this.jobDataLoaded = true;
-      console.log('2. init end');
     });
-
   }
 
-  searchMatches(job) {
-    console.log('3. searchMatches start');
+  searchMatches(search: string) {
     this.searchedJobLoaded = false;
-    const ifMatches: boolean =
-      this.aContainsB(job.title, [this.userSearch]) ||
-      this.aContainsB(job.description, [this.userSearch]) ||
-      this.aContainsB(job.location.city, [this.userSearch]) ||
-      this.aContainsB(job.location.country, [this.userSearch]);
+    this.searchedJobs = [];
+    console.log('1');
 
-    if (ifMatches) {
-      if (this.searchedJobs.indexOf(job) === -1) {
-        this.searchedJobs.push(job);
+    for (let i = 0; i < this.jobs.length; i++) {
+      if (this.aContainsB(this.jobs[i].title, search) ||
+      this.aContainsB(this.jobs[i].description, search) ||
+      this.aContainsB(this.jobs[i].location.city, search) ||
+      this.aContainsB(this.jobs[i].location.country, search)) {
+        this.searchedJobs.push(this.jobs[i]);
       }
     }
-    console.log('4. searchMatches end');
+
+    this.selectedJob = this.searchedJobs[0];
+
+    console.log('2');
     this.searchedJobLoaded = true;
-    return ifMatches;
+    return this.searchedJobs;
   }
 
   getSelectedJob($event) {
@@ -58,7 +57,13 @@ export class SearchPageComponent implements OnInit {
 
   getUserSearch($event) {
     this.userSearch = $event;
-    this.selectedJob = this.jobs[0];
+
+    if (this.userSearch === 'showAllJobs') {
+      this.searchedJobs = this.jobs;
+      this.selectedJob = this.jobs[0];
+    } else {
+      this.searchedJobs = this.searchMatches(this.userSearch);
+    }
   }
 
   aContainsB(a, b) {
