@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   selectedFile = File;
   userPic: string;
   router: Router;
+  showChangePassword = false;
 
   sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
@@ -79,6 +80,10 @@ export class ProfileComponent implements OnInit {
       });
 
     });
+  }
+
+  toggleChangePassword() {
+    this.showChangePassword = !this.showChangePassword;
   }
 
 
