@@ -1,6 +1,9 @@
 package com.OddJob;
 
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -86,14 +89,23 @@ public class RESTController {
 
     @PostMapping("/users")
     @CrossOrigin(origins = "http://localhost:4200")
-    public User postUser(@RequestBody User user) {
-        if (user.getPassword() == null) {
-            user.setPassword(userRepository.findByEmail(user.getEmail()).getPassword());
-        } else {
-            user.setPassword(encoder.encode(user.getPassword()));
-        }
-        System.out.println(user.getProfilePic());
-        return userRepository.save(user);
+    public ResponseEntity<?> postUser(@RequestBody User user, Principal principal) {
+        if (userRepository.findById(user.getId()).get().getEmail().equals(user.getEmail()) &&principal.getName().equals(user.getEmail())){
+            if (user.getPassword() == null) {
+                user.setPassword(userRepository.findByEmail(user.getEmail()).getPassword());
+            } else {
+                user.setPassword(encoder.encode(user.getPassword()));
+            }
+            System.out.println(user.getProfilePic());
+            return new ResponseEntity<User>(userRepository.save(user), HttpStatus.OK);
+        } else
+            return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
+    }
+
+    @GetMapping("/principal")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Principal userDetails(Principal principal){
+        return principal;
     }
 
     @PostMapping("/users/register")
