@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { User } from './../../models/user';
 import { UserService } from '../../services/user.service';
 import axios from 'axios';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
   }
 
   constructor(
+    private authenticationService: AuthenticationService,
     service: UserService,
     private r: Router){
     this.service = service;
@@ -31,7 +33,7 @@ export class ProfileComponent implements OnInit {
   updateUser() {
     this.user.profilePic = (document.getElementById('pic') as HTMLImageElement).src;
     console.log(this.user);
-    this.service.register(this.user).subscribe(user => console.log(user + ' updated'));
+    this.service.update(this.user).subscribe(user => console.log(user + ' updated'));
 
     /* Update user in session */
     sessionStorage.setItem('authenticatedUser', JSON.stringify(this.user));

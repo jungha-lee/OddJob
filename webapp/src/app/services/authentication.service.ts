@@ -48,6 +48,7 @@ export class AuthenticationService {
   logout() {
     console.log("logout");
     sessionStorage.removeItem('authenticatedUsername');
+    sessionStorage.removeItem('authenticatedUser');
     sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
