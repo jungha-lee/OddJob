@@ -38,8 +38,7 @@ export class JobDetailComponent implements OnInit {
         if (app.jobId.id === this.job.id) {
           this.currentApplication = app;
           this.isAppliedByUser = true;
-        } else {
-          this.isAppliedByUser = false;
+          console.log(this.isAppliedByUser + ' for ' + this.job.title);
         }
       }));
   }
