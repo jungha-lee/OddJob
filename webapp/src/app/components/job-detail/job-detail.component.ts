@@ -27,9 +27,9 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
-    if (this.user.id === this.job.ownerId.id) {
+/*     if (this.user.id === this.job.ownerId.id) {
       this.isOwnedByLoggedInUser = true;
-    }
+    } */
 
     this.userService.getJobAppliedByUser(this.user.id).subscribe(
       data => this.userApplications = data,
