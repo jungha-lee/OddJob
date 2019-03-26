@@ -53,13 +53,13 @@ export class JobDetailComponent implements OnInit {
     if (this.user === undefined || this.user === null) {
       this.user = {
         id: 100000000,
-        email: "guestuser",
-        password: "aaaaaa",
-        firstName: "guest",
-        lastName: "guestsson",
-        phone: "0",
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
         profilePic: "",
-        description: "string"
+        description: ""
       };
       this.guestUser = true;
     } else {

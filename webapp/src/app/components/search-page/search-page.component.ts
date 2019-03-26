@@ -33,20 +33,22 @@ export class SearchPageComponent implements OnInit {
   searchMatches(search: string) {
     this.searchedJobLoaded = false;
     this.searchedJobs = [];
-    console.log('1');
+    console.log("1");
 
     for (let i = 0; i < this.jobs.length; i++) {
-      if (this.aContainsB(this.jobs[i].title, search) ||
-      this.aContainsB(this.jobs[i].description, search) ||
-      this.aContainsB(this.jobs[i].location.city, search) ||
-      this.aContainsB(this.jobs[i].location.country, search)) {
+      if (
+        this.aContainsB(this.jobs[i].title, search) ||
+        this.aContainsB(this.jobs[i].description, search) ||
+        this.aContainsB(this.jobs[i].location.city, search) ||
+        this.aContainsB(this.jobs[i].location.country, search)
+      ) {
         this.searchedJobs.push(this.jobs[i]);
       }
     }
 
     this.selectedJob = this.searchedJobs[0];
 
-    console.log('2');
+    console.log("2");
     this.searchedJobLoaded = true;
     return this.searchedJobs;
   }
@@ -56,10 +58,10 @@ export class SearchPageComponent implements OnInit {
   }
 
   getUserSearch($event) {
-    const untrimmedSearch =$event;
+    const untrimmedSearch = $event;
     this.userSearch = untrimmedSearch.trim();
 
-    if (this.userSearch === 'all jobs') {
+    if (this.userSearch === "all jobs") {
       this.searchedJobs = this.jobs;
       this.selectedJob = this.jobs[0];
     } else {
@@ -69,5 +71,11 @@ export class SearchPageComponent implements OnInit {
 
   aContainsB(a, b) {
     return a.toLowerCase().includes(b) || a.includes(b);
+  }
+
+  sortByPrice() {
+    this.searchedJobs.sort(function(a, b) {
+      return b.price - a.price;
+    });
   }
 }

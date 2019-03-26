@@ -6,10 +6,16 @@
     </div>
   </div>
 
-  <div class="">
+  <div class="row">
     <!-- Job matches text -->
-    <div class="col-12" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
+    <div class="col-3" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
       <p>Found {{ searchedJobs.length }} results for {{ userSearch }}</p>
+    </div>
+
+    <div class="col-2" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
+      <button class="btn btn-light btn-sm showAllJobs" (click)="sortByPrice()">
+        Sort by price
+      </button>
     </div>
   </div>
 
@@ -18,7 +24,7 @@
     <div
       *ngIf="jobDataLoaded && userSearch"
       class="col-4"
-      style="height: 600px; overflow-y: auto;"
+      style="height: 720px; overflow-y: auto;"
     >
       <div *ngFor="let job of searchedJobs">
         <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
@@ -31,12 +37,17 @@
       *ngIf="selectedJob != null && userSearch"
       class="col-4 sticky-top"
       id="job-detail"
+      style="height: 720px; overflow-y: auto;"
     >
       <job-detail [job]="selectedJob"></job-detail>
     </div>
 
     <!-- Map for list of jobs -->
-    <div class="col-4 sticky-top" *ngIf="userSearch">
+    <div
+      class="col-4 sticky-top"
+      *ngIf="userSearch"
+      style="height: 720px; overflow-y: auto;"
+    >
       <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs"></map-list>
     </div>
   </div>
@@ -46,7 +57,7 @@
 <div *ngIf="!userSearch" class="videoOverlay">
   <div class="caption">
     <h1 class="captiontext">Meet Odd Job,</h1>
-    <h1 class="captiontext">We help each other!</h1>
+    <h1 class="captiontext">we help each other!</h1>
   </div>
 </div>
 <!-- Background video -->
