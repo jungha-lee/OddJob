@@ -9,7 +9,7 @@
   <div class="">
     <!-- Job matches text -->
     <div class="col-12" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
-      <p>Job matches for: {{ userSearch }}</p>
+      <p>Found {{ searchedJobs.length }} results for {{ userSearch }}</p>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
       style="height: 600px; overflow-y: auto;"
     >
       <div *ngFor="let job of searchedJobs">
-          <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
+        <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
       </div>
     </div>
 

@@ -19,7 +19,8 @@ export class SearchBarComponent implements OnInit {
   }
 
   showAllJobs() {
-    this.output.emit('showAllJobs');
+    this.output.emit('all jobs');
+    (document.getElementById('textbox') as HTMLInputElement).value = '';
   }
 
 }

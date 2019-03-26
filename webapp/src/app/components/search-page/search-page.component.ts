@@ -56,9 +56,10 @@ export class SearchPageComponent implements OnInit {
   }
 
   getUserSearch($event) {
-    this.userSearch = $event;
+    const untrimmedSearch =$event;
+    this.userSearch = untrimmedSearch.trim();
 
-    if (this.userSearch === 'showAllJobs') {
+    if (this.userSearch === 'all jobs') {
       this.searchedJobs = this.jobs;
       this.selectedJob = this.jobs[0];
     } else {
