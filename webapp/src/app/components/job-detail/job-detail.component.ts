@@ -1,17 +1,16 @@
-import { ApplicationService } from './../../services/application.service';
-import { Application } from './../../models/application';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Job } from 'src/app/models/job';
-import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
+import { ApplicationService } from "./../../services/application.service";
+import { Application } from "./../../models/application";
+import { Component, OnInit, Input, OnDestroy } from "@angular/core";
+import { Job } from "src/app/models/job";
+import { User } from "src/app/models/user";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
-  selector: 'job-detail',
-  templateUrl: './job-detail.component.html',
-  styleUrls: ['./job-detail.component.css']
+  selector: "job-detail",
+  templateUrl: "./job-detail.component.html",
+  styleUrls: ["./job-detail.component.css"]
 })
 export class JobDetailComponent implements OnInit {
-
   @Input() job: Job;
   @Input() isDetailPage = false;
 
@@ -21,40 +20,59 @@ export class JobDetailComponent implements OnInit {
   isAppliedByUser = false;
   currentApplication: Application;
   userApplications: Application[];
+  guestUser: boolean = false;
 
-  constructor(private applicationService: ApplicationService, private userService: UserService) {
-  }
+  constructor(
+    private applicationService: ApplicationService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
-/*     if (this.user.id === this.job.ownerId.id) {
-      this.isOwnedByLoggedInUser = true;
-    } */
+    this.user = JSON.parse(sessionStorage.getItem("authenticatedUser"));
+
+    if (this.user === undefined || this.user === null) {
+      this.user = {
+        id: 100000000,
+        email: "guestuser",
+        password: "aaaaaa",
+        firstName: "guest",
+        lastName: "guestsson",
+        phone: "0",
+        profilePic: "",
+        description: "string"
+      };
+      this.guestUser = true;
+    }
 
     this.userService.getJobAppliedByUser(this.user.id).subscribe(
-      data => this.userApplications = data,
+      data => (this.userApplications = data),
       err => console.error(err),
-      () => this.userApplications.forEach(app => {
-        if (app.jobId.id === this.job.id) {
-          this.currentApplication = app;
-          this.isAppliedByUser = true;
-          console.log(this.isAppliedByUser + ' for ' + this.job.title);
-        }
-      }));
+      () =>
+        this.userApplications.forEach(app => {
+          if (app.jobId.id === this.job.id) {
+            this.currentApplication = app;
+            this.isAppliedByUser = true;
+            console.log(this.isAppliedByUser + " for " + this.job.title);
+          }
+        })
+    );
   }
 
   saveJob() {
-    console.log('Application posted');
+    console.log("Application posted");
     this.application = new Application(null, this.job, this.user, null, null);
     console.log(this.application);
-    this.applicationService.postApplication(this.application).subscribe(user => console.log());
+    this.applicationService
+      .postApplication(this.application)
+      .subscribe(user => console.log());
     location.reload();
   }
 
   //Not working atm
   removeApplication() {
-    console.log('removeApplication: ' + this.currentApplication.id);
-    this.applicationService.removeApplication(this.currentApplication.id).subscribe(res => console.log(res), err => console.error(err));
+    console.log("removeApplication: " + this.currentApplication.id);
+    this.applicationService
+      .removeApplication(this.currentApplication.id)
+      .subscribe(res => console.log(res), err => console.error(err));
   }
-
 }
