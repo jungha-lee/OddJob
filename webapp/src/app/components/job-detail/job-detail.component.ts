@@ -41,7 +41,7 @@ export class JobDetailComponent implements OnInit {
             if (app.jobId.id === this.job.id) {
               this.currentApplication = app;
               this.isAppliedByUser = true;
-              console.log(this.isAppliedByUser + " for " + this.job.title);
+              console.log(this.isAppliedByUser + ' for ' + this.job.title);
             }
           })
       );
@@ -68,7 +68,7 @@ export class JobDetailComponent implements OnInit {
   }
 
   saveJob() {
-    console.log("Application posted");
+    console.log('Application posted');
     this.application = new Application(null, this.job, this.user, null, null);
     console.log(this.application);
     this.applicationService
@@ -77,11 +77,13 @@ export class JobDetailComponent implements OnInit {
     location.reload();
   }
 
-  //Not working atm
   removeApplication() {
-    console.log("removeApplication: " + this.currentApplication.id);
+    console.log('removeApplication: ' + this.currentApplication.id);
     this.applicationService
       .removeApplication(this.currentApplication.id)
-      .subscribe(res => console.log(res), err => console.error(err));
+      .subscribe(
+      res => console.log('Application deleted'),
+      err => console.error(err),
+      () => location.reload());
   }
 }
