@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class RESTController {
 
@@ -25,70 +26,59 @@ public class RESTController {
     private PasswordEncoder encoder;
 
     @GetMapping("/jobs")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<Job> getAllJobs () {
         List<Job> jobs = (List<Job>) jobRepository.findAll();
         return jobs;
     }
 
     @GetMapping("/jobs/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Job getAllJobs(@PathVariable Long id){
         return jobRepository.findById(id).get();
     }
 
     @PostMapping("/jobs")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Job postJob(@RequestBody Job job) {
         return jobRepository.save(job);
     }
 
     @PostMapping("/applications")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Application postApplication(@RequestBody Application application) {
         return applicationRepository.save(application);
     }
 
     @GetMapping("/locations")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<Location> getAllLocations () {
         List<Location> locations = (List<Location>) locationRepository.findAll();
         return locations;
     }
 
     @GetMapping("/locations/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Location getAllLocations(@PathVariable Long id){
         return locationRepository.findById(id).get();
     }
 
     @PostMapping("/locations")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Location postLocation(@RequestBody Location location) {
         return locationRepository.save(location);
     }
 
     @GetMapping("/applications")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<Application> getAllApplications () {
         List<Application> applications = (List<Application>) applicationRepository.findAll();
         return applications;
     }
 
     @GetMapping("/users")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<User> getAllUsers(){
         return (List<User>)userRepository.findAll();
     }
 
     @GetMapping("/users/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public User getAllUsers(@PathVariable Long id){
         return userRepository.findById(id).get();
     }
 
     @PostMapping("/users")
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> postUser(@RequestBody User user, Principal principal) {
         if (userRepository.findById(user.getId()).get().getEmail().equals(user.getEmail()) &&principal.getName().equals(user.getEmail())){
             if (user.getPassword() == null) {
@@ -103,13 +93,11 @@ public class RESTController {
     }
 
     @GetMapping("/principal")
-    @CrossOrigin(origins = "http://localhost:4200")
     public Principal userDetails(Principal principal){
         return principal;
     }
 
     @PostMapping("/users/register")
-    @CrossOrigin(origins = "http://localhost:4200")
     public User registerUser(@RequestBody User user) {
         if (userRepository.findByEmail(user.getEmail()) == null) {
             user.setPassword(encoder.encode(user.getPassword()));
@@ -119,7 +107,6 @@ public class RESTController {
     }
 
     @GetMapping("/users/jobs/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<Job> getJobsOwnedByUser(@PathVariable Long id){
         return (List<Job>)jobRepository.findByOwner_Id(id);
     }
@@ -139,7 +126,6 @@ public class RESTController {
 //    }
 
     @GetMapping("/users/applications/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public List<Application> getApplicationsByUserId(@PathVariable Long id){
 
         User user = userRepository.findById(id).get();
@@ -149,18 +135,15 @@ public class RESTController {
     }
 
     @GetMapping("/auth")
-    @CrossOrigin(origins = "http://localhost:4200")
     public AuthenticationBean auth() {
         return new AuthenticationBean("you are authenticated");
     }
 
     @GetMapping("/usersbyemail/{email}")
-    @CrossOrigin(origins = "http://localhost:4200")
     public User getUserByEmail(@PathVariable String email){
         return userRepository.findByEmail(email);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("applications/id")
     public void removeApplication(@PathVariable Long id) {
         System.out.println("triggered");
@@ -168,18 +151,15 @@ public class RESTController {
     }
 
     @DeleteMapping("jobs/id")
-    @CrossOrigin(origins = "http://localhost:4200")
     public void removeJobs(@PathVariable Long id) {
         jobRepository.deleteById(id);
     }
 
     @DeleteMapping("locations/id")
-    @CrossOrigin(origins = "http://localhost:4200")
     public void removeLocations(@PathVariable Long id) {
         locationRepository.deleteById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200/**")
     @DeleteMapping("users/id")
     public void removeUsers(@PathVariable Long id) {
         userRepository.deleteById(id);
