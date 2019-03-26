@@ -1,6 +1,5 @@
 <div class="card mb-3" id="card">
   <div class="row no-gutters" (click)="selectJobCard()">
-
     <div class="col-md-4">
       <img
         src="{{ job.jobPic }}"
@@ -12,9 +11,12 @@
 
     <div class="col-md-8" tabindex="1">
       <div class="card-body jobcard">
-
-        <div>
+        <div *ngIf="!isOwnedByUser">
           <h5 class="card-title">{{ job.title }}</h5>
+        </div>
+
+        <div *ngIf="isOwnedByUser">
+          <h5 class="card-title" style="color: royalblue">{{ job.title }} - Posted by you</h5>
         </div>
 
         <div>
@@ -23,13 +25,11 @@
           </p>
         </div>
 
-        <br>
+        <br />
 
         <div class="row">
           <div class="col-md-6" style="padding-right: 0px;">
-            <h5 class="card-title jobprice">
-              {{ job.price }} SEK
-            </h5>
+            <h5 class="card-title jobprice">{{ job.price }} SEK</h5>
           </div>
           <div class="col-md-6" style="padding-left: 0px;">
             <p class="card-text jobdate">
@@ -37,7 +37,6 @@
             </p>
           </div>
         </div>
-
       </div>
     </div>
   </div>
