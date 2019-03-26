@@ -30,6 +30,7 @@ export class SearchPageComponent implements OnInit {
       this.jobDataLoaded = true;
       console.log('2. init end');
     });
+
   }
 
   searchMatches(job) {
@@ -53,11 +54,11 @@ export class SearchPageComponent implements OnInit {
 
   getSelectedJob($event) {
     this.selectedJob = $event;
-    console.log(this.selectedJob);
   }
 
   getUserSearch($event) {
     this.userSearch = $event;
+    this.selectedJob = this.jobs[0];
   }
 
   aContainsB(a, b) {
