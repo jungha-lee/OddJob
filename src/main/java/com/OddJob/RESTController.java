@@ -144,23 +144,23 @@ public class RESTController {
         return userRepository.findByEmail(email);
     }
 
-    @DeleteMapping("applications/id")
+    @DeleteMapping("applications/{id}")
     public void removeApplication(@PathVariable Long id) {
         System.out.println("triggered");
         applicationRepository.deleteById(id);
     }
 
-    @DeleteMapping("jobs/id")
+    @DeleteMapping("jobs/{id}")
     public void removeJobs(@PathVariable Long id) {
         jobRepository.deleteById(id);
     }
 
-    @DeleteMapping("locations/id")
+    @DeleteMapping("locations/{id}")
     public void removeLocations(@PathVariable Long id) {
         locationRepository.deleteById(id);
     }
 
-    @DeleteMapping("users/id")
+    @DeleteMapping("users/{id}")
     public void removeUsers(@PathVariable Long id) {
         userRepository.deleteById(id);
     }
