@@ -11,6 +11,11 @@ import { User } from 'src/app/models/user';
 export class NavBarComponent implements OnInit {
   @Input() user: User;
 
+  collapsed = true;
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService) { }

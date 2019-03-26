@@ -1,3 +1,31 @@
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  
+  <a routerLink="" class="navbar-brand">
+    <img src="/assets/oddjob-icon.svg" height="40px" alt="OddJob">
+  </a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+    <ul class="navbar-nav navbar-collapse">
+      <li class="nav-item"><a routerLink="" class="navbar-left nav-link">Search job</a></li>
+      <li class="nav-item"><a routerLink="/postjob" class="navbar-left nav-link">Post job</a></li>
+    </ul>
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li class="navbar-right"><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link"> <img src="{{ user.profilePic }}" alt="" width="30px" height="30px" style="border-radius: 99px;">   </a></li>
+      <li class="navbar-right"><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" (click)="authenticationService.logout()" class="nav-link">Logout</a></li>
+      <li class="navbar-right"><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li class="navbar-right"><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+<!-- Original Nav bar below -->
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <ul class="navbar-nav navbar-collapse">
     <li><a routerLink="" class="navbar-left nav-link">Search job</a></li>
