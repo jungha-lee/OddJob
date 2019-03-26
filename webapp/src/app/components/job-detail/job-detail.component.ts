@@ -30,19 +30,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem("authenticatedUser"));
 
-    if (this.user === undefined || this.user === null) {
-      this.user = {
-        id: 100000000,
-        email: "guestuser",
-        password: "aaaaaa",
-        firstName: "guest",
-        lastName: "guestsson",
-        phone: "0",
-        profilePic: "",
-        description: "string"
-      };
-      this.guestUser = true;
-    }
+    this.checkIfUserIsSignedIn();
 
     this.userService.getJobAppliedByUser(this.user.id).subscribe(
       data => (this.userApplications = data),
@@ -56,6 +44,24 @@ export class JobDetailComponent implements OnInit {
           }
         })
     );
+  }
+
+  checkIfUserIsSignedIn() {
+    if (this.user === undefined || this.user === null) {
+      this.user = {
+        id: 100000000,
+        email: "guestuser",
+        password: "aaaaaa",
+        firstName: "guest",
+        lastName: "guestsson",
+        phone: "0",
+        profilePic: "",
+        description: "string"
+      };
+      this.guestUser = true;
+    } else {
+      this.guestUser = false;
+    }
   }
 
   saveJob() {
