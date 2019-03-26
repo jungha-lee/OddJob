@@ -22,8 +22,6 @@ export class MapListComponent implements OnInit {
   @Input() joblistForMap: Job[];
 
   calcMapCenter() {
-    console.log('5.calcMapCenter is doing something');
-
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.joblistForMap.length; i++) {
       this.listLat.push(this.joblistForMap[i].location.lat);
@@ -35,7 +33,7 @@ export class MapListComponent implements OnInit {
 
   constructor() {
   }
-  
+
   ngOnInit() {
     this.calcMapCenter();
   }
