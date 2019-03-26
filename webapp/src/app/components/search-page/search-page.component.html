@@ -1,12 +1,12 @@
 <div class="search-page-container">
-  <div class="row">
+  <div class="">
     <!-- Search Bar -->
-    <div class="col-12 text-center searchbar">
+    <div class="searchbar">
       <search-bar (output)="getUserSearch($event)"></search-bar>
     </div>
   </div>
 
-  <div class="row">
+  <div class="">
     <!-- Job matches text -->
     <div class="col-12" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
       <p>Job matches for: {{ userSearch }}</p>

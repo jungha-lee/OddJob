@@ -1,4 +1,22 @@
+.rowitems {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.searchbox {
+  max-width: 400px;
+}
+
 .showAllJobs {
-  margin-left: 10px;
   width: 160px;
+}
+
+.nopadding {
+  padding: 0px;
+  margin: 0px;
+}
+
+.bothpadding {
+  padding-left: 10px;
+  padding-right: 10px;
 }
