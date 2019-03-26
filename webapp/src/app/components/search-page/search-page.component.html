@@ -20,10 +20,8 @@
       class="col-4"
       style="height: 600px; overflow-y: auto;"
     >
-      <div *ngFor="let job of jobs">
-        <div *ngIf="searchMatches(job)">
+      <div *ngFor="let job of searchedJobs">
           <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
-        </div>
       </div>
     </div>
 

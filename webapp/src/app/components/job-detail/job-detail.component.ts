@@ -32,18 +32,21 @@ export class JobDetailComponent implements OnInit {
 
     this.checkIfUserIsSignedIn();
 
-    this.userService.getJobAppliedByUser(this.user.id).subscribe(
-      data => (this.userApplications = data),
-      err => console.error(err),
-      () =>
-        this.userApplications.forEach(app => {
-          if (app.jobId.id === this.job.id) {
-            this.currentApplication = app;
-            this.isAppliedByUser = true;
-            console.log(this.isAppliedByUser + " for " + this.job.title);
-          }
-        })
-    );
+    if (!this.guestUser) {
+      this.userService.getJobAppliedByUser(this.user.id).subscribe(
+        data => (this.userApplications = data),
+        err => console.error(err),
+        () =>
+          this.userApplications.forEach(app => {
+            if (app.jobId.id === this.job.id) {
+              this.currentApplication = app;
+              this.isAppliedByUser = true;
+              console.log(this.isAppliedByUser + " for " + this.job.title);
+            }
+          })
+      );
+    }
+
   }
 
   checkIfUserIsSignedIn() {
