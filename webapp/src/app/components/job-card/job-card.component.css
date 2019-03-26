@@ -6,6 +6,21 @@
   background: rgba(214, 215, 230, 0.699);
 }
 
+.jobcard {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.jobprice {
+  font-size: 13pt;
+  color: #0070cc
+}
+
+.jobdate {
+  text-align : right;
+  font-size: 10.5pt;
+  color: #999;
+}
 
 .centered-and-cropped { object-fit: cover }
 
