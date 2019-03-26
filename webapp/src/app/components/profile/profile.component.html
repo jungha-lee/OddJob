@@ -43,7 +43,7 @@
         <span class="input-group-text">Email address</span>
       </div>
       <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="emailField"
-        placeholder="Enter email" />
+        placeholder="Enter email" disabled/>
     </div>
 
     <div class="form-group input-group">
@@ -55,12 +55,21 @@
     </div>
 
     <div class="form-group input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"> Change password</span>
+      <div class="input-group-prepend pointer" (click)="toggleChangePassword()">
+        <span class="input-group-text"> New password</span>
       </div>
-      <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField"
-        placeholder="New password" autocomplete="new-password"/>
+      <input *ngIf="showChangePassword" [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField"
+        placeholder="Password" autocomplete="new-password"/>
     </div>
+    
+    <div class="form-group input-group"  *ngIf="showChangePassword">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> Repeat password</span>
+      </div>
+      <input name="repeatPassword" type="password" class="form-control" id="repaeatPasswordField"
+        placeholder="Password" autocomplete="new-password"/>
+    </div>
+
     <button (click)="updateUser()" type="submit" class="btn btn-primary centered">
       Save information
     </button>
