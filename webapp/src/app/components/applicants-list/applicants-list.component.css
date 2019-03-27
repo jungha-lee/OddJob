@@ -2,9 +2,9 @@
     height: 40px;
     width: 40px;
     border-radius: 100px;
-    float: right;
+    float: left;
 }
 
-span {
-    margin: 2px;
+.margin-bottom {
+  margin-bottom: 5px;
 }
