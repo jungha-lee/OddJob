@@ -17,6 +17,13 @@
     animation: appear;
     animation-duration: 500ms;
   }
+
+#hidden2 {
+    text-align: center;
+    display: none;
+    animation: appear;
+    animation-duration: 500ms;
+}
   
   @keyframes appear {
     from {

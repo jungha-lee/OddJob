@@ -11,6 +11,7 @@ import { LocationService } from 'src/app/services/location.service';
   styleUrls: ['./edit-job.component.css']
 })
 export class EditJobComponent implements OnInit {
+  user: User;
   id: number;
   job: Job;
   completeAddress;
@@ -30,9 +31,17 @@ export class EditJobComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.jobService.getJob(this.id).subscribe(
-      data => (this.job = data),
+      data => {(this.job = data); this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'))},
       err => console.error(err),
-      () => console.log('complete'));
+      () => this.userCheck())
+  }
+
+  userCheck() {
+    if (this.job.ownerId.id !== this.user.id) {
+      this.router.navigate(['/jobs/', this.job.id]);
+    } else {
+      console.log('Jobowner may delete job.');
+    }
   }
 
   // --------Autocomplete address function -> assigning location vars values upon change in address field------------------
@@ -98,6 +107,10 @@ export class EditJobComponent implements OnInit {
     this.jobService.delete(this.job.id).subscribe(
       res => console.log('job id: ' + this.job.id + ' was deleted.'),
       err => console.error(err));
+    document.getElementById('hidden2').style.display = 'block';
+    this.sleep(1500).then(() => {
+      this.router.navigate(['/profile']);
+    });
   }
 
   submit() {
@@ -105,11 +118,10 @@ export class EditJobComponent implements OnInit {
       res => {this.jobService.postJob(this.job).subscribe(
         data => console.log(this.job.title + ' with id: ' + this.job.id + ' was updated.'))}
         );
-
     document.getElementById('hidden').style.display = 'block';
     console.log(document.getElementById('hidden'));
     this.sleep(1500).then(() => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/jobs/', this.job.id]);
     });
   }
 }
