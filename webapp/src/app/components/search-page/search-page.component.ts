@@ -33,8 +33,6 @@ export class SearchPageComponent implements OnInit {
   searchMatches(search: string) {
     this.searchedJobLoaded = false;
     this.searchedJobs = [];
-    console.log("1");
-
     for (let i = 0; i < this.jobs.length; i++) {
       if (
         this.aContainsB(this.jobs[i].title, search) ||
@@ -45,10 +43,7 @@ export class SearchPageComponent implements OnInit {
         this.searchedJobs.push(this.jobs[i]);
       }
     }
-
     this.selectedJob = this.searchedJobs[0];
-
-    console.log("2");
     this.searchedJobLoaded = true;
     return this.searchedJobs;
   }
@@ -60,13 +55,17 @@ export class SearchPageComponent implements OnInit {
   getUserSearch($event) {
     const untrimmedSearch = $event;
     this.userSearch = untrimmedSearch.trim();
-
     if (this.userSearch === "all jobs") {
       this.searchedJobs = this.jobs;
       this.selectedJob = this.jobs[0];
     } else {
       this.searchedJobs = this.searchMatches(this.userSearch);
     }
+  }
+
+  selectedMarkerToJob(val: number) {
+    this.selectedJob = this.searchedJobs[val];
+    console.log(val);
   }
 
   aContainsB(a, b) {

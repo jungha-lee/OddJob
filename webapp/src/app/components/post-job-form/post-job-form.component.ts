@@ -53,7 +53,6 @@ export class PostJobFormComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
-      date: ['', Validators.required]
     });
 
     this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
@@ -145,6 +144,8 @@ export class PostJobFormComponent implements OnInit {
       this.lng
     );
 
+
+
     this.locationService.postLocation(this.locationData).subscribe(data => {
       this.locationService.getLocation(data.id).subscribe(loc => {
         this.newLocation = loc;
@@ -156,8 +157,8 @@ export class PostJobFormComponent implements OnInit {
           (document.getElementById('pic') as HTMLImageElement).src,
           this.user,
           this.postJobForm.controls['price'].value,
-          this.postJobForm.controls['date'].value
-        );
+          new Date().toISOString().slice(0, 10)
+          );
         this.jobService.postJob(this.newJob).subscribe(
           data => {
             alert('Job posted!');

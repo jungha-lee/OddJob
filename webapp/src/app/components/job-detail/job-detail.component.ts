@@ -4,6 +4,8 @@ import { Component, OnInit, Input, OnDestroy } from "@angular/core";
 import { Job } from "src/app/models/job";
 import { User } from "src/app/models/user";
 import { UserService } from "src/app/services/user.service";
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: "job-detail",
@@ -21,10 +23,13 @@ export class JobDetailComponent implements OnInit {
   currentApplication: Application;
   userApplications: Application[];
   guestUser: boolean = false;
+  applyForm: boolean = false;
+  showApplicants: boolean = true;
 
   constructor(
     private applicationService: ApplicationService,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -67,7 +72,16 @@ export class JobDetailComponent implements OnInit {
     }
   }
 
-  saveJob() {
+  toggleApplicants() {
+    this.showApplicants = !this.showApplicants;
+  }
+
+  toggleApplyForm() {
+    console.log('toggle apply form');
+    this.applyForm = !this.applyForm;
+  }
+
+  postApplication() {
     console.log('Application posted');
     this.application = new Application(null, this.job, this.user, null, null);
     console.log(this.application);
@@ -85,5 +99,9 @@ export class JobDetailComponent implements OnInit {
       res => console.log('Application deleted'),
       err => console.error(err),
       () => location.reload());
+  }
+
+  backClicked() {
+    this.location.back();
   }
 }

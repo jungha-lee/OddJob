@@ -2,14 +2,29 @@
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
-  [zoomControl]="false"
+  [zoomControl]="true"
   [streetViewControl]="false"
 >
   <agm-marker
     *ngFor="let m of joblistForMap; let i = index"
+    (markerClick)="markerClicked($event)"
     [latitude]="m.location.lat"
     [longitude]="m.location.lng"
-    [label]="m.title"
+    [label]="{
+      color: '#000000',
+      fontWeight: 'bold',
+      text: m.title
+    }"
+    [iconUrl]="{
+      url: './assets/oddjob_hat.svg',
+      scaledSize: {
+        width: 30,
+        height: 30
+      },
+      labelOrigin:{x:10,y:40}
+    }"
   >
   </agm-marker>
 </agm-map>
+
+<!-- [label]="m.title" -->

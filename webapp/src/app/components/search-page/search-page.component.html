@@ -46,9 +46,9 @@
     <div
       class="col-4 sticky-top"
       *ngIf="userSearch"
-      style="height: 720px; overflow-y: auto;"
+      
     >
-      <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs"></map-list>
+      <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs" (selectedMarker)="selectedMarkerToJob($event)"></map-list>
     </div>
   </div>
 </div>
