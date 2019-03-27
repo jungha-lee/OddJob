@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { LoggedInUserService } from 'src/app/services/logged-in-user.service';
 import { User } from 'src/app/models/user';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +11,8 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  @Input() user: User;
+  user: User;
+  subscription: Subscription;
 
   collapsed = true;
   toggleCollapsed(): void {
@@ -18,7 +21,10 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private loggedInUserService: LoggedInUserService) { 
+      this.subscription = this.loggedInUserService.getUser().subscribe(user => { this.user = user; console.log(user) });
+    }
 
   ngOnInit() {
   }

@@ -38,6 +38,7 @@ import { MapListComponent } from './components/map-list/map-list.component';
 import { ApplicantsListComponent } from './components/applicants-list/applicants-list.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
+import { LoggedInUserService } from './services/logged-in-user.service';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { ApplicationFormComponent } from './components/application-form/applicat
     }),
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'linusaxel'})
   ],
-  providers: [JobService, UserService, AuthenticationService, AuthGuardService, 
+  providers: [JobService, UserService, AuthenticationService, AuthGuardService, LoggedInUserService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpInterceptorService,
