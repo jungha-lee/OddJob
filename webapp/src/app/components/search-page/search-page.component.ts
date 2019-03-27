@@ -71,6 +71,7 @@ export class SearchPageComponent implements OnInit {
 
   selectedMarkerToJob(val: number) {
     this.selectedJob = this.searchedJobs[val];
+    console.log(val);
   }
 
   aContainsB(a, b) {
