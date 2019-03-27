@@ -1,10 +1,17 @@
-<div id="marg" class="container">
-  <div class="fiftyPercent">
-
+<div id="marg" class="card container odd-cardbody">
+  <div class="">
     <!--Your profile-->
     <!-- Picture -->
     <div class="card-body">
-      <img src="{{userPic}}" id="pic" class="centered" height="200px" width="200px" />
+      <h4 class="card-title mt-3 text-center">My profile</h4>
+      <br />
+      <img
+        src="{{ userPic }}"
+        id="pic"
+        class="centered"
+        height="150px"
+        width="150px"
+      />
       <div>
         <label class="file-upload-container right" for="file-upload">
           <input id="file-upload" type="file" />
@@ -15,10 +22,16 @@
     <!--Description-->
     <div class="form-group input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">About you:</span>
+        <span class="input-group-text">About me</span>
       </div>
-      <textarea rows="8" cols="40" [(ngModel)]="user.description" name="description" class="form-control"
-        id="descriptionField" placeholder="Write something about yourself"></textarea>
+      <textarea
+        rows="4"
+        [(ngModel)]="user.description"
+        name="description"
+        class="form-control"
+        id="descriptionField"
+        placeholder="Write something about yourself"
+      ></textarea>
     </div>
 
     <!--informations-->
@@ -26,51 +39,94 @@
       <div class="input-group-prepend">
         <span class="input-group-text">First name</span>
       </div>
-      <input [(ngModel)]="user.firstName" name="fir stName" type="text" class="form-control" id="firstNameField"
-        placeholder="First name" />
+      <input
+        [(ngModel)]="user.firstName"
+        name="fir stName"
+        type="text"
+        class="form-control"
+        id="firstNameField"
+        placeholder="First name"
+      />
     </div>
 
     <div class="form-group input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Last name</span>
       </div>
-      <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control" id="lastNameField"
-        placeholder="Enter email" />
+      <input
+        [(ngModel)]="user.lastName"
+        name="lastName"
+        type="text"
+        class="form-control"
+        id="lastNameField"
+        placeholder="Enter email"
+      />
     </div>
 
     <div class="form-group input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">Email address</span>
+        <span class="input-group-text">Email</span>
       </div>
-      <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="emailField"
-        placeholder="Enter email" disabled/>
+      <input
+        [(ngModel)]="user.email"
+        name="email"
+        type="email"
+        class="form-control"
+        id="emailField"
+        placeholder="Enter email"
+        disabled
+      />
     </div>
 
     <div class="form-group input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">Phone number</span>
+        <span class="input-group-text">Mobile</span>
       </div>
-      <input [(ngModel)]="user.phone" name="phone" type="text" class="form-control" id="phoneField"
-        placeholder="Enter phone number" />
+      <input
+        [(ngModel)]="user.phone"
+        name="phone"
+        type="text"
+        class="form-control"
+        id="phoneField"
+        placeholder="Enter phone number"
+      />
     </div>
 
     <div class="form-group input-group">
       <div class="input-group-prepend pointer" (click)="toggleChangePassword()">
-        <span class="input-group-text"> New password</span>
+        <span class="input-group-text">Password</span>
       </div>
-      <input *ngIf="showChangePassword" [(ngModel)]="user.password" name="password" type="password" class="form-control" id="passwordField"
-        placeholder="Password" autocomplete="new-password"/>
+      <input
+        *ngIf="showChangePassword"
+        [(ngModel)]="user.password"
+        name="password"
+        type="password"
+        class="form-control"
+        id="passwordField"
+        placeholder="Password"
+        autocomplete="new-password"
+      />
     </div>
-    
-    <div class="form-group input-group"  *ngIf="showChangePassword">
+
+    <div class="form-group input-group" *ngIf="showChangePassword">
       <div class="input-group-prepend">
         <span class="input-group-text"> Repeat password</span>
       </div>
-      <input name="repeatPassword" type="password" class="form-control" id="repaeatPasswordField"
-        placeholder="Password" autocomplete="new-password"/>
+      <input
+        name="repeatPassword"
+        type="password"
+        class="form-control"
+        id="repaeatPasswordField"
+        placeholder="Password"
+        autocomplete="new-password"
+      />
     </div>
 
-    <button (click)="updateUser()" type="submit" class="btn btn-primary centered">
+    <button
+      (click)="updateUser()"
+      type="submit"
+      class="btn btn-primary centered"
+    >
       Save information
     </button>
     <small class="centered" id="hidden"><em>Profile updated!</em></small>

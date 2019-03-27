@@ -1,4 +1,24 @@
+<!-- <app-profile [user]="user"></app-profile>
+<app-profile-jobs
+  [jobsOwned]="jobsOwned"
+  [jobsApplied]="jobsApplied"
+></app-profile-jobs> -->
 
-<app-profile [user]="user"></app-profile>
+<!-- --- -->
 
-<app-profile-jobs [jobsOwned]="jobsOwned" [jobsApplied]="jobsApplied"></app-profile-jobs>
+<div class="page-container">
+  <div class="row">
+
+    <div class="col-4" style="height: 850px;">
+      <app-profile [user]="user"></app-profile>
+    </div>
+
+    <div class="col-8" style="height: 850px; overflow-y: auto;">
+      <app-profile-jobs
+        [jobsOwned]="jobsOwned"
+        [jobsApplied]="jobsApplied"
+      ></app-profile-jobs>
+    </div>
+
+  </div>
+</div>

@@ -11,20 +11,23 @@
 
     <div class="col-md-8" tabindex="1">
       <div class="card-body jobcard">
-        <div *ngIf="!isOwnedByUser">
+        <div>
           <h5 class="card-title">{{ job.title }}</h5>
         </div>
 
-        <div *ngIf="isOwnedByUser">
-          <h5 class="card-title" style="color: royalblue">
-            {{ job.title }} - Posted by you
-          </h5>
-        </div>
-
-        <div>
+        <div *ngIf="!isOwnedByUser">
           <p class="card-text">
             {{ job.location.city }}, {{ job.location.country }}
           </p>
+        </div>
+
+        <div *ngIf="isOwnedByUser">
+          <span class="card-text">
+            {{ job.location.city }}, {{ job.location.country }}
+          </span>&nbsp;
+          <span class="card-text" style="color: #218838; font-weight: 500;">
+            *Posted by me
+          </span>
         </div>
 
         <br />
