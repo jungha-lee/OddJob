@@ -1,6 +1,7 @@
-<div class="card bg-light">
+<div class="card container odd-cardbody">
   <article class="card-body col-sm-8 container">
     <h4 class="card-title mt-3 text-center">Post Job</h4>
+    <br />
     <form [formGroup]="postJobForm" (ngSubmit)="onSubmit()">
       <!-- Job Picture -->
       <div class="form-group input-group">
@@ -35,6 +36,7 @@
           <span class="input-group-text">Description</span>
         </div>
         <textarea
+          rows="4"
           formControlName="description"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
@@ -78,7 +80,7 @@
         <span id="invalidAddress">Please enter a valid address</span>
         <!--If happy with submitted address -->
         <span id="validAddress"> &#9989; {{ completeAddress }} </span>
-        <br>
+        <br />
       </div>
 
       <!-- button -->

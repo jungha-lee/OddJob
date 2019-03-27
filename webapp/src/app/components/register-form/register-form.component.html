@@ -1,62 +1,107 @@
-<div class="card bg-light">
-    <article class="card-body mx-auto">
-      <h4 class="card-title mt-3 text-center">Create Account</h4>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  
-        <div class="alert alert-warning" *ngIf="emailIsTaken">{{errorMessage}}</div>
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          </div>
-          <input formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="First name" type="text">
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">First Name is required</div>
-          </div>
+<div class="card container odd-cardbody">
+  <article class="card-body mx-auto">
+    <h4 class="card-title mt-3 text-center">Create Account</h4>
+    <br />
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="alert alert-warning" *ngIf="emailIsTaken">
+        {{ errorMessage }}
+      </div>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
         </div>
-        <!-- form-group// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          </div>
-          <input formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" name="lastName" placeholder="Last name" type="text">
-          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-          </div>
+        <input
+          formControlName="firstName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          placeholder="First name"
+          type="text"
+        />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">First Name is required</div>
         </div>
-        <!-- form-group// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-          </div>
-          <input formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" placeholder="Email address" type="email">
+      </div>
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
         </div>
-        <!-- form-group// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-          </div>
-          <input formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" name="phone" placeholder="Phone number" type="text">
+        <input
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          name="lastName"
+          placeholder="Last name"
+          type="text"
+        />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
         </div>
-        <!-- form-group end.// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-          </div>
-          <input formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" name="password" placeholder="Create password" type="password" autocomplete="new-password">
+      </div>
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
         </div>
-        <!-- form-group// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-          </div>
-          <input class="form-control" placeholder="Repeat password" type="password">
+        <input
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          name="email"
+          placeholder="Email address"
+          type="email"
+        />
+      </div>
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
         </div>
-        <!-- form-group// -->
-        <div class="form-group">
-          <button [disabled]="loading" class="btn btn-primary btn-block"> Create Account </button>
+        <input
+          formControlName="phone"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+          name="phone"
+          placeholder="Phone number"
+          type="text"
+        />
+      </div>
+      <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <!-- form-group// -->
-        <p class="text-center">Have an account? <a routerLink="/login">Log In</a> </p>
-      </form>
-    </article>
-  </div>
+        <input
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          name="password"
+          placeholder="Create password"
+          type="password"
+          autocomplete="new-password"
+        />
+      </div>
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input
+          class="form-control"
+          placeholder="Repeat password"
+          type="password"
+        />
+      </div>
+      <!-- form-group// -->
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary btn-block">
+          Create Account
+        </button>
+      </div>
+      <!-- form-group// -->
+      <p class="text-center">
+        Have an account? <a routerLink="/login">Log In</a>
+      </p>
+    </form>
+  </article>
+</div>

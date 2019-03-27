@@ -1,25 +1,116 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Job } from 'src/app/models/job';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'map-list',
   templateUrl: './map-list.component.html',
-  styleUrls: ['./map-list.component.css'],
+  styleUrls: ['./map-list.component.css']
 })
 export class MapListComponent implements OnInit {
   // google maps zoom level
   zoom: number = 10;
-  
+
   // initial center position for the map
   lat: number;
   lng: number;
-  
+
   // list of lat,lng for calcualting center of map
   listLat: number[] = [];
   listLng: number[] = [];
-  
+
+  styles: any[] = [
+    {
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ff0000"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": -30
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#353535"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#656565"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#505050"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#808080"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#454545"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "hue": "#000000"
+            },
+            {
+                "saturation": 100
+            },
+            {
+                "lightness": -40
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "gamma": 1.5
+            }
+        ]
+    }
+];
+
   @Input() joblistForMap: Job[];
   @Output() selectedMarker = new EventEmitter<number>();
 
@@ -35,7 +126,6 @@ export class MapListComponent implements OnInit {
 
   markerClicked(marker: Marker, m: Job) {
     this.selectedMarker.emit(m.id);
-    console.log(m.id);
   }
 
   constructor() {}
@@ -43,7 +133,6 @@ export class MapListComponent implements OnInit {
   ngOnInit() {
     this.calcMapCenter();
   }
-
 }
 
 interface Marker {
