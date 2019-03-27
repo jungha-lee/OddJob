@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
+import { LoggedInUserService } from 'src/app/services/logged-in-user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +20,8 @@ export class LoginFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private userService: UserService
+    private userService: UserService,
+    private loggedInUserService: LoggedInUserService
   ) { }
 
   ngOnInit() {
@@ -48,7 +50,10 @@ export class LoginFormComponent implements OnInit {
         data => {
           console.log('login, getuserbyemail');
           this.userService.getUserByEmail(this.loginForm.value.email).subscribe(
-            user => {sessionStorage.setItem('authenticatedUser', JSON.stringify(user)); this.router.navigate(['/profile'])});
+            user => {
+              this.loggedInUserService.setUser(user);
+              this.router.navigate(['/profile'])
+            });
           this.invalidLogin = false;
         },
         error => {
