@@ -16,7 +16,9 @@
         </div>
 
         <div *ngIf="isOwnedByUser">
-          <h5 class="card-title" style="color: royalblue">{{ job.title }} - Posted by you</h5>
+          <h5 class="card-title" style="color: royalblue">
+            {{ job.title }} - Posted by you
+          </h5>
         </div>
 
         <div>
@@ -32,9 +34,9 @@
             <h5 class="card-title jobprice">{{ job.price }} SEK</h5>
           </div>
           <div class="col-md-6" style="padding-left: 0px;">
-              <span style="color:white">{{ job.id }}</span><span class="card-text jobdate">
+            <p class="card-text jobdate">
               {{ job.date }}
-            </span>
+            </p>
           </div>
         </div>
       </div>
