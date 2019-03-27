@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoggedInUserService } from 'src/app/services/logged-in-user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AuthenticationService {
   constructor(
     private userService: UserService,
     private http: HttpClient,
-    private router: Router) {}
+    private router: Router,
+    private loggedInUserService: LoggedInUserService) {}
 
   // authenticate(username, password) {
   //   if (username === "ana@gmail.com" && password === "aaaaaa"){
@@ -46,10 +48,10 @@ export class AuthenticationService {
   }
 
   logout() {
-    console.log("logout");
     sessionStorage.removeItem('authenticatedUsername');
     sessionStorage.removeItem('authenticatedUser');
     sessionStorage.removeItem('token');
+    this.loggedInUserService.clearUser();
     this.router.navigate(['/login']);
   }
 

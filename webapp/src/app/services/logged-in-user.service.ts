@@ -11,7 +11,7 @@ export class LoggedInUserService {
   
   constructor() { }
   
-  clearProfileImg() {
+  clearUser() {
     this.subject.next();
   }
 

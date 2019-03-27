@@ -35,7 +35,7 @@
     <img src="/assets/oddjob-icon.svg" height="40px" alt="OddJob">
   </a>
   <ul class="navbar-nav navbar-collapse justify-content-end">
-    <li class="navbar-right"><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-link"> <img src="{{ user.profilePic }}" alt="" width="30px" height="30px" style="border-radius: 99px;">   </a></li>
+    <li class="navbar-right"><a *ngIf="authenticationService.isUserLoggedIn() && user" routerLink="/profile" class="nav-link"> <img src="{{ user.profilePic }}" alt="" width="30px" height="30px" style="border-radius: 99px;">   </a></li>
     <li class="navbar-right"><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" (click)="authenticationService.logout()" class="nav-link">Logout</a></li>
     <li class="navbar-right"><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
     <li class="navbar-right"><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
