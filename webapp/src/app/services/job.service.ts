@@ -7,7 +7,7 @@ import { Job } from '../models/job';
   providedIn: 'root'
 })
 export class JobService {
-  private url: string = 'http://localhost:8080/jobs';
+  private url: string = 'http://oddjob.cfapps.io/jobs';
 
   constructor(private http: HttpClient) {}
 

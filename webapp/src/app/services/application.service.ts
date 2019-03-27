@@ -9,7 +9,7 @@ import { Application } from './../models/application';
 
 export class ApplicationService {
 
-  private url = 'http://localhost:8080/applications';
+  private url = 'http://oddjob.cfapps.io/applications';
 
   constructor(private http: HttpClient) { }
 
