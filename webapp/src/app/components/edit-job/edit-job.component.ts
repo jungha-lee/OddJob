@@ -94,11 +94,18 @@ export class EditJobComponent implements OnInit {
       });
     }
 
+  deleteJob() {
+    this.jobService.delete(this.job.id).subscribe(
+      res => console.log('job id: ' + this.job.id + ' was deleted.'),
+      err => console.error(err));
+  }
+
   submit() {
     this.locationService.postLocation(this.job.location).subscribe(
       res => {this.jobService.postJob(this.job).subscribe(
         data => console.log(this.job.title + ' with id: ' + this.job.id + ' was updated.'))}
         );
+
     document.getElementById('hidden').style.display = 'block';
     console.log(document.getElementById('hidden'));
     this.sleep(1500).then(() => {

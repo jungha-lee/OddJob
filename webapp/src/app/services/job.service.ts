@@ -22,4 +22,8 @@ export class JobService {
   postJob(job: Job) {
     return this.http.post<Job>(this.url, job);
   }
+
+  delete(id: number) {
+    return this.http.delete(this.url + '/' +  id);
+  }
 }
