@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Job } from 'src/app/models/job';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'map-list',
   templateUrl: './map-list.component.html',
-  styleUrls: ['./map-list.component.css']
+  styleUrls: ['./map-list.component.css'],
 })
 export class MapListComponent implements OnInit {
   // google maps zoom level
@@ -32,8 +33,8 @@ export class MapListComponent implements OnInit {
     this.lng = (Math.max(...this.listLng) + Math.min(...this.listLng)) / 2;
   }
 
-  markerClicked(marker: Marker) {
-    this.selectedMarker.emit(marker._id);
+  markerClicked(marker: Marker, m: number) {
+    this.selectedMarker.emit(m - 1);
   }
 
   constructor() {}
@@ -41,6 +42,7 @@ export class MapListComponent implements OnInit {
   ngOnInit() {
     this.calcMapCenter();
   }
+
 }
 
 interface Marker {

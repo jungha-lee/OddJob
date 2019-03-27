@@ -53,6 +53,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   getUserSearch($event) {
+    this.searchedJobLoaded = false;
     const untrimmedSearch = $event;
     this.userSearch = untrimmedSearch.trim();
     if (this.userSearch === "all jobs") {
@@ -61,11 +62,11 @@ export class SearchPageComponent implements OnInit {
     } else {
       this.searchedJobs = this.searchMatches(this.userSearch);
     }
+    this.searchedJobLoaded = true;
   }
 
   selectedMarkerToJob(val: number) {
-    this.selectedJob = this.searchedJobs[val];
-    console.log(val);
+    this.selectedJob = this.jobs[val];
   }
 
   aContainsB(a, b) {

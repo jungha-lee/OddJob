@@ -10,7 +10,7 @@ import { Application } from './../models/application';
 })
 export class UserService {
 
-  private url = 'http://localhost:8080/users';
+  private url = 'http://oddjob.cfapps.io/users';
 
   constructor(private http: HttpClient) {}
 
@@ -34,7 +34,7 @@ export class UserService {
     console.log(user);
     return this.http.post(this.url + '/register', user);
   }
-  
+
   update(user: User) {
     console.log(user);
     return this.http.post(this.url, user);

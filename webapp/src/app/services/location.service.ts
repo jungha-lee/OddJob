@@ -7,7 +7,7 @@ import { Location } from '../models/location';
   providedIn: 'root'
 })
 export class LocationService {
-  private url: string = 'http://localhost:8080/locations';
+  private url: string = 'http://oddjob.cfapps.io/locations';
 
   constructor(private http: HttpClient) {}
 
