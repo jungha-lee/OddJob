@@ -34,7 +34,7 @@ export class MapListComponent implements OnInit {
   }
 
   markerClicked(marker: Marker, m: Job) {
-    this.selectedMarker.emit(m);
+    this.selectedMarker.emit(0);
   }
 
   constructor() {}
