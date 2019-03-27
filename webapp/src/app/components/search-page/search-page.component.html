@@ -24,7 +24,7 @@
     <div
       *ngIf="jobDataLoaded && userSearch"
       class="col-4"
-      style="height: 720px; overflow-y: auto;"
+      style="height: 750px; overflow-y: auto;"
     >
       <div *ngFor="let job of searchedJobs">
         <job-card [job]="job" (output)="getSelectedJob($event)"></job-card>
@@ -37,7 +37,7 @@
       *ngIf="selectedJob != null && userSearch"
       class="col-4 sticky-top"
       id="job-detail"
-      style="height: 720px; overflow-y: auto;"
+      style="height: 750px; overflow-y: auto;"
     >
       <job-detail [job]="selectedJob"></job-detail>
     </div>
@@ -46,7 +46,7 @@
     <div
       class="col-4 sticky-top"
       *ngIf="userSearch"
-      style="height: 720px; overflow-y: auto;"
+      
     >
       <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs"></map-list>
     </div>
