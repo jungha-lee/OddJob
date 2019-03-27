@@ -4,6 +4,7 @@ import { JobService } from 'src/app/services/job.service';
 import { Job } from 'src/app/models/job';
 import axios from 'axios';
 import { LocationService } from 'src/app/services/location.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-edit-job',
@@ -17,7 +18,9 @@ export class EditJobComponent implements OnInit {
   completeAddress;
   string;
   incompleteAddress = false;
-  componentRestrictions: { country: 'se' };
+  options = {
+    componentRestrictions: { country: 'se' }
+  };
 
   sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
