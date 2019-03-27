@@ -48,7 +48,7 @@
       *ngIf="userSearch"
       
     >
-      <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs"></map-list>
+      <map-list *ngIf="jobDataLoaded" [joblistForMap]="searchedJobs" (selectedMarker)="selectedMarkerToJob($event)"></map-list>
     </div>
   </div>
 </div>

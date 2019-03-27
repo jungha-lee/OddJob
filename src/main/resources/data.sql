@@ -13,15 +13,15 @@ VALUES ('Painting', 500, '2019-04-17', 2, 1 , 'Need to paint my daughters room p
 ('Plumbing', 1050, '2019-04-02', 4, 2 , 'Fix my pipes', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592606/plumbing.jpg'),
 ('Gardening', 500, '2019-04-04', 1, 3 , 'Fix my plants', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592880/garden.jpg'),
 ('Painting', 600, '2019-04-12', 2, 4 , 'Fix my wall', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592467/Stocksy_txpdc39b9790by000_Medium_867684-5a958e10119fa80036fb82b6.jpg'),
-('Plumbing', 1100, '2019-05-02', 4, 5 , 'My toilet is clogged', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592624/sink.jpg'),
-('Teaching', 800, '2019-04-02', 3, 1 , 'Need someone to help my kid practice math', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592647/teachingmath.jpg'),
-('Technology', 2000, '2019-04-01', 4, 2 , 'Install my new computer', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592683/computerinstall.jpg'),
-('Painting', 1220, '2019-06-02', 5, 3 , 'My house is brown but I would like it red.', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592565/painting.jpg'),
-('Plumbing', 400, '2019-04-02', 6, 4 , 'Fix my pipes', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592606/plumbing.jpg'),
-('Gardening', 300, '2019-04-04', 8, 5 , 'Fix my plants', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592880/garden.jpg'),
-('Painting', 450, '2019-04-12', 7, 1 , 'Fix my wall', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592565/painting.jpg'),
-('Plumbing', 700, '2019-05-02', 4, 2 , 'My toilet is clogged', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592606/plumbing.jpg'),
-('Gardening', 1150, '2019-04-01', 4, 3 , 'Mow my lawn. 200 sqm', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592900/gg.jpg');
+('Plumbing', 1100, '2019-05-02', 4, 5 , 'My toilet is clogged', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592624/sink.jpg');
+--('Teaching', 800, '2019-04-02', 3, 1 , 'Need someone to help my kid practice math', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592647/teachingmath.jpg'),
+--('Technology', 2000, '2019-04-01', 4, 2 , 'Install my new computer', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592683/computerinstall.jpg'),
+--('Painting', 1220, '2019-06-02', 5, 3 , 'My house is brown but I would like it red.', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592565/painting.jpg'),
+--('Plumbing', 400, '2019-04-02', 6, 4 , 'Fix my pipes', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592606/plumbing.jpg'),
+--('Gardening', 300, '2019-04-04', 8, 5 , 'Fix my plants', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592880/garden.jpg'),
+--('Painting', 450, '2019-04-12', 7, 1 , 'Fix my wall', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592565/painting.jpg'),
+--('Plumbing', 700, '2019-05-02', 4, 2 , 'My toilet is clogged', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592606/plumbing.jpg'),
+--('Gardening', 1150, '2019-04-01', 4, 3 , 'Mow my lawn. 200 sqm', 'https://res.cloudinary.com/linusaxel/image/upload/v1553592900/gg.jpg');
 
 INSERT INTO APPLICATION (JOB_ID, APPLICANT_ID, APPLICANT_MSG)
 VALUES (1, 1,'I would love to, got lots of experience'),
@@ -29,9 +29,9 @@ VALUES (1, 1,'I would love to, got lots of experience'),
  (3, 1,'I know all about that'),
  (1, 2,'Send me a msg if you want to see my resume'),
  (2, 2,'I will do it'),
- (4, 4,'I would love to, got lots of experience'),
- (6, 5,'I would love to, got lots of experience'),
- (6, 4,'I would love to, got lots of experience');
+ (4, 4,'I would love to, got lots of experience');
+-- (6, 5,'I would love to, got lots of experience'),
+-- (6, 4,'I would love to, got lots of experience');
 
 INSERT INTO LOCATION (STREET, ZIP_CODE, CITY, COUNTRY, LAT, LNG)
 VALUES ('Borgarfjordsgatan 4', '164 55', 'Kista', 'Sweden', 59.407626, 17.946810),

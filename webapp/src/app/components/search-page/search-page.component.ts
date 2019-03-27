@@ -69,6 +69,10 @@ export class SearchPageComponent implements OnInit {
     }
   }
 
+  selectedMarkerToJob(val: number) {
+    this.selectedJob = this.searchedJobs[val];
+  }
+
   aContainsB(a, b) {
     return a.toLowerCase().includes(b) || a.includes(b);
   }
