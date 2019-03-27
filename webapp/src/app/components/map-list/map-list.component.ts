@@ -33,8 +33,8 @@ export class MapListComponent implements OnInit {
     this.lng = (Math.max(...this.listLng) + Math.min(...this.listLng)) / 2;
   }
 
-  markerClicked(marker: Marker, m: number) {
-    this.selectedMarker.emit(m - 1);
+  markerClicked(marker: Marker, m: Job) {
+    this.selectedMarker.emit(m);
   }
 
   constructor() {}
