@@ -74,7 +74,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   sortByPrice() {
-    this.searchedJobs.sort(function(a, b) {
+    this.searchedJobs.sort((a, b) => {
       return b.price - a.price;
     });
   }
