@@ -42,16 +42,24 @@
     <p class="card-text">Contact: {{ job?.ownerId.phone }}</p>
     <p class="card-text">
       <small class="text-muted">Posted date: {{ job?.date }}</small>
-      <app-applicants-list *ngIf="(job.ownerId.id == user.id) && isDetailPage" class="fright" [job]="job"></app-applicants-list>
     </p>
 
     <div *ngIf="!guestUser">
       <p>
-        <button *ngIf="isAppliedByUser && isDetailPage" type="button" class="btn btn-danger" (click)="removeApplication()">remove</button>
-        <button *ngIf="!(job.ownerId.id == user.id) && !isAppliedByUser && isDetailPage" type="button" class="btn btn-primary" (click)="saveJob()">Save</button>&nbsp;
+          <button *ngIf="isAppliedByUser && isDetailPage" type="button" class="btn btn-danger btn-space" (click)="removeApplication()">Remove</button>
+          <button *ngIf="(job.ownerId.id == user.id) && isDetailPage" type="button" class="btn btn-info btn-space">Edit</button>
+          <button *ngIf="(job.ownerId.id == user.id) && isDetailPage" type="button" class="btn btn-info btn-space" (click)="toggleApplicants()">Toggle Applicants</button>
+        <button *ngIf="!(job.ownerId.id == user.id) && !isAppliedByUser && isDetailPage" type="button" class="btn btn-primary btn-space" (click)="toggleApplyForm()">Apply</button>&nbsp;
         <button *ngIf="!isDetailPage" [routerLink]="['/jobs', job?.id]" type="button" class="btn btn-info">Job Detail</button>
-        <button *ngIf="(job.ownerId.id == user.id) && isDetailPage" type="button" class="btn btn-info">Edit</button>
       </p>
     </div>
+
+    <div *ngIf="applyForm">
+      <app-application-form [job]="job" [user]="user"></app-application-form>
+    </div>
+  </div>
+  <div class="container">
+      <app-applicants-list *ngIf="showApplicants && (job.ownerId.id == user.id) && isDetailPage" class="fright" [job]="job"></app-applicants-list>
   </div>
 </div>
+

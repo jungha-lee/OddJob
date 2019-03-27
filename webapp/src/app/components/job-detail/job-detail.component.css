@@ -3,10 +3,6 @@
   height: 400px;
 }
 
-.nopadding {
-  padding: 0;
-}
-
-.fright {
-  float: right;
+.btn-space {
+  margin-right: 5px;
 }

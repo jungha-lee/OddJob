@@ -36,6 +36,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 import { MapDetailComponent } from './components/map-detail/map-detail.component';
 import { MapListComponent } from './components/map-list/map-list.component';
 import { ApplicantsListComponent } from './components/applicants-list/applicants-list.component';
+import { ApplicationFormComponent } from './components/application-form/application-form.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ApplicantsListComponent } from './components/applicants-list/applicants
     LoginFormComponent,
     MapDetailComponent,
     MapListComponent,
-    ApplicantsListComponent
+    ApplicantsListComponent,
+    ApplicationFormComponent
   ],
   imports: [
   BrowserModule,
