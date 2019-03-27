@@ -1,0 +1,36 @@
+
+#invalidAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;margin-left: auto;
+}
+
+#validAddress {
+    font-size: 70%;
+    color: #2c2c2c;
+    display: none;
+}
+
+#hidden {
+    text-align: center;
+    display: none;
+    animation: appear;
+    animation-duration: 500ms;
+  }
+
+#hidden2 {
+    text-align: center;
+    display: none;
+    animation: appear;
+    animation-duration: 500ms;
+}
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }

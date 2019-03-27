@@ -128,6 +128,8 @@ export class PostJobFormComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.postJobForm.invalid || this.incompleteAddress) {
+      console.log(this.postJobForm.invalid);
+      console.log(this.incompleteAddress);
       console.log('Form not complete');
       return;
     }

@@ -36,6 +36,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 import { MapDetailComponent } from './components/map-detail/map-detail.component';
 import { MapListComponent } from './components/map-list/map-list.component';
 import { ApplicantsListComponent } from './components/applicants-list/applicants-list.component';
+import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
 import { LoggedInUserService } from './services/logged-in-user.service';
 
@@ -63,6 +64,7 @@ import { LoggedInUserService } from './services/logged-in-user.service';
     MapDetailComponent,
     MapListComponent,
     ApplicantsListComponent,
+    EditJobComponent,
     ApplicationFormComponent
   ],
   imports: [
