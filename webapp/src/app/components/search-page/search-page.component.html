@@ -13,12 +13,25 @@
     </div>
 
     <div class="col-2" *ngIf="userSearch != ' ' && [userSearch?.length] > 0">
-      <button class="btn btn-light btn-sm showAllJobs" (click)="sortByPrice()">
-        Sort by price
-      </button>
-      <button class="btn btn-light btn-sm showAllJobs" (click)="sortByIdButton()">
-        Sort by most recent
-      </button>
+      <div class="dropdown">
+        <button class="dropbtn btn btn-light btn-sm">Sort by:</button>
+        <div class="dropdown-content" style="width: 100%">
+          <button
+            class="btn btn-light btn-sm showAllJobs"
+            (click)="sortByPrice()"
+            style="text-align: left; width: 100%"
+          >
+            Price
+          </button>
+          <br />
+          <button
+            class="btn btn-light btn-sm showAllJobs"
+            (click)="sortByIdButton()" style="text-align: left; width: 100%"
+          >
+            Date
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -46,11 +59,12 @@
     </div>
 
     <!-- Map for list of jobs -->
-    <div
-      class="col-4 sticky-top"
-      *ngIf="userSearch"
-    >
-      <map-list *ngIf="searchedJobLoaded" [joblistForMap]="searchedJobs" (selectedMarker)="selectedMarkerToJob($event)"></map-list>
+    <div class="col-4 sticky-top" *ngIf="userSearch">
+      <map-list
+        *ngIf="searchedJobLoaded"
+        [joblistForMap]="searchedJobs"
+        (selectedMarker)="selectedMarkerToJob($event)"
+      ></map-list>
     </div>
   </div>
 </div>
