@@ -3,6 +3,15 @@
   height: 400px;
 }
 
+.centered-and-cropped-2 {
+  object-fit: cover;
+  height: 350px;
+}
+
 .btn-space {
   margin-right: 5px;
+}
+
+.nopadding {
+  padding: 0;
 }
