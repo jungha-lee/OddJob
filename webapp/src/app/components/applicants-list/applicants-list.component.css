@@ -1,10 +1,10 @@
 .round{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 100px;
-    float: left;
 }
 
-.margin-bottom {
-  margin-bottom: 5px;
+.odd-name {
+  color: #000000;
+  font-weight: 500;
 }
