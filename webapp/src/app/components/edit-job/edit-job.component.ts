@@ -110,21 +110,17 @@ export class EditJobComponent implements OnInit {
       });
     }
 
-  deleteJob() {
-    this.jobService.delete(this.job.id).subscribe(
-      res => console.log('job id: ' + this.job.id + ' was deleted.'),
-      err => console.error(err)
-    );
+  deleteApplicationsAndJob() {
 
     this.applicationService.getApplicationsByJobId(this.job.id).subscribe(
       res => this.deleteApplications(res),
       err => console.error(err));
+
     document.getElementById('hidden2').style.display = 'block';
     this.sleep(1500).then(() => {
-/*       this.router.navigate(['/profile']);
- */    }
+       this.router.navigate(['/profile']);
+   }
     );
-
   }
 
   deleteApplications(applications: Application[]) {
@@ -132,9 +128,18 @@ export class EditJobComponent implements OnInit {
     applications.forEach(application => {
       this.applicationService.removeApplication(application.id).subscribe(
         res => console.log('deleted ' + application.id),
-        err => console.error(err)
+        err => console.error(err),
+        () => this.deleteJob()
       );
     });
+
+  }
+
+  deleteJob() {
+    this.jobService.delete(this.job.id).subscribe(
+      res => console.log('job id: ' + this.job.id + ' was deleted.'),
+      err => console.error(err)
+    );
 
   }
 
