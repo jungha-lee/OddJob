@@ -17,7 +17,7 @@
   >
   
     <agm-info-window #infoWindow>
-      <h6>{{m.title}}</h6>
+      <h6 style="max-height: 120px; max-width: 120px; word-wrap: break-word;">{{m.title | slice:0:50}}<span *ngIf="m.title.length > 49">...</span></h6>
       <img src="{{m.jobPic}}" style="max-height: 100px; max-width: 100px;" alt="">
     </agm-info-window>
   </agm-marker>
