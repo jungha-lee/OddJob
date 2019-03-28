@@ -33,22 +33,10 @@ export class LoginFormComponent implements OnInit {
 
   get f() { return this.loginForm.controls; }
 
-  // handleLogin() {
-
-  //   if (this.authenticationService.authenticate(this.loginForm.value.email, this.loginForm.value.password)) {
-  //     this.router.navigate(["/profile"]);
-  //     console.log("login");
-  //   } else {
-  //     console.log("login failed");
-  //   }
-  // }
-
-
   handleAuthLogin() {
     this.authenticationService.executeAuthenticationService(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(
         data => {
-          console.log('login, getuserbyemail');
           this.userService.getUserByEmail(this.loginForm.value.email).subscribe(
             user => {
               this.loggedInUserService.setUser(user);
