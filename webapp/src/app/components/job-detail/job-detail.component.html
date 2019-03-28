@@ -57,9 +57,9 @@
     <div *ngIf="applyForm">
       <app-application-form [job]="job" [user]="user"></app-application-form>
     </div>
-  </div>
-  <div class="container">
-      <app-applicants-list *ngIf="showApplicants && (job.ownerId.id == user.id) && isDetailPage" class="fright" [job]="job"></app-applicants-list>
+    <div class="container">
+        <app-applicants-list *ngIf="showApplicants && (job.ownerId.id == user.id) && isDetailPage" class="fright" [job]="job"></app-applicants-list>
+    </div>
   </div>
 </div>
 

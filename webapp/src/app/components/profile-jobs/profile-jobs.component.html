@@ -4,7 +4,7 @@
       <div class="fiftyPercent right">
 
         <div class="ninetyPercent"> 
-          <h4>Posted jobs:</h4>
+          <h4>Posted jobs</h4>
           <div *ngFor="let job of jobsOwned">
             <a routerLink="/jobs/{{job.id}}">
               <job-card [job]="job"></job-card>
@@ -16,7 +16,7 @@
       <div class="fiftyPercent right">
         
         <div class="ninetyPercent"> 
-          <h4>Saved jobs</h4>
+          <h4>Applied jobs</h4>
           <div *ngFor="let app of jobsApplied">
             <a routerLink="/jobs/{{app.jobId.id}}">
             <job-card [job]="app.jobId" [appId]="app.id"></job-card>

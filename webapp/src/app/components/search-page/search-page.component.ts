@@ -17,6 +17,8 @@ export class SearchPageComponent implements OnInit {
   selectedJob: Job;
   jobDataLoaded: boolean;
   searchedJobLoaded: boolean;
+  isSortedById: boolean = false;
+  isSortedByPrice: boolean = false;
 
   constructor(injectedService: JobService) {
     this.service = injectedService;
@@ -26,6 +28,7 @@ export class SearchPageComponent implements OnInit {
     this.jobDataLoaded = false;
     this.service.getJobs().subscribe(jobs => {
       this.jobs = jobs;
+      this.sortById(this.jobs);
       this.jobDataLoaded = true;
     });
   }
@@ -43,9 +46,47 @@ export class SearchPageComponent implements OnInit {
         this.searchedJobs.push(this.jobs[i]);
       }
     }
+
+    this.sortById(this.searchedJobs);
+
     this.selectedJob = this.searchedJobs[0];
     this.searchedJobLoaded = true;
     return this.searchedJobs;
+  }
+
+  sortById(jobs: Job[]) {
+    console.log('sorting..');
+    console.log(jobs);
+    jobs.sort((a, b) => {
+      return b.id - a.id;
+    });
+  }
+
+  sortByIdButton() {
+    this.isSortedById = !this.isSortedById;
+    if (!this.isSortedById) {
+      this.searchedJobs.sort((a, b) => {
+        return b.id - a.id;
+      });
+    } else {
+      this.searchedJobs.sort((a, b) => {
+        return a.id - b.id;
+      });
+    }
+  }
+
+  sortByPrice() {
+    this.isSortedByPrice = !this.isSortedByPrice;
+    if (!this.isSortedByPrice) {
+      this.searchedJobs.sort((a, b) => {
+        return b.price - a.price;
+      });
+    } else {
+      this.searchedJobs.sort((a, b) => {
+        return a.price - b.price;
+      });
+    }
+
   }
 
   getSelectedJob($event) {
@@ -77,9 +118,4 @@ export class SearchPageComponent implements OnInit {
     return a.toLowerCase().includes(b) || a.includes(b);
   }
 
-  sortByPrice() {
-    this.searchedJobs.sort((a, b) => {
-      return b.price - a.price;
-    });
-  }
 }
