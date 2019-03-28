@@ -11,7 +11,15 @@
     (markerClick)="markerClicked($event,m)"
     [latitude]="m.location.lat"
     [longitude]="m.location.lng"
+  
+    (mouseOver)="onMouseOver(infoWindow, $event)" 
+    (mouseOut)="onMouseOut(infoWindow, $event)"
   >
+  
+    <agm-info-window #infoWindow>
+      <h6>{{m.title}}</h6>
+      <img src="{{m.jobPic}}" style="max-height: 100px; max-width: 100px;" alt="">
+    </agm-info-window>
   </agm-marker>
 </agm-map>
 

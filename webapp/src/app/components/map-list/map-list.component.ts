@@ -133,6 +133,15 @@ export class MapListComponent implements OnInit {
   ngOnInit() {
     this.calcMapCenter();
   }
+  
+onMouseOver(infoWindow, $event: MouseEvent) {
+    infoWindow.open();
+}
+
+onMouseOut(infoWindow, $event: MouseEvent) {
+    infoWindow.close();
+}
+
 }
 
 interface Marker {
@@ -141,3 +150,4 @@ interface Marker {
   lng: number;
   label?: string;
 }
+
