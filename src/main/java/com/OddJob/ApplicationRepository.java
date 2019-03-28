@@ -9,7 +9,6 @@ import java.util.List;
 public interface ApplicationRepository extends CrudRepository<Application, Long> {
     List<Application> findJob_IdByApplicantId(User user);
 
-    List<Application> findByjobId(Job job);
-
+    List<Application> findByJobId(Job job);
 
 }

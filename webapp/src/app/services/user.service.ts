@@ -10,7 +10,7 @@ import { Application } from './../models/application';
 })
 export class UserService {
 
-  private url = 'http://oddjob.cfapps.io/users';
+  private url = 'http://oddjob2.cfapps.io/users';
 
   constructor(private http: HttpClient) {}
 

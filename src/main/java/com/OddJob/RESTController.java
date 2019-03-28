@@ -71,9 +71,7 @@ public class RESTController {
     @GetMapping("/applications/{id}")
     public List<Application> getApplicationsByJobId (@PathVariable Long id) {
         Job job = jobRepository.findById(id).get();
-
-        return (List<Application>) applicationRepository.findByjobId(job);
-
+        return (List<Application>) applicationRepository.findByJobId(job);
     }
 
     @GetMapping("/users")
