@@ -27,6 +27,9 @@ export class NavBarComponent implements OnInit {
     }
 
   ngOnInit() {
+    if (this.authenticationService.getAuthenticatedUsername) {
+      this.user = JSON.parse(sessionStorage.getItem("authenticatedUser"));
+    }
   }
 
 }
