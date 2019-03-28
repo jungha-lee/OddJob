@@ -1,16 +1,15 @@
-<div>
+<div style="margin: 0">
   <p *ngIf="!isEmpty" class="text-muted">Applicants:</p>
   <p *ngIf="isEmpty" class="text-muted">No one has applied for this job yet!</p>
 </div>
 
 <div *ngFor="let app of applicants">
   <div class="row">
-    <div class=" margin-bottom">
+    <div class="">
       <img class="round" src="{{ app.applicantId.profilePic }}" />
     </div>
-    <div>
-      <p>{{ app.applicantId.firstName }} {{ app.applicantId.lastName }}</p>
-      <p>{{ app.applicantId.phone }}</p>
+    <div style="margin-left:10px">
+      <span class="odd-name">{{ app.applicantId.firstName }} {{ app.applicantId.lastName }}</span>&nbsp;<span>{{ app.applicantId.phone }}</span>
       <p>{{ app.applicantMsg }}</p>
     </div>
   </div>
