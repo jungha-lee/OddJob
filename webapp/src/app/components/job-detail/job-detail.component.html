@@ -43,14 +43,14 @@
         {{ job?.description }}
       </p>
       <br />
-      <p class="card-text">
-        Location: {{ job?.location.street }}, {{ job?.location.city }},
+      <span class="card-text odd-bold">
+        Location: </span><span class="card-text">{{ job?.location.street }}, {{ job?.location.city }},
         {{ job?.location.country }}
-      </p>
-      <p class="card-text">
-        Posted by: {{ job?.ownerId.firstName }} {{ job?.ownerId.lastName }}
-      </p>
-      <p class="card-text">Contact: {{ job?.ownerId.phone }}</p>
+      </span><p></p>
+      <span class="card-text odd-bold">
+        Posted by: </span><span class="card-text">{{ job?.ownerId.firstName }} {{ job?.ownerId.lastName }}
+      </span><p></p>
+      <span class="card-text odd-bold">Contact: </span><span class="card-text">{{ job?.ownerId.phone }}</span><p></p>
       <p class="card-text">
         <small class="text-muted">Posted date: {{ job?.date }}</small>
       </p>
@@ -68,18 +68,18 @@
         </div>
       </div>
 
-      <p class="card-text"  style="padding-right: 10px">
+      <p class="card-text">
         {{ job?.description }}
       </p>
       <br />
-      <p class="card-text">
-        Location: {{ job?.location.street }}, {{ job?.location.city }},
+      <span class="card-text odd-bold">
+        Location: </span><span class="card-text">{{ job?.location.street }}, {{ job?.location.city }},
         {{ job?.location.country }}
-      </p>
-      <p class="card-text">
-        Posted by: {{ job?.ownerId.firstName }} {{ job?.ownerId.lastName }}
-      </p>
-      <p class="card-text">Contact: {{ job?.ownerId.phone }}</p>
+      </span><p></p>
+      <span class="card-text odd-bold">
+        Posted by: </span><span class="card-text">{{ job?.ownerId.firstName }} {{ job?.ownerId.lastName }}
+      </span><p></p>
+      <span class="card-text odd-bold">Contact: </span><span class="card-text">{{ job?.ownerId.phone }}</span><p></p>
       <p class="card-text">
         <small class="text-muted">Posted date: {{ job?.date }}</small>
       </p>
