@@ -46,7 +46,7 @@ export class AuthenticationService {
     let header = new HttpHeaders({
         Authorization : basicAuthHeaderString
     })
-    return this.http.get<AuthenticationBean>('http://oddjob2.cfapps.io/auth',
+    return this.http.get<AuthenticationBean>('http://oddjobdb.cfapps.io/auth',
     {headers : header}).pipe(
       map(
         data => {
